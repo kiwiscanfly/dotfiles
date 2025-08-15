@@ -1,0 +1,27 @@
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+*.swp
+*~
+
+# Environment variables
+.env
+.env.local
+
+# Logs
+*.log
+
+# Dependencies
+node_modules/
+
+# Cache
+.cache/
+
+# Backup files
+*.backup
+*.bak
+
+# Local configuration
+*.local

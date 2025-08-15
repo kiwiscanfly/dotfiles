@@ -1,0 +1,29 @@
+# Git files
+
+.gitignore
+.gitmodules
+
+# Documentation
+
+README.*
+
+# MacOS files
+
+.DS_Store
+.localized
+
+# Stow metadata
+
+.stow-local-ignore
+.stowrc
+
+# Backup files
+
+.*\.bak
+.*\.backup
+.*\.orig
+
+# Temporary files
+
+.*\.tmp
+.*\.temp

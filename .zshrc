@@ -1,145 +1,230 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
+# ================================================================================
+# Zsh Configuration - Optimized and Organized
+# ================================================================================
+
+# --------------------------------------------------------------------------------
+# Early Initialization (Must come first)
+# --------------------------------------------------------------------------------
+
+# Enable Powerlevel10k instant prompt
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+# --------------------------------------------------------------------------------
+# Environment Variables
+# --------------------------------------------------------------------------------
 
-export PATH=$HOME/bin:$PATH
-
-# Path to your Oh My Zsh installation.
+# Oh My Zsh path
 export ZSH="$HOME/.oh-my-zsh"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time Oh My Zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+# Theme configuration
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+# Path configuration (consolidated and ordered by priority)
+export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="/opt/homebrew/anaconda3/bin:$PATH"
+export PATH="$HOME/.pub-cache/bin:$PATH"
+export PATH="/Applications/Docker.app/Contents/Resources/bin:$PATH"
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+# Language and locale
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+# Default editor
+export EDITOR='nano'
 
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+# History configuration
+export HISTFILE="$HOME/.zsh_history"
+export HISTSIZE=10000
+export SAVEHIST=10000
+export HIST_STAMPS="yyyy-mm-dd"
 
-# Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
+# --------------------------------------------------------------------------------
+# Oh My Zsh Configuration
+# --------------------------------------------------------------------------------
 
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
+# Performance optimizations
+DISABLE_UNTRACKED_FILES_DIRTY="true"  # Faster git status in large repos
+COMPLETION_WAITING_DOTS="true"        # Visual feedback during completion
 
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
+# Auto-update configuration
+zstyle ':omz:update' mode reminder    # Remind to update
+zstyle ':omz:update' frequency 7      # Check weekly
 
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+# Plugins (ordered by importance/frequency of use)
+plugins=(
+  git              # Git aliases and functions
+  flutter          # Flutter development
+  npm              # NPM completions
+  nvm              # Node version manager
+  1password        # 1Password CLI
+)
 
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# You can also set it to another string to have that shown instead of the default red dots.
-# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
-# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git flutter npm nvm 1password)
-
+# Load Oh My Zsh
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
+# --------------------------------------------------------------------------------
+# Shell Options
+# --------------------------------------------------------------------------------
 
-# export MANPATH="/usr/local/man:$MANPATH"
+setopt HIST_IGNORE_DUPS     # Don't record duplicate commands
+setopt HIST_IGNORE_SPACE    # Don't record commands starting with space
+setopt HIST_REDUCE_BLANKS   # Remove extra blanks from commands
+setopt SHARE_HISTORY        # Share history between sessions
+setopt AUTO_CD              # CD into directory by typing its name
+setopt AUTO_PUSHD           # Make cd push old directory onto stack
+setopt PUSHD_IGNORE_DUPS    # Don't push duplicates onto directory stack
+setopt CORRECT              # Command correction
+setopt COMPLETE_IN_WORD     # Complete from cursor position
+setopt GLOB_COMPLETE        # Generate completions for globs
+setopt EXTENDED_GLOB        # Extended globbing patterns
+setopt NO_BEEP              # Disable beep on error
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+# --------------------------------------------------------------------------------
+# Aliases
+# --------------------------------------------------------------------------------
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch $(uname -m)"
-
-# Set personal aliases, overriding those provided by Oh My Zsh libs,
-# plugins, and themes. Aliases can be placed here, though Oh My Zsh
-# users are encouraged to define aliases within a top-level file in
-# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
-# - $ZSH_CUSTOM/aliases.zsh
-# - $ZSH_CUSTOM/macos.zsh
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
+# Flutter/Dart aliases
 alias flutter="fvm flutter"
 alias dart="fvm dart"
-alias ls="colorls"
 alias snapp_cli="fvm exec snapp_cli"
 
+# Better defaults
+alias ls="colorls --group-directories-first"
+alias ll="colorls -la --group-directories-first"
+alias la="colorls -A --group-directories-first"
+
+# Git shortcuts
+alias gs="git status"
+alias gp="git pull"
+alias gco="git checkout"
+alias gb="git branch"
+alias glog="git log --oneline --graph --decorate"
+
+# Directory navigation
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias ~="cd ~"
+
+# Safety nets
+alias rm="rm -i"
+alias cp="cp -i"
+alias mv="mv -i"
+alias mkdir="mkdir -pv"
+
+# Utilities
+alias path='echo -e ${PATH//:/\\n}'
+
+# macOS specific
+alias showfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
+alias hidefiles="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+
+# --------------------------------------------------------------------------------
+# Functions
+# --------------------------------------------------------------------------------
+
+# Create directory and cd into it
+mkcd() {
+  mkdir -p "$1" && cd "$1"
+}
+
+# Extract any archive type (removed - conflicts with OMZ extract plugin if loaded)
+
+# Find process by name
+findprocess() {
+  ps aux | grep -v grep | grep "$1"
+}
+
+# Quick backup of a file
+backup() {
+  cp "$1" "$1.backup-$(date +%Y%m%d-%H%M%S)"
+}
+
+# Show disk usage of current directory
+duh() {
+  du -sh * | sort -hr
+}
+
+# --------------------------------------------------------------------------------
+# Key Bindings
+# --------------------------------------------------------------------------------
+
+# Word navigation (Option + Arrow keys on macOS)
 bindkey "[D" backward-word
 bindkey "[C" forward-word
+bindkey "^[[1;5C" forward-word      # Ctrl+Right
+bindkey "^[[1;5D" backward-word     # Ctrl+Left
+bindkey "^[[H" beginning-of-line    # Home key
+bindkey "^[[F" end-of-line          # End key
+bindkey "^[[3~" delete-char         # Delete key
 
+# History search
+bindkey "^[[A" history-search-backward  # Up arrow
+bindkey "^[[B" history-search-forward   # Down arrow
 
-## [Completion]
-## Completion scripts setup. Remove the following line to uninstall
-[[ -f /Users/rebecca/.dart-cli-completion/zsh-config.zsh ]] && . /Users/rebecca/.dart-cli-completion/zsh-config.zsh || true
-## [/Completion]
+# --------------------------------------------------------------------------------
+# Completions
+# --------------------------------------------------------------------------------
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+# Docker completions
+fpath=(/Users/rebecca/.docker/completions $fpath)
+
+# Dart CLI completions
+[[ -f /Users/rebecca/.dart-cli-completion/zsh-config.zsh ]] && \
+  source /Users/rebecca/.dart-cli-completion/zsh-config.zsh || true
+
+# Initialize completions
+autoload -Uz compinit
+compinit -C  # Skip security check for faster startup
+
+# Completion options
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'  # Case insensitive
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*:descriptions' format '%B%d%b'
+zstyle ':completion:*:warnings' format 'No matches for: %d'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*:default' list-prompt '%S%M matches%s'
+
+# --------------------------------------------------------------------------------
+# External Tools & Plugins
+# --------------------------------------------------------------------------------
+
+# Powerlevel10k configuration
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Syntax highlighting (load after completions)
 source /Users/rebecca/.zsh-stuff/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# Auto-suggestions
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=244"
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+bindkey '^ ' autosuggest-accept  # Ctrl+Space to accept suggestion
 
-# Created by `pipx` on 2025-02-14 22:38:55
-export PATH="$PATH:/Users/rebecca/.local/bin"
-export PATH="/opt/homebrew/anaconda3/bin:$PATH"
-export PATH="$PATH":"$HOME/.pub-cache/bin"
-# The following lines have been added by Docker Desktop to enable Docker CLI completions.
-fpath=(/Users/rebecca/.docker/completions $fpath)
-autoload -Uz compinit
-compinit
-# End of Docker CLI completions
+# NVM lazy loading for faster startup
+nvm() {
+  unset -f nvm
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
+  nvm "$@"
+}
 
-export PATH="/Applications/Docker.app/Contents/Resources/bin:$PATH"
+# --------------------------------------------------------------------------------
+# Local Configuration (optional)
+# --------------------------------------------------------------------------------
+
+# Source local configuration if it exists
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+
+# --------------------------------------------------------------------------------
+# Performance Monitoring (optional - comment out if not needed)
+# --------------------------------------------------------------------------------
+
+# Uncomment to debug slow startup
+# zmodload zsh/zprof  # Add at the top of file
+# zprof  # Add at the bottom of file
