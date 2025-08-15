@@ -214,12 +214,6 @@ zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup                          # Use tm
 # Powerlevel10k configuration
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Cute welcome message (run asynchronously to avoid instant prompt issues)
-if [[ -x "$HOME/dotfiles/scripts/welcome.sh" ]]; then
-    # Run in background after a tiny delay to let instant prompt finish
-    (sleep 0.1 && "$HOME/dotfiles/scripts/welcome.sh") &!
-fi
-
 # Syntax highlighting (load after completions)
 source /Users/rebecca/.zsh-stuff/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
