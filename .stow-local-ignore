@@ -27,3 +27,7 @@ README.*
 
 .*\.tmp
 .*\.temp
+
+# Scripts directory
+
+scripts

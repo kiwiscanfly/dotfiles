@@ -6,6 +6,8 @@
 # Early Initialization (Must come first)
 # --------------------------------------------------------------------------------
 
+~/dotfiles/scripts/welcome.sh
+
 # Enable Powerlevel10k instant prompt
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -56,6 +58,10 @@ zstyle ':omz:update' frequency 7      # Check weekly
 # Plugins (ordered by importance/frequency of use)
 plugins=(
   git              # Git aliases and functions
+  fzf-tab          # FZF-powered tab completion
+  aws              # AWS CLI completions and shortcuts
+  docker           # Docker completions
+  docker-compose   # Docker Compose completions
   flutter          # Flutter development
   npm              # NPM completions
   nvm              # Node version manager
@@ -91,10 +97,14 @@ alias flutter="fvm flutter"
 alias dart="fvm dart"
 alias snapp_cli="fvm exec snapp_cli"
 
-# Better defaults
-alias ls="colorls --group-directories-first"
-alias ll="colorls -la --group-directories-first"
-alias la="colorls -A --group-directories-first"
+# Better defaults with eza
+alias ls="eza --group-directories-first --icons"
+alias ll="eza -la --group-directories-first --icons --git"
+alias la="eza -A --group-directories-first --icons"
+alias lt="eza --tree --level=2 --icons"
+
+# Cute eza colors
+export EZA_COLORS="di=1;35:ex=1;33:ln=1;36:*.md=1;36:*.txt=37:*.json=1;33:*.js=33:*.py=32:*.css=35:*.html=1;31"
 
 # Git shortcuts
 alias gs="git status"
@@ -117,6 +127,7 @@ alias mkdir="mkdir -pv"
 
 # Utilities
 alias path='echo -e ${PATH//:/\\n}'
+alias welcome='~/dotfiles/scripts/welcome.sh'
 
 # macOS specific
 alias showfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
@@ -182,13 +193,19 @@ autoload -Uz compinit
 compinit -C  # Skip security check for faster startup
 
 # Completion options
-zstyle ':completion:*' menu select
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'  # Case insensitive
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-zstyle ':completion:*:descriptions' format '%B%d%b'
-zstyle ':completion:*:warnings' format 'No matches for: %d'
-zstyle ':completion:*' group-name ''
-zstyle ':completion:*:default' list-prompt '%S%M matches%s'
+zstyle ':completion:*' menu no                                           # Disable traditional menu completion
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'               # Case insensitive matching
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"                 # Colorize completions using LS_COLORS
+zstyle ':completion:*:descriptions' format '%B%d%b'                     # Bold format for completion group descriptions
+zstyle ':completion:*:warnings' format 'No matches for: %d'             # Message when no completions found
+zstyle ':completion:*' group-name ''                                    # Group completions by type
+zstyle ':completion:*:default' list-prompt '%S%M matches%s'             # Show match count in completion list
+
+# FZF-tab configuration
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls -la $realpath'          # Show directory contents in preview for cd
+zstyle ':fzf-tab:complete:cd:*' popup-pad 30 0                          # Add padding to fzf popup window
+zstyle ':fzf-tab:*' switch-group '<' '>'                                # Use < and > to switch between completion groups
+zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup                          # Use tmux popup for fzf interface
 
 # --------------------------------------------------------------------------------
 # External Tools & Plugins
@@ -196,6 +213,12 @@ zstyle ':completion:*:default' list-prompt '%S%M matches%s'
 
 # Powerlevel10k configuration
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Cute welcome message (run asynchronously to avoid instant prompt issues)
+if [[ -x "$HOME/dotfiles/scripts/welcome.sh" ]]; then
+    # Run in background after a tiny delay to let instant prompt finish
+    (sleep 0.1 && "$HOME/dotfiles/scripts/welcome.sh") &!
+fi
 
 # Syntax highlighting (load after completions)
 source /Users/rebecca/.zsh-stuff/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -205,6 +228,7 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=244"
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 bindkey '^ ' autosuggest-accept  # Ctrl+Space to accept suggestion
+
 
 # NVM lazy loading for faster startup
 nvm() {
@@ -228,3 +252,5 @@ nvm() {
 # Uncomment to debug slow startup
 # zmodload zsh/zprof  # Add at the top of file
 # zprof  # Add at the bottom of file
+# FZF setup (fuzzy finder)
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
