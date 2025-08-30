@@ -1,0 +1,79 @@
+{
+    "editor.formatOnSave": true,
+    "terminal.integrated.fontFamily": "MesloLGS NF",
+    "terminal.integrated.fontSize": 12,
+    "editor.lineNumbers": "relative",
+    "git.autofetch": true,
+    "editor.suggestSelection": "first",
+    "workbench.startupEditor": "none",
+    "git.confirmSync": false,
+    "githubPullRequests.pullBranch": "never",
+    "yaml.customTags": [
+        "!And",
+        "!And sequence",
+        "!If",
+        "!If sequence",
+        "!Not",
+        "!Not sequence",
+        "!Equals",
+        "!Equals sequence",
+        "!Or",
+        "!Or sequence",
+        "!FindInMap",
+        "!FindInMap sequence",
+        "!Base64",
+        "!Join",
+        "!Join sequence",
+        "!Cidr",
+        "!Ref",
+        "!Sub",
+        "!Sub sequence",
+        "!GetAtt",
+        "!GetAZs",
+        "!ImportValue",
+        "!ImportValue sequence",
+        "!Select",
+        "!Select sequence",
+        "!Split",
+        "!Split sequence"
+    ],
+    "editor.inlineSuggest.enabled": true,
+    "redhat.telemetry.enabled": true,
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    },
+    "files.associations": {
+        "*.csv": "plaintext"
+    },
+    "vscode-pets.throwBallWithMouse": true,
+    "editor.indentSize": "tabSize",
+    "editor.tabSize": 2,
+    "git.openRepositoryInParentFolders": "never",
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "dart.flutterSdkPath": "app/.fvm/flutter_sdk",
+    "dart.openDevTools": "flutter",
+    "workbench.colorTheme": "Atom One Dark",
+    "window.systemColorTheme": "auto",
+    "workbench.preferredLightColorTheme": "Visual Studio Light",
+    "editor.accessibilitySupport": "off",
+    "editor.linkedEditing": true,
+    "cSpell.userWords": [
+        "Rebecca"
+    ],
+    "workbench.editorAssociations": {
+        "{git,gitlens,conflictResolution,vscode-local-history}:/**/*.tc.json": "default",
+        "{git,gitlens,conflictResolution,vscode-local-history}:/**/*.{asl.json,asl.yaml,asl.yml}": "default",
+        "*.copilotmd": "vscode.markdown.preview.editor",
+        "file:/**/*.parquet": "jupyter-data-wrangler"
+    },
+    "terminal.integrated.inheritEnv": false,
+    "workbench.iconTheme": "material-icon-theme",
+    "python.analysis.typeCheckingMode": "basic",
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "docker.extension.enableComposeLanguageServer": false
+}
