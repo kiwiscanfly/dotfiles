@@ -31,6 +31,8 @@ vim/
 └── .vimrc      # Will be linked to ~/.vimrc
 ```
 
+To add all new configs run `stow .`
+
 To add new configs:
 ```bash
 mkdir program
