@@ -43,6 +43,7 @@ return {
         cmp = true,
         gitsigns = true,
         nvimtree = true,
+        neotree = true,  -- Explicit neo-tree integration
         telescope = true,
         notify = false,
         mini = false,

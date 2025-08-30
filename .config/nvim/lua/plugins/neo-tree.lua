@@ -6,7 +6,7 @@ return {
     "nvim-tree/nvim-web-devicons", -- optional, for file icons
     "MunifTanjim/nui.nvim",
   },
-  config = function() 
+  config = function()
     require("neo-tree").setup({
       close_if_last_window = true, -- Close Neo-tree if it's the last window
       popup_border_style = "rounded",
@@ -26,8 +26,12 @@ return {
         width = 30,
         mappings = {
           ["<space>"] = "none", -- Disable space in Neo-tree since it's your leader
+          ["<2-LeftMouse>"] = "open",
+          ["<RightMouse>"] = "open_split",
         },
       },
+      enable_git_status = true,
+      enable_diagnostics = true,
     })
   end,
 }

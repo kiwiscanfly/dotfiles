@@ -35,3 +35,6 @@ opt.splitbelow = true
 -- Include dash as part of a word
 opt.iskeyword:append("-")
 
+-- Enable mouse support
+opt.mouse = "a"
+
