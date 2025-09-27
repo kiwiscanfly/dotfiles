@@ -57,7 +57,7 @@
     },
     "dart.flutterSdkPath": "app/.fvm/flutter_sdk",
     "dart.openDevTools": "flutter",
-    "workbench.colorTheme": "Atom One Dark",
+    "workbench.colorTheme": "Alt Catppuccin Mocha",
     "window.systemColorTheme": "auto",
     "workbench.preferredLightColorTheme": "Visual Studio Light",
     "editor.accessibilitySupport": "off",

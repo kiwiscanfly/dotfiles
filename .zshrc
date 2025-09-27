@@ -23,6 +23,9 @@ export ZSH="$HOME/.oh-my-zsh"
 # Theme configuration
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
+# Homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # Path configuration (consolidated and ordered by priority)
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
@@ -231,6 +234,10 @@ nvm() {
   [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
   nvm "$@"
 }
+
+# Load NVM path immediately
+export NVM_DIR="$HOME/.nvm"
+export PATH="$NVM_DIR/versions/node/$(cat $NVM_DIR/alias/default 2>/dev/null || echo v20.11.0)/bin:$PATH"
 
 # --------------------------------------------------------------------------------
 # Local Configuration (optional)
