@@ -237,7 +237,7 @@ nvm() {
 
 # Load NVM path immediately
 export NVM_DIR="$HOME/.nvm"
-export PATH="$NVM_DIR/versions/node/$(cat $NVM_DIR/alias/default 2>/dev/null || echo v20.11.0)/bin:$PATH"
+export PATH="$NVM_DIR/versions/node/$(cat $NVM_DIR/alias/default 2>/dev/null)/bin:$PATH"
 
 # --------------------------------------------------------------------------------
 # Local Configuration (optional)

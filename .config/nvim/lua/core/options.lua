@@ -38,3 +38,7 @@ opt.iskeyword:append("-")
 -- Enable mouse support
 opt.mouse = "a"
 
+-- File change detection
+opt.autoread = true -- Automatically reload files when changed externally
+opt.updatetime = 250 -- Faster completion and file change detection (default 4000ms)
+

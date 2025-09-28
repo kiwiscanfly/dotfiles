@@ -5,9 +5,11 @@ return {
   config = function()
     require('telescope').setup({
       defaults = {
+        preview = {
+          treesitter = false,
+        },
         mappings = {
           i = {
-            -- Use Esc to close in insert mode too
             ["<esc>"] = require('telescope.actions').close,
           },
         },
