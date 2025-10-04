@@ -14,6 +14,9 @@ return {
       local luasnip = require("luasnip")
 
       cmp.setup({
+        completion = {
+          keyword_length = 2
+        },
         snippet = {
           expand = function(args)
             luasnip.lsp_expand(args.body)
@@ -58,6 +61,12 @@ return {
   {
     "L3MON4D3/LuaSnip",
     version = "v2.*",
-    build = "make install_jsregexp"
+    build = "make install_jsregexp",
+    dependencies = {
+      "rafamadriz/friendly-snippets",
+    },
+    config = function()
+      require("luasnip.loaders.from_vscode").lazy_load()
+    end,
   }
 }

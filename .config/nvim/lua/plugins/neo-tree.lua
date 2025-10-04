@@ -23,7 +23,7 @@ return {
       },
       window = {
         position = "left",
-        width = 30,
+        width = 50,
         mappings = {
           ["<space>"] = "none", -- Disable space in Neo-tree since it's your leader
           ["<2-LeftMouse>"] = "open",

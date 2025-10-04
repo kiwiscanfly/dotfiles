@@ -39,6 +39,13 @@ return {
           base = "#171312",
         },
       },
+      custom_highlights = function(colors)
+        return {
+          Cursor = { bg = colors.red, fg = colors.base },
+          lCursor = { bg = colors.red, fg = colors.base },
+          CursorLine = { bg = colors.surface0 },
+        }
+      end,
       integrations = {
         cmp = true,
         gitsigns = true,
