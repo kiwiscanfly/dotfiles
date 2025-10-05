@@ -251,3 +251,6 @@ export PATH="$NVM_DIR/versions/node/$(cat $NVM_DIR/alias/default 2>/dev/null)/bi
 # zprof  # Add at the bottom of file
 # FZF setup (fuzzy finder)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Direnv hook (auto-load environment variables)
+eval "$(direnv hook zsh)"

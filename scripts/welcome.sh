@@ -27,7 +27,7 @@ fi
 RANDOM_MESSAGE=$(sort -R "$WELCOME_FILE" | head -n 1)
 
 # Array of smaller, cleaner figlet fonts
-FONTS=("small" "smshadow" "smslant" "contessa" "mini" "script" "shadow" "stampatello" "cybermedium" "standard" "thin")
+FONTS=("mini" "small" "thin")
 
 # Array of cute emojis for separator
 EMOJIS=("✨" "🌸" "🎀" "💖" "🌈" "⭐" "🦄" "🌺" "💫" "🌟" "💝" "🎨" "🔮" "🌙" "☁️" "🍭")
@@ -53,7 +53,7 @@ if command -v gum &> /dev/null && command -v paste &> /dev/null; then
         --foreground 219 \
         --border rounded \
         --border-foreground 213 \
-        --padding "0 2" \
+        --padding "0 1" \
         --margin "0" \
         --align left \
         "💾 Disk: $DISK_USAGE used" \
@@ -96,6 +96,5 @@ else
 fi
 
 # Cute separator with random emojis
-SEPARATOR="${RANDOM_EMOJI1}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RANDOM_EMOJI2}"
-echo ""
+SEPARATOR="${RANDOM_EMOJI1}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RANDOM_EMOJI2}"
 echo "$SEPARATOR" | lolcat
