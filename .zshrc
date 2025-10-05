@@ -58,6 +58,9 @@ COMPLETION_WAITING_DOTS="true"        # Visual feedback during completion
 zstyle ':omz:update' mode reminder    # Remind to update
 zstyle ':omz:update' frequency 7      # Check weekly
 
+# Add completion paths before loading Oh My Zsh
+fpath=(/Users/rebecca/.docker/completions $fpath)
+
 # Plugins (ordered by importance/frequency of use)
 plugins=(
   git              # Git aliases and functions
@@ -184,18 +187,11 @@ bindkey "^[[B" history-search-forward   # Down arrow
 # Completions
 # --------------------------------------------------------------------------------
 
-# Docker completions
-fpath=(/Users/rebecca/.docker/completions $fpath)
-
 # Dart CLI completions
 [[ -f /Users/rebecca/.dart-cli-completion/zsh-config.zsh ]] && \
   source /Users/rebecca/.dart-cli-completion/zsh-config.zsh || true
 
-# Initialize completions
-autoload -Uz compinit
-compinit -C  # Skip security check for faster startup
-
-# Completion options
+# Completion options (Oh My Zsh already initialized compinit)
 zstyle ':completion:*' menu no                                           # Disable traditional menu completion
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'               # Case insensitive matching
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"                 # Colorize completions using LS_COLORS
