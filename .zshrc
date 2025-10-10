@@ -38,10 +38,10 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 # Default editor
-export EDITOR='nano'
+export EDITOR='nvim'
 
 # bat configuration
-export BAT_THEME="Catppuccin Mocha"
+export BAT_THEME="Catppuccin-Mocha"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MANROFFOPT="-c"
 
@@ -186,7 +186,9 @@ duh() {
 # Interactive ripgrep with fzf and bat preview
 fif() {
   if [ ! "$#" -gt 0 ]; then echo "Need a string to search for!"; return 1; fi
-  rg --files-with-matches --no-messages "$1" | fzf --preview "bat --color=always --style=numbers --line-range=:500 {} | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 10 '$1' || rg --ignore-case --pretty --context 10 '$1' {}"
+  local file
+  file=$(rg --hidden --files-with-matches --no-messages "$1" | fzf --preview "bat --color=always --style=numbers --line-range=:500 {} | rg --hidden --colors 'match:bg:yellow' --ignore-case --pretty --context 10 '$1' || rg --hidden --ignore-case --pretty --context 10 '$1' {}")
+  [ -n "$file" ] && ${EDITOR:-nvim} "$file"
 }
 
 # Fuzzy cd with fd and eza preview

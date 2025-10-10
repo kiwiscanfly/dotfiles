@@ -43,6 +43,16 @@ My personal configuration files managed with GNU Stow.
 - `lolcat` - Rainbow colorizer
 - `gum` - Styled terminal UI components
 - `eza` - Modern ls replacement
+- `bat` - Syntax-highlighted cat with themes
+- `git-delta` - Beautiful git diffs
+- `glow` - Markdown renderer
+- `tldr` - Simplified command help
+
+### Search & Navigation Tools
+- `ripgrep` (rg) - Fast text search
+- `fd` - Fast file finder
+- `fzf` - Fuzzy finder
+- `lazygit` - Terminal UI for git
 
 ### Neovim Plugins (via lazy.nvim)
 - `lazy.nvim` - Plugin manager
@@ -71,24 +81,156 @@ My personal configuration files managed with GNU Stow.
 - `anaconda3` - Python distribution
 - `docker-compose` - Multi-container Docker
 
-## Setup
+## Installation (macOS)
 
-1. Install Stow:
-   ```bash
-   brew install stow  # macOS
-   ```
+### 1. Install Homebrew
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
 
-2. Clone this repo:
+### 2. Install Core Tools
+```bash
+brew install git stow neovim tmux
+```
+
+### 3. Install CLI Tools
+```bash
+brew install \
+  bat \
+  eza \
+  fd \
+  figlet \
+  fzf \
+  git-delta \
+  glow \
+  gum \
+  lazygit \
+  lolcat \
+  ripgrep \
+  tldr \
+  direnv \
+  gh \
+  awscli \
+  1password-cli
+```
+
+### 4. Install Aerospace (Window Manager)
+```bash
+brew install --cask aerospace
+```
+
+### 5. Install Oh My Zsh
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+### 6. Install Powerlevel10k Theme
+```bash
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+```
+
+### 7. Install Zsh Plugins
+
+**fzf-tab:**
+```bash
+git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
+```
+
+**zsh-syntax-highlighting:**
+```bash
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh-stuff/zsh-syntax-highlighting
+```
+
+**zsh-autosuggestions:**
+```bash
+brew install zsh-autosuggestions
+```
+
+### 8. Install FZF Key Bindings
+```bash
+$(brew --prefix)/opt/fzf/install
+```
+
+### 9. Install Tmux Plugin Manager (TPM)
+```bash
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+
+After installing, open tmux and press `prefix + I` (Ctrl+b, then Shift+I) to install tmux plugins.
+
+### 10. Install Catppuccin Theme for Bat
+```bash
+mkdir -p ~/.config/bat/themes
+cd ~/.config/bat/themes
+curl -O https://raw.githubusercontent.com/catppuccin/bat/main/themes/Catppuccin-Mocha.tmTheme
+bat cache --build
+```
+
+### 11. Configure Git Delta
+```bash
+git config --global delta.syntax-theme "Catppuccin-Mocha"
+```
+
+## Setup Dotfiles
+
+After completing the installation steps above:
+
+1. Clone this repo:
    ```bash
    git clone git@github.com:YOUR_USERNAME/dotfiles.git ~/dotfiles
    cd ~/dotfiles
    ```
 
-3. Install configs:
+2. Symlink configs with Stow:
    ```bash
-   stow <folder>  # Install specific config
-   stow           # Install all configs
+   stow .  # Install all configs
    ```
+
+   Or install specific configs:
+   ```bash
+   stow <folder>  # Install specific config (e.g., stow nvim)
+   ```
+
+3. Reload your shell:
+   ```bash
+   source ~/.zshrc
+   ```
+
+## Features
+
+### Custom Functions
+
+- **`fif <search-term>`** - Interactive file search with ripgrep and bat preview, opens in nvim
+- **`fcd`** - Fuzzy directory navigation with eza tree preview
+- **`fgb`** - Fuzzy git branch checkout
+- **`fkill`** - Interactive process killer
+
+### Key Bindings
+
+- **`Ctrl+T`** - Fuzzy file finder with bat preview
+- **`Alt+C`** - Fuzzy directory finder with eza preview
+- **`Ctrl+R`** - Fuzzy command history search
+
+### Aliases
+
+**Enhanced Tools:**
+- `cat` → `bat --style=plain` (syntax-highlighted cat)
+- `ls` → `eza` with icons and colors
+- `ll` → `eza -la` with git status
+- `lt` → `eza --tree` (tree view)
+
+**Git:**
+- `gs` - git status
+- `gd` - git diff (with delta)
+- `gp` - git pull
+- `gco` - git checkout
+- `gb` - git branch
+- `glog` - pretty git log
+- `lg` - lazygit
+
+**Documentation:**
+- `mdv` - view markdown with glow
+- `help` - tldr for quick command help
 
 ## Usage
 
