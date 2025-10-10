@@ -103,6 +103,23 @@ return {
         },
       }
 
+      -- Dart configuration
+      dap.adapters.dart = {
+        type = "executable",
+        command = "dart",
+        args = { "debug_adapter" },
+      }
+
+      -- Flutter configuration
+      dap.adapters.flutter = {
+        type = "executable",
+        command = "flutter",
+        args = { "debug_adapter" },
+      }
+
+      -- Note: Dart/Flutter launch configurations are registered by flutter-tools.nvim
+      -- See flutter-tools.lua debugger.register_configurations
+
       -- Auto-open/close UI
       dap.listeners.after.event_initialized["dapui_config"] = function()
         dapui.open()
