@@ -40,6 +40,11 @@ export LC_ALL=en_US.UTF-8
 # Default editor
 export EDITOR='nano'
 
+# bat configuration
+export BAT_THEME="Catppuccin Mocha"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANROFFOPT="-c"
+
 # History configuration
 export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=10000
@@ -117,7 +122,9 @@ alias gs="git status"
 alias gp="git pull"
 alias gco="git checkout"
 alias gb="git branch"
+alias gd="git diff"
 alias glog="git log --oneline --graph --decorate"
+alias lg="lazygit"
 
 # Directory navigation
 alias ..="cd .."
@@ -134,6 +141,16 @@ alias mkdir="mkdir -pv"
 # Utilities
 alias path='echo -e ${PATH//:/\\n}'
 alias welcome='~/dotfiles/scripts/welcome.sh'
+
+# bat - better cat with syntax highlighting
+alias cat='bat --style=plain'
+alias ccat='/bin/cat'  # Original cat if needed
+
+# Markdown viewer
+alias mdv='glow'
+
+# Quick command help
+alias help='tldr'
 
 # macOS specific
 alias showfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
@@ -164,6 +181,35 @@ backup() {
 # Show disk usage of current directory
 duh() {
   du -sh * | sort -hr
+}
+
+# Interactive ripgrep with fzf and bat preview
+fif() {
+  if [ ! "$#" -gt 0 ]; then echo "Need a string to search for!"; return 1; fi
+  rg --files-with-matches --no-messages "$1" | fzf --preview "bat --color=always --style=numbers --line-range=:500 {} | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 10 '$1' || rg --ignore-case --pretty --context 10 '$1' {}"
+}
+
+# Fuzzy cd with fd and eza preview
+fcd() {
+  local dir
+  dir=$(fd --type d --hidden --follow --exclude .git | fzf --preview 'eza --tree --level=2 --color=always {}') && cd "$dir"
+}
+
+# Fuzzy git branch checkout
+fgb() {
+  local branches branch
+  branches=$(git branch -a) &&
+  branch=$(echo "$branches" | fzf +m) &&
+  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+}
+
+# Fuzzy process kill
+fkill() {
+  local pid
+  pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+  if [ "x$pid" != "x" ]; then
+    echo $pid | xargs kill -${1:-9}
+  fi
 }
 
 # --------------------------------------------------------------------------------
@@ -201,7 +247,7 @@ zstyle ':completion:*' group-name ''                                    # Group 
 zstyle ':completion:*:default' list-prompt '%S%M matches%s'             # Show match count in completion list
 
 # FZF-tab configuration
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls -la $realpath'          # Show directory contents in preview for cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza --tree --level=2 --color=always $realpath'  # Show directory contents with eza
 zstyle ':fzf-tab:complete:cd:*' popup-pad 30 0                          # Add padding to fzf popup window
 zstyle ':fzf-tab:*' switch-group '<' '>'                                # Use < and > to switch between completion groups
 zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup                          # Use tmux popup for fzf interface
@@ -251,6 +297,15 @@ export PATH="$NVM_DIR/versions/node/$(cat $NVM_DIR/alias/default 2>/dev/null)/bi
 # zprof  # Add at the bottom of file
 # FZF setup (fuzzy finder)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# FZF + fd integration (faster, respects .gitignore)
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git'
+
+# FZF preview with bat
+export FZF_CTRL_T_OPTS="--preview 'bat --color=always --style=numbers --line-range=:500 {}'"
+export FZF_ALT_C_OPTS="--preview 'eza --tree --level=2 --color=always {}'"
 
 # Direnv hook (auto-load environment variables)
 eval "$(direnv hook zsh)"
