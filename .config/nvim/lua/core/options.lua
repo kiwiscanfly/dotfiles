@@ -22,6 +22,7 @@ opt.termguicolors = true
 opt.background = "dark"
 opt.signcolumn = "yes"
 opt.cursorline = true
+opt.fillchars = { vert = "│", vertleft = "│", vertright = "│", verthoriz = "│" }
 
 -- Backspace
 opt.backspace = "indent,eol,start"

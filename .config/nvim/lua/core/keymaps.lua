@@ -6,10 +6,6 @@ keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", { desc = "Grep in file
 keymap("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Find buffers" })
 keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", { desc = "Help tags" })
 
--- Neo-tree
-keymap("n", "<leader>e", "<cmd>Neotree toggle<cr>", { desc = "Toggle file explorer" })
-keymap("n", "<leader>E", "<cmd>Neotree reveal<cr>", { desc = "Reveal current file in explorer" })
-
 -- File change detection autocommands
 vim.api.nvim_create_autocmd({"FocusGained", "BufEnter", "CursorHold"}, {
   pattern = "*",

@@ -8,7 +8,6 @@ return {
       "hrsh7th/cmp-nvim-lsp",
       "L3MON4D3/LuaSnip",
       "saadparwaiz1/cmp_luasnip",
-      "zbirenbaum/copilot-cmp",
     },
     config = function()
       local cmp = require("cmp")
@@ -43,7 +42,6 @@ return {
           end, { "i", "s" }),
         }),
         sources = cmp.config.sources({
-          { name = "copilot", priority = 1000 },
           { name = "nvim_lsp", priority = 900 },
           { name = "luasnip", priority = 750 },
           { name = "path", priority = 500 },

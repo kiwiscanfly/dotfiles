@@ -44,16 +44,40 @@ return {
           Cursor = { bg = colors.red, fg = colors.base },
           lCursor = { bg = colors.red, fg = colors.base },
           CursorLine = { bg = colors.surface0 },
+
+          -- Explorer/Sidebar - neutral background with peach accents
+          NormalFloat = { bg = colors.base },
+          FloatBorder = { bg = colors.base, fg = colors.surface0 },
+
+          -- Snacks explorer specific
+          SnacksNormal = { bg = colors.base },
+          SnacksBorder = { bg = colors.base, fg = colors.surface0 },
+
+          -- Directory and file selection - peach accents
+          Directory = { fg = colors.text },
+          SnacksIndent = { fg = colors.surface1 },
+          SnacksIndentScope = { fg = "#d99368" }, -- peach accent
+
+          -- Selected/cursor items
+          PmenuSel = { bg = colors.surface0, fg = "#d99368" }, -- peach
+          CursorLineNr = { fg = "#d99368" }, -- peach line number
+
+          -- Window separator - subtle divider
+          WinSeparator = { fg = "#8a6f5a", bg = colors.base }, -- muted peach/brown
+
+          -- Dashboard header - purple
+          SnacksDashboardHeader = { fg = colors.mauve, style = { "bold" } },
         }
       end,
       integrations = {
         cmp = true,
         gitsigns = true,
         nvimtree = true,
-        neotree = true,  -- Explicit neo-tree integration
         telescope = true,
         notify = false,
-        mini = false,
+        mini = {
+          enabled = true,
+        },
       },
     })
   end,
