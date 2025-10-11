@@ -112,7 +112,7 @@ alias snapp_cli="fvm exec snapp_cli"
 alias ls="eza --group-directories-first --icons"
 alias ll="eza -la --group-directories-first --icons --git"
 alias la="eza -A --group-directories-first --icons"
-alias lt="eza --tree --level=2 --icons"
+alias lt="eza --tree --level=2 --icons --ignore-glob='node_modules|.git'"
 
 # Cute eza colors
 export EZA_COLORS="di=1;35:ex=1;33:ln=1;36:*.md=1;36:*.txt=37:*.json=1;33:*.js=33:*.py=32:*.css=35:*.html=1;31"

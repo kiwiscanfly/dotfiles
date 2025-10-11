@@ -37,6 +37,7 @@ My personal configuration files managed with GNU Stow.
 - `aws` - AWS CLI
 - `gh` - GitHub CLI
 - `1password` - 1Password CLI
+- `tree-sitter-cli` - Tree-sitter CLI (via npm) - **Required for Neovim treesitter parsers**
 
 ### Visual & Display Tools
 - `figlet` - ASCII art text
@@ -55,14 +56,40 @@ My personal configuration files managed with GNU Stow.
 - `lazygit` - Terminal UI for git
 
 ### Neovim Plugins (via lazy.nvim)
+
+**Core & Infrastructure:**
 - `lazy.nvim` - Plugin manager
-- `telescope.nvim` - Fuzzy finder
-- `neo-tree.nvim` - File explorer
-- `nvim-treesitter` - Syntax highlighting
-- `nvim-lspconfig` - LSP configuration
-- `nvim-cmp` - Autocompletion
-- `copilot.lua` & `copilot-cmp` - GitHub Copilot
-- `conform.nvim` - Code formatting
+- `which-key.nvim` - Keybinding discovery and help
+
+**UI & Appearance:**
+- `catppuccin.nvim` - Catppuccin color theme
+- `lualine.nvim` - Status line with git integration
+- `noice.nvim` - Enhanced UI for messages, cmdline, and popupmenu
+- `nvim-numbertoggle` - Smart relative/absolute line number toggle
+
+**Navigation & Search:**
+- `telescope.nvim` - Fuzzy finder for files, buffers, grep, and more
+- `vim-tmux-navigator` - Seamless navigation between tmux panes and vim splits
+- `snacks.nvim` - Collection of utility plugins (file explorer, buffers, etc.)
+
+**Code Intelligence:**
+- `nvim-treesitter` - Advanced syntax highlighting (requires `tree-sitter-cli` npm package)
+- `nvim-lspconfig` - LSP configuration for multiple languages
+- `nvim-cmp` - Autocompletion engine with multiple sources
+
+**Language-Specific:**
+- `flutter-tools.nvim` - Flutter/Dart development integration
+- `copilot.lua` & `copilot-cmp` - GitHub Copilot AI assistance
+
+**Editing & Formatting:**
+- `conform.nvim` - Code formatting with multiple formatters
+- `mini.ai` - Enhanced text objects for better editing
+- `mini.diff` - Git diff integration with inline signs
+
+**Debugging:**
+- `nvim-dap` - Debug Adapter Protocol client
+- `nvim-dap-ui` - UI components for nvim-dap
+- `nvim-dap-virtual-text` - Virtual text display for debugging
 
 ### Tmux Plugins (via tpm)
 - `tpm` - Tmux plugin manager
@@ -169,6 +196,14 @@ bat cache --build
 ### 11. Configure Git Delta
 ```bash
 git config --global delta.syntax-theme "Catppuccin-Mocha"
+```
+
+### 12. Install Node.js Global Packages
+After installing Node.js via nvm:
+
+```bash
+# Install tree-sitter CLI (required for Neovim treesitter parsers)
+npm install -g tree-sitter-cli
 ```
 
 ## Setup Dotfiles
