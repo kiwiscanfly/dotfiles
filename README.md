@@ -47,7 +47,6 @@ My personal configuration files managed with GNU Stow.
 - `bat` - Syntax-highlighted cat with themes
 - `git-delta` - Beautiful git diffs
 - `glow` - Markdown renderer
-- `tldr` - Simplified command help
 
 ### Search & Navigation Tools
 - `ripgrep` (rg) - Fast text search
@@ -134,7 +133,6 @@ brew install \
   lazygit \
   lolcat \
   ripgrep \
-  tldr \
   direnv \
   gh \
   awscli \
@@ -265,7 +263,6 @@ After completing the installation steps above:
 
 **Documentation:**
 - `mdv` - view markdown with glow
-- `help` - tldr for quick command help
 
 ## Usage
 

@@ -149,9 +149,6 @@ alias ccat='/bin/cat'  # Original cat if needed
 # Markdown viewer
 alias mdv='glow'
 
-# Quick command help
-alias help='tldr'
-
 # macOS specific
 alias showfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
 alias hidefiles="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
