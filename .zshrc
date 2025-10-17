@@ -143,7 +143,7 @@ alias path='echo -e ${PATH//:/\\n}'
 alias welcome='~/dotfiles/scripts/welcome.sh'
 
 # bat - better cat with syntax highlighting
-alias cat='bat --style=plain'
+alias cat='bat --style=plain --paging=never'
 alias ccat='/bin/cat'  # Original cat if needed
 
 # Markdown viewer

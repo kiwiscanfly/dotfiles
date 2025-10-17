@@ -3,7 +3,7 @@ return {
   lazy = false,
   build = ':TSUpdate',
   config = function()
-    require('nvim-treesitter.configs').setup({
+    require('nvim-treesitter').setup({
       -- Install essential parsers for Neovim and commonly used languages
       ensure_installed = {
         'lua', 'vim', 'vimdoc', 'query', 'markdown', 'markdown_inline',
