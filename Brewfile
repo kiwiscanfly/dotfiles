@@ -10,8 +10,6 @@
 # ============================================================================
 
 tap "leoafarias/fvm"         # Flutter Version Manager tap
-tap "libsql/sqld"            # LibSQL server (SQLite fork with HTTP protocol)
-tap "tursodatabase/tap"      # Turso distributed database CLI
 
 # ============================================================================
 # Formulae - Command-line tools and libraries
@@ -33,6 +31,7 @@ brew "docker-compose"        # Define and run multi-container Docker application
 # Development Tools
 brew "direnv"                # Load/unload environment variables based on directory
 brew "gh"                    # GitHub CLI for managing repos, PRs, and issues
+brew "git"                   # Distributed version control system
 brew "gnupg"                 # GNU Pretty Good Privacy (PGP) for encryption
 brew "just"                  # Command runner (modern alternative to make)
 brew "neovim"                # Modern Vim-based text editor
@@ -86,7 +85,6 @@ brew "zsh-autosuggestions"   # Fish-like autosuggestions for zsh
 
 # Custom Tap Packages
 brew "leoafarias/fvm/fvm"              # Flutter Version Manager
-brew "tursodatabase/tap/turso"         # Turso CLI for distributed SQLite databases
 
 # ============================================================================
 # Casks - GUI Applications
