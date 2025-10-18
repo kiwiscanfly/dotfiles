@@ -5,6 +5,10 @@
 font-family = "HackNerdFontMono-Regular"
 font-feature = -calt -liga -dlig
 
+# macOS Option key behavior
+# Make Option/Alt keys send escape sequences for word navigation
+macos-option-as-alt = true
+
 # Theme - Catppuccin Mocha (dark mode only)
 theme = Catppuccin Mocha
 

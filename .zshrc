@@ -55,6 +55,10 @@ eval "$(starship init zsh)"
 # Shell Options
 # --------------------------------------------------------------------------------
 
+# Word navigation characters - exclude / and other delimiters for path-aware navigation
+# This makes Alt+Arrow stop at slashes in paths like ~/repos/shiny
+WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+
 setopt HIST_IGNORE_DUPS     # Don't record duplicate commands
 setopt HIST_IGNORE_SPACE    # Don't record commands starting with space
 setopt HIST_REDUCE_BLANKS   # Remove extra blanks from commands
@@ -185,8 +189,8 @@ fkill() {
 # --------------------------------------------------------------------------------
 
 # Word navigation (Option + Arrow keys on macOS)
-bindkey "[D" backward-word
-bindkey "[C" forward-word
+bindkey "^[[1;3C" forward-word      # Alt+Right
+bindkey "^[[1;3D" backward-word     # Alt+Left
 bindkey "^[[1;5C" forward-word      # Ctrl+Right
 bindkey "^[[1;5D" backward-word     # Ctrl+Left
 bindkey "^[[H" beginning-of-line    # Home key
