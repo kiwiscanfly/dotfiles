@@ -1,3 +1,6 @@
 # Ghostty Terminal Configuration
 # Documentation: https://ghostty.org/docs/config/reference
 
+# Theme - Catppuccin with automatic light/dark switching
+# Mocha (dark) for dark mode, Latte (light) for light mode
+theme = dark:Catppuccin Mocha,light:Catppuccin Latte

@@ -2,110 +2,28 @@
 
 My personal configuration files managed with GNU Stow.
 
-## Required Applications
+## Overview
 
-### Core Tools
+This repository contains configurations for:
+- **Terminal:** Ghostty with Catppuccin themes, Zsh with Powerlevel10k, Tmux
+- **Editor:** Neovim with LSP, Treesitter, and Copilot
+- **Window Manager:** Aerospace tiling window manager
+- **CLI Tools:** Modern replacements (bat, eza, fzf, ripgrep) and development tools
+- **Development:** Flutter, Node.js, Python, PHP, Docker, AWS, and more
 
-**Shell & Terminal:**
-- `zsh` - Shell (default on macOS)
-- `oh-my-zsh` - Zsh framework
-- `powerlevel10k` - Zsh theme
-- `tmux` - Terminal multiplexer
+### Package Management
 
-**Package Manager:**
-- `homebrew` - macOS package manager
+All Homebrew packages are documented in [`Brewfile`](Brewfile) with detailed descriptions:
+- **46 formulae** - CLI tools, libraries, and development tools
+- **5 casks** - GUI applications (Ghostty, Aerospace, Anaconda, etc.)
+- **64 VSCode extensions** - Complete development environment
 
-### Window Management & Editors
-- `aerospace` - Tiling window manager
-- `neovim` (nvim) - Text editor
-- `vscode` (code) - VS Code editor
-
-### Development Tools
-
-**Version Managers:**
-- `nvm` - Node version manager
-- `fvm` - Flutter version manager
-- `direnv` - Auto-load environment variables
-
-**Languages & Frameworks:**
-- `node` - JavaScript runtime (via nvm)
-- `flutter` & `dart` - Flutter development
-- `docker` - Containerization
-
-**CLI Tools:**
-- `git` - Version control
-- `aws` - AWS CLI
-- `gh` - GitHub CLI
-- `1password` - 1Password CLI
-- `tree-sitter-cli` - Tree-sitter CLI (via npm) - **Required for Neovim treesitter parsers**
-
-### Visual & Display Tools
-- `figlet` - ASCII art text
-- `lolcat` - Rainbow colorizer
-- `gum` - Styled terminal UI components
-- `eza` - Modern ls replacement
-- `bat` - Syntax-highlighted cat with themes
-- `git-delta` - Beautiful git diffs
-- `glow` - Markdown renderer
-
-### Search & Navigation Tools
-- `ripgrep` (rg) - Fast text search
-- `fd` - Fast file finder
-- `fzf` - Fuzzy finder
-- `lazygit` - Terminal UI for git
-
-### Neovim Plugins (via lazy.nvim)
-
-**Core & Infrastructure:**
-- `lazy.nvim` - Plugin manager
-- `which-key.nvim` - Keybinding discovery and help
-
-**UI & Appearance:**
-- `catppuccin.nvim` - Catppuccin color theme
-- `lualine.nvim` - Status line with git integration
-- `noice.nvim` - Enhanced UI for messages, cmdline, and popupmenu
-- `nvim-numbertoggle` - Smart relative/absolute line number toggle
-
-**Navigation & Search:**
-- `telescope.nvim` - Fuzzy finder for files, buffers, grep, and more
-- `vim-tmux-navigator` - Seamless navigation between tmux panes and vim splits
-- `snacks.nvim` - Collection of utility plugins (file explorer, buffers, etc.)
-
-**Code Intelligence:**
-- `nvim-treesitter` - Advanced syntax highlighting (requires `tree-sitter-cli` npm package)
-- `nvim-lspconfig` - LSP configuration for multiple languages
-- `nvim-cmp` - Autocompletion engine with multiple sources
-
-**Language-Specific:**
-- `flutter-tools.nvim` - Flutter/Dart development integration
-- `copilot.lua` & `copilot-cmp` - GitHub Copilot AI assistance
-
-**Editing & Formatting:**
-- `conform.nvim` - Code formatting with multiple formatters
-- `mini.ai` - Enhanced text objects for better editing
-- `mini.diff` - Git diff integration with inline signs
-
-**Debugging:**
-- `nvim-dap` - Debug Adapter Protocol client
-- `nvim-dap-ui` - UI components for nvim-dap
-- `nvim-dap-virtual-text` - Virtual text display for debugging
-
-### Tmux Plugins (via tpm)
-- `tpm` - Tmux plugin manager
-- `tmux-sensible` - Sensible defaults
-- `vim-tmux-navigator` - Vim-tmux navigation
-- `catppuccin/tmux` - Catppuccin theme
-- `tmux-yank` - Copy to system clipboard
-
-### Zsh Plugins
-- `zsh-syntax-highlighting` - Command syntax highlighting
-- `zsh-autosuggestions` - Command suggestions (via Homebrew)
-- `fzf` - Fuzzy finder
-- `fzf-tab` - FZF-powered tab completion (via Oh My Zsh)
-
-### Optional/System
-- `anaconda3` - Python distribution
-- `docker-compose` - Multi-container Docker
+**Non-Homebrew Dependencies:**
+- **VSCode** - [Download from code.visualstudio.com](https://code.visualstudio.com)
+- **Docker Desktop** - [Download from docker.com](https://www.docker.com/products/docker-desktop)
+- **Neovim plugins** - Managed by lazy.nvim (auto-installed)
+- **Tmux plugins** - Managed by tpm
+- **Zsh plugins** - Oh My Zsh, Powerlevel10k, and custom plugins
 
 ## Installation (macOS)
 
@@ -114,35 +32,22 @@ My personal configuration files managed with GNU Stow.
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-### 2. Install Core Tools
+### 2. Clone this repository
 ```bash
-brew install git stow neovim tmux
+git clone git@github.com:YOUR_USERNAME/dotfiles.git ~/dotfiles
+cd ~/dotfiles
 ```
 
-### 3. Install CLI Tools
+### 3. Install all Homebrew packages
 ```bash
-brew install \
-  bat \
-  eza \
-  fd \
-  figlet \
-  fzf \
-  git-delta \
-  glow \
-  gum \
-  lazygit \
-  lolcat \
-  ripgrep \
-  direnv \
-  gh \
-  awscli \
-  1password-cli
+brew bundle install
 ```
 
-### 4. Install Aerospace (Window Manager)
-```bash
-brew install --cask aerospace
-```
+This will install all 46 formulae, 5 casks, and 64 VSCode extensions listed in the [`Brewfile`](Brewfile).
+
+### 4. Install VSCode and Docker Desktop
+- **VSCode:** [Download from code.visualstudio.com](https://code.visualstudio.com)
+- **Docker Desktop:** [Download from docker.com](https://www.docker.com/products/docker-desktop)
 
 ### 5. Install Oh My Zsh
 ```bash
@@ -164,11 +69,6 @@ git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/p
 **zsh-syntax-highlighting:**
 ```bash
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh-stuff/zsh-syntax-highlighting
-```
-
-**zsh-autosuggestions:**
-```bash
-brew install zsh-autosuggestions
 ```
 
 ### 8. Install FZF Key Bindings
@@ -200,34 +100,27 @@ git config --global delta.syntax-theme "Catppuccin-Mocha"
 After installing Node.js via nvm:
 
 ```bash
-# Install tree-sitter CLI (required for Neovim treesitter parsers)
-npm install -g tree-sitter-cli
+npm install -g tree-sitter-cli  # Required for Neovim treesitter parsers
 ```
 
-## Setup Dotfiles
+### 13. Symlink Dotfiles with Stow
+```bash
+cd ~/dotfiles
+stow .  # Symlink all configs
+```
 
-After completing the installation steps above:
+Or install specific configs:
+```bash
+stow nvim    # Symlink only Neovim config
+stow tmux    # Symlink only Tmux config
+```
 
-1. Clone this repo:
-   ```bash
-   git clone git@github.com:YOUR_USERNAME/dotfiles.git ~/dotfiles
-   cd ~/dotfiles
-   ```
+### 14. Reload Your Shell
+```bash
+source ~/.zshrc
+```
 
-2. Symlink configs with Stow:
-   ```bash
-   stow .  # Install all configs
-   ```
-
-   Or install specific configs:
-   ```bash
-   stow <folder>  # Install specific config (e.g., stow nvim)
-   ```
-
-3. Reload your shell:
-   ```bash
-   source ~/.zshrc
-   ```
+Neovim plugins will be automatically installed on first launch via lazy.nvim.
 
 ## Features
 

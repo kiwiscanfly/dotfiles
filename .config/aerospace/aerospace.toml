@@ -162,3 +162,8 @@ automatically-unhide-macos-hidden-apps = false
 [[on-window-detected]]
 if.app-id = 'com.agiletortoise.Drafts-OSX'
 run = 'layout floating'
+
+# Always float Boom
+[[on-window-detected]]
+if.app-id = 'co.boomvision.boom-setapp'
+run = 'layout floating'
