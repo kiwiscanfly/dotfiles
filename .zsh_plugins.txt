@@ -1,0 +1,11 @@
+# Antidote Plugin Bundle
+# Plugins are loaded in the order they appear
+
+# NVM (Node Version Manager) with lazy loading
+lukechilds/zsh-nvm
+
+# Syntax highlighting (load before autosuggestions)
+zsh-users/zsh-syntax-highlighting
+
+# Autosuggestions (load last)
+zsh-users/zsh-autosuggestions

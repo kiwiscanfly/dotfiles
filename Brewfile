@@ -11,7 +11,6 @@
 
 tap "leoafarias/fvm"         # Flutter Version Manager tap
 tap "libsql/sqld"            # LibSQL server (SQLite fork with HTTP protocol)
-tap "nikitabobko/tap"        # AeroSpace tiling window manager
 tap "tursodatabase/tap"      # Turso distributed database CLI
 
 # ============================================================================
@@ -93,7 +92,6 @@ brew "tursodatabase/tap/turso"         # Turso CLI for distributed SQLite databa
 # ============================================================================
 
 cask "1password-cli"         # 1Password command-line tool for password management
-cask "aerospace"             # Tiling window manager for macOS (i3-like)
 cask "anaconda"              # Python distribution for data science and machine learning
 cask "android-file-transfer" # Browse and transfer files from Android devices
 cask "ghostty"               # Fast, native, GPU-accelerated terminal emulator

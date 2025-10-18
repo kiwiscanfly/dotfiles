@@ -1,27 +1,10 @@
-# ================================================================================
-# Zsh Configuration - Optimized and Organized
-# ================================================================================
-
-# --------------------------------------------------------------------------------
-# Early Initialization (Must come first)
-# --------------------------------------------------------------------------------
+# Zsh Configuration
 
 ~/dotfiles/scripts/welcome.sh
-
-# Enable Powerlevel10k instant prompt
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
 
 # --------------------------------------------------------------------------------
 # Environment Variables
 # --------------------------------------------------------------------------------
-
-# Oh My Zsh path
-export ZSH="$HOME/.oh-my-zsh"
-
-# Theme configuration
-ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -52,35 +35,27 @@ export SAVEHIST=10000
 export HIST_STAMPS="yyyy-mm-dd"
 
 # --------------------------------------------------------------------------------
-# Oh My Zsh Configuration
+# Completion System
 # --------------------------------------------------------------------------------
 
-# Performance optimizations
-DISABLE_UNTRACKED_FILES_DIRTY="true"  # Faster git status in large repos
-COMPLETION_WAITING_DOTS="true"        # Visual feedback during completion
-
-# Auto-update configuration
-zstyle ':omz:update' mode reminder    # Remind to update
-zstyle ':omz:update' frequency 7      # Check weekly
-
-# Add completion paths before loading Oh My Zsh
+# Add completion paths
 fpath=(/Users/rebecca/.docker/completions $fpath)
 
-# Plugins (ordered by importance/frequency of use)
-plugins=(
-  git              # Git aliases and functions
-  fzf-tab          # FZF-powered tab completion
-  aws              # AWS CLI completions and shortcuts
-  docker           # Docker completions
-  docker-compose   # Docker Compose completions
-  flutter          # Flutter development
-  npm              # NPM completions
-  nvm              # Node version manager
-  1password        # 1Password CLI
-)
+# Initialize completion system
+autoload -Uz compinit
+compinit
 
-# Load Oh My Zsh
-source $ZSH/oh-my-zsh.sh
+# --------------------------------------------------------------------------------
+# Prompt
+# --------------------------------------------------------------------------------
+
+# Simple two-line prompt with git branch
+autoload -Uz vcs_info
+precmd() { vcs_info }
+setopt prompt_subst
+zstyle ':vcs_info:git:*' formats ' %F{magenta}(%b)%f'
+PROMPT='%F{cyan}%~%f${vcs_info_msg_0_}
+%F{green}❯%f '
 
 # --------------------------------------------------------------------------------
 # Shell Options
@@ -236,8 +211,8 @@ bindkey "^[[B" history-search-forward   # Down arrow
 [[ -f /Users/rebecca/.dart-cli-completion/zsh-config.zsh ]] && \
   source /Users/rebecca/.dart-cli-completion/zsh-config.zsh || true
 
-# Completion options (Oh My Zsh already initialized compinit)
-zstyle ':completion:*' menu no                                           # Disable traditional menu completion
+# Completion options
+zstyle ':completion:*' menu select                                       # Enable menu selection
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'               # Case insensitive matching
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"                 # Colorize completions using LS_COLORS
 zstyle ':completion:*:descriptions' format '%B%d%b'                     # Bold format for completion group descriptions
@@ -245,40 +220,23 @@ zstyle ':completion:*:warnings' format 'No matches for: %d'             # Messag
 zstyle ':completion:*' group-name ''                                    # Group completions by type
 zstyle ':completion:*:default' list-prompt '%S%M matches%s'             # Show match count in completion list
 
-# FZF-tab configuration
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza --tree --level=2 --color=always $realpath'  # Show directory contents with eza
-zstyle ':fzf-tab:complete:cd:*' popup-pad 30 0                          # Add padding to fzf popup window
-zstyle ':fzf-tab:*' switch-group '<' '>'                                # Use < and > to switch between completion groups
-zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup                          # Use tmux popup for fzf interface
-
 # --------------------------------------------------------------------------------
-# External Tools & Plugins
+# Antidote Plugin Manager
 # --------------------------------------------------------------------------------
 
-# Powerlevel10k configuration
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# Configure NVM (before loading plugins)
+export NVM_AUTO_USE=true  # Automatically switch Node versions with .nvmrc files
 
-# Syntax highlighting (load after completions)
-source /Users/rebecca/.zsh-stuff/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# Initialize Antidote
+source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
 
-# Auto-suggestions
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# Load plugins from .zsh_plugins.txt
+antidote load
+
+# Configure zsh-autosuggestions (loaded by Antidote)
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=244"
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 bindkey '^ ' autosuggest-accept  # Ctrl+Space to accept suggestion
-
-
-# NVM lazy loading for faster startup
-nvm() {
-  unset -f nvm
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
-  nvm "$@"
-}
-
-# Load NVM path immediately
-export NVM_DIR="$HOME/.nvm"
-export PATH="$NVM_DIR/versions/node/$(cat $NVM_DIR/alias/default 2>/dev/null)/bin:$PATH"
 
 # --------------------------------------------------------------------------------
 # Local Configuration (optional)

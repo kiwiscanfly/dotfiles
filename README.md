@@ -5,9 +5,8 @@ My personal configuration files managed with GNU Stow.
 ## Overview
 
 This repository contains configurations for:
-- **Terminal:** Ghostty with Catppuccin themes, Zsh with Powerlevel10k, Tmux
+- **Terminal:** Ghostty with Catppuccin themes, Zsh, Tmux
 - **Editor:** Neovim with LSP, Treesitter, and Copilot
-- **Window Manager:** Aerospace tiling window manager
 - **CLI Tools:** Modern replacements (bat, eza, fzf, ripgrep) and development tools
 - **Development:** Flutter, Node.js, Python, PHP, Docker, AWS, and more
 
@@ -15,7 +14,7 @@ This repository contains configurations for:
 
 All Homebrew packages are documented in [`Brewfile`](Brewfile) with detailed descriptions:
 - **46 formulae** - CLI tools, libraries, and development tools
-- **5 casks** - GUI applications (Ghostty, Aerospace, Anaconda, etc.)
+- **4 casks** - GUI applications (Ghostty, Anaconda, etc.)
 - **64 VSCode extensions** - Complete development environment
 
 **Non-Homebrew Dependencies:**
@@ -23,7 +22,6 @@ All Homebrew packages are documented in [`Brewfile`](Brewfile) with detailed des
 - **Docker Desktop** - [Download from docker.com](https://www.docker.com/products/docker-desktop)
 - **Neovim plugins** - Managed by lazy.nvim (auto-installed)
 - **Tmux plugins** - Managed by tpm
-- **Zsh plugins** - Oh My Zsh, Powerlevel10k, and custom plugins
 
 ## Installation (macOS)
 
@@ -49,41 +47,19 @@ This will install all 46 formulae, 5 casks, and 64 VSCode extensions listed in t
 - **VSCode:** [Download from code.visualstudio.com](https://code.visualstudio.com)
 - **Docker Desktop:** [Download from docker.com](https://www.docker.com/products/docker-desktop)
 
-### 5. Install Oh My Zsh
-```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-```
-
-### 6. Install Powerlevel10k Theme
-```bash
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-```
-
-### 7. Install Zsh Plugins
-
-**fzf-tab:**
-```bash
-git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
-```
-
-**zsh-syntax-highlighting:**
-```bash
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh-stuff/zsh-syntax-highlighting
-```
-
-### 8. Install FZF Key Bindings
+### 5. Install FZF Key Bindings
 ```bash
 $(brew --prefix)/opt/fzf/install
 ```
 
-### 9. Install Tmux Plugin Manager (TPM)
+### 6. Install Tmux Plugin Manager (TPM)
 ```bash
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
 After installing, open tmux and press `prefix + I` (Ctrl+b, then Shift+I) to install tmux plugins.
 
-### 10. Install Catppuccin Theme for Bat
+### 7. Install Catppuccin Theme for Bat
 ```bash
 mkdir -p ~/.config/bat/themes
 cd ~/.config/bat/themes
@@ -91,19 +67,19 @@ curl -O https://raw.githubusercontent.com/catppuccin/bat/main/themes/Catppuccin-
 bat cache --build
 ```
 
-### 11. Configure Git Delta
+### 8. Configure Git Delta
 ```bash
 git config --global delta.syntax-theme "Catppuccin-Mocha"
 ```
 
-### 12. Install Node.js Global Packages
+### 9. Install Node.js Global Packages
 After installing Node.js via nvm:
 
 ```bash
 npm install -g tree-sitter-cli  # Required for Neovim treesitter parsers
 ```
 
-### 13. Symlink Dotfiles with Stow
+### 10. Symlink Dotfiles with Stow
 ```bash
 cd ~/dotfiles
 stow .  # Symlink all configs
@@ -115,12 +91,26 @@ stow nvim    # Symlink only Neovim config
 stow tmux    # Symlink only Tmux config
 ```
 
-### 14. Reload Your Shell
+### 11. Reload Your Shell
 ```bash
 source ~/.zshrc
 ```
 
-Neovim plugins will be automatically installed on first launch via lazy.nvim.
+**What happens on first shell launch:**
+- Antidote will automatically clone and install all Zsh plugins from `.zsh_plugins.txt`
+- Neovim plugins will be automatically installed on first Neovim launch via lazy.nvim
+- Tmux plugins will be installed when you press `prefix + I` in tmux
+
+## Zsh Plugin Management
+
+This setup uses **Antidote** for managing Zsh plugins. All plugins are defined in `.zsh_plugins.txt`:
+
+**Current plugins:**
+- `lukechilds/zsh-nvm` - NVM with lazy loading and auto `.nvmrc` switching
+- `zsh-users/zsh-syntax-highlighting` - Fish-like syntax highlighting
+- `zsh-users/zsh-autosuggestions` - Fish-like autosuggestions
+
+**To add more plugins:** Edit `.zsh_plugins.txt` and add the plugin in `user/repo` format. Reload your shell to install.
 
 ## Features
 
