@@ -1,6 +1,9 @@
 {
     "editor.formatOnSave": true,
-    "terminal.integrated.fontFamily": "MesloLGS NF",
+    "editor.fontFamily": "'HackNerdFontMono-Regular', monospace",
+    "editor.fontSize": 13,
+    "editor.fontLigatures": false,
+    "terminal.integrated.fontFamily": "HackNerdFontMono-Regular",
     "terminal.integrated.fontSize": 12,
     "editor.lineNumbers": "relative",
     "git.autofetch": true,

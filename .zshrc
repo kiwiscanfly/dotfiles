@@ -46,16 +46,11 @@ autoload -Uz compinit
 compinit
 
 # --------------------------------------------------------------------------------
-# Prompt
+# Prompt - Starship
 # --------------------------------------------------------------------------------
 
-# Simple two-line prompt with git branch
-autoload -Uz vcs_info
-precmd() { vcs_info }
-setopt prompt_subst
-zstyle ':vcs_info:git:*' formats ' %F{magenta}(%b)%f'
-PROMPT='%F{cyan}%~%f${vcs_info_msg_0_}
-%F{green}❯%f '
+# Initialize Starship prompt
+eval "$(starship init zsh)"
 
 # --------------------------------------------------------------------------------
 # Shell Options

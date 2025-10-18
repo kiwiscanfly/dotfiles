@@ -1,6 +1,13 @@
 # Ghostty Terminal Configuration
 # Documentation: https://ghostty.org/docs/config/reference
 
+# Font - Hack Nerd Font for icon support
+font-family = "HackNerdFontMono-Regular"
+font-feature = -calt -liga -dlig
+
 # Theme - Catppuccin with automatic light/dark switching
 # Mocha (dark) for dark mode, Latte (light) for light mode
 theme = dark:Catppuccin Mocha,light:Catppuccin Latte
+
+# Override background with Gruvbox dark background to match Starship prompt
+background = #282828

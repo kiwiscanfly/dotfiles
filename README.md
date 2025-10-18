@@ -5,7 +5,7 @@ My personal configuration files managed with GNU Stow.
 ## Overview
 
 This repository contains configurations for:
-- **Terminal:** Ghostty with Catppuccin themes, Zsh, Tmux
+- **Terminal:** Ghostty with Catppuccin themes, Zsh with Starship prompt, Tmux
 - **Editor:** Neovim with LSP, Treesitter, and Copilot
 - **CLI Tools:** Modern replacements (bat, eza, fzf, ripgrep) and development tools
 - **Development:** Flutter, Node.js, Python, PHP, Docker, AWS, and more
@@ -13,8 +13,8 @@ This repository contains configurations for:
 ### Package Management
 
 All Homebrew packages are documented in [`Brewfile`](Brewfile) with detailed descriptions:
-- **46 formulae** - CLI tools, libraries, and development tools
-- **4 casks** - GUI applications (Ghostty, Anaconda, etc.)
+- **47 formulae** - CLI tools, libraries, and development tools
+- **5 casks** - GUI applications and fonts (Ghostty, Anaconda, Hack Nerd Font, etc.)
 - **64 VSCode extensions** - Complete development environment
 
 **Non-Homebrew Dependencies:**
@@ -101,7 +101,18 @@ source ~/.zshrc
 - Neovim plugins will be automatically installed on first Neovim launch via lazy.nvim
 - Tmux plugins will be installed when you press `prefix + I` in tmux
 
-## Zsh Plugin Management
+## Zsh Configuration
+
+### Starship Prompt
+
+This setup uses **[Starship](https://starship.rs)** with the **Gruvbox Rainbow** preset:
+- Configuration file: `.config/starship.toml`
+- Colorful prompt using Gruvbox dark color palette
+- Shows OS icon, username, directory, git status, language versions, Docker context, and time
+- Two-line format with context-aware prompt character
+- To customize: Edit `.config/starship.toml` and see [Starship docs](https://starship.rs/config/)
+
+### Plugin Management
 
 This setup uses **Antidote** for managing Zsh plugins. All plugins are defined in `.zsh_plugins.txt`:
 

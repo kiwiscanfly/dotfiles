@@ -76,6 +76,7 @@ brew "glow"                  # Markdown renderer for the terminal
 brew "grc"                   # Generic colorizer for terminal output
 brew "gum"                   # Tool for glamorous shell scripts (styled UI components)
 brew "lolcat"                # Rainbow colorizer for terminal output
+brew "starship"              # Minimal, fast, and customizable prompt for any shell
 
 # CLI Utilities - Development
 brew "lazygit"               # Terminal UI for git commands
@@ -90,6 +91,9 @@ brew "tursodatabase/tap/turso"         # Turso CLI for distributed SQLite databa
 # ============================================================================
 # Casks - GUI Applications
 # ============================================================================
+
+# Fonts
+cask "font-hack-nerd-font"  # Hack Nerd Font with programming glyphs and icons
 
 cask "1password-cli"         # 1Password command-line tool for password management
 cask "anaconda"              # Python distribution for data science and machine learning
