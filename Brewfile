@@ -94,7 +94,6 @@ brew "leoafarias/fvm/fvm"              # Flutter Version Manager
 cask "font-hack-nerd-font"  # Hack Nerd Font with programming glyphs and icons
 
 cask "1password-cli"         # 1Password command-line tool for password management
-cask "anaconda"              # Python distribution for data science and machine learning
 cask "android-file-transfer" # Browse and transfer files from Android devices
 cask "ghostty"               # Fast, native, GPU-accelerated terminal emulator
 

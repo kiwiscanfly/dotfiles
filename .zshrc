@@ -12,7 +12,6 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # Path configuration (consolidated and ordered by priority)
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="/opt/homebrew/anaconda3/bin:$PATH"
 export PATH="$HOME/.pub-cache/bin:$PATH"
 export PATH="/Applications/Docker.app/Contents/Resources/bin:$PATH"
 

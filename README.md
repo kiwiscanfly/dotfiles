@@ -14,7 +14,7 @@ This repository contains configurations for:
 
 All Homebrew packages are documented in [`Brewfile`](Brewfile) with detailed descriptions:
 - **47 formulae** - CLI tools, libraries, and development tools
-- **5 casks** - GUI applications and fonts (Ghostty, Anaconda, Hack Nerd Font, etc.)
+- **4 casks** - GUI applications and fonts (Ghostty, Hack Nerd Font, etc.)
 - **64 VSCode extensions** - Complete development environment
 
 **Non-Homebrew Dependencies:**
