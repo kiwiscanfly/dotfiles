@@ -22,7 +22,14 @@ return {
     },
 
     -- Picker (find files/content)
-    picker = { enabled = true },
+    picker = {
+      enabled = true,
+      sources = {
+        files = {
+          hidden = true, -- Show hidden files by default
+        },
+      },
+    },
 
     -- UI enhancements
     indent = { enabled = true },
@@ -34,6 +41,7 @@ return {
     -- Dashboard
     dashboard = {
       enabled = true,
+      width = 70,
       preset = {
         header = [[
  ██████╗ ██████╗ ██╗  ██╗ █████╗
@@ -42,11 +50,19 @@ return {
  ██╔══██╗██╔══██╗██╔═██╗ ██╔══██║
  ██║  ██║██████╔╝██║  ██╗██║  ██║
  ╚═╝  ╚═╝╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝]],
+        keys = {
+          { icon = "󰎔 ", key = "n", desc = "New File", action = ":ene | startinsert" },
+          { icon = "󰈞 ", key = "f", desc = "Find File", action = ":lua Snacks.picker.files()" },
+          { icon = "󰱼 ", key = "g", desc = "Find Text", action = ":lua Snacks.picker.grep()" },
+          { icon = "󰒓 ", key = "c", desc = "Config", action = ":lua Snacks.picker.files({cwd = vim.fn.stdpath('config')})" },
+          { icon = "󰩈 ", key = "q", desc = "Quit", action = ":qa" },
+        },
       },
       sections = {
-        { section = "header", hl = "SnacksDashboardHeader" },
-        { section = "keys", gap = 1, padding = 1 },
-        { section = "startup" },
+        { section = "header", hl = "SnacksDashboardHeader", padding = 1 },
+        { section = "keys", gap = 1, padding = 2, pane = 1 },
+        { icon = "󰋚 ", title = "Recent Files\n", section = "recent_files", limit = 10, gap = 1, padding = 2, pane = 2 },
+        { section = "startup", padding = 1 },
       },
     },
 

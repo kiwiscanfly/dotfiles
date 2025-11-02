@@ -8,9 +8,12 @@ font-feature = -calt -liga -dlig
 # macOS Option key behavior
 # Make Option/Alt keys send escape sequences for word navigation
 macos-option-as-alt = true
+macos-titlebar-style = transparent
 
 # Theme - Catppuccin Mocha (dark mode only)
 theme = Catppuccin Mocha
 
 # Override background with Gruvbox dark background to match Starship prompt
 background = #282828
+background-opacity = 0.98
+
