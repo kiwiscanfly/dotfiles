@@ -17,3 +17,9 @@ theme = Catppuccin Mocha
 background = #282828
 background-opacity = 0.98
 
+# Cursor Shaders - animated cursor effects
+custom-shader = shaders/cursor_warp.glsl
+custom-shader = shaders/ripple_cursor.glsl
+custom-shader = shaders/cursor_blaze.glsl
+custom-shader-animation = always
+
