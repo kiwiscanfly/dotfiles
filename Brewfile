@@ -78,10 +78,16 @@ brew "lolcat"                # Rainbow colorizer for terminal output
 brew "starship"              # Minimal, fast, and customizable prompt for any shell
 
 # CLI Utilities - Development
+brew "antidote"              # Zsh plugin manager
+brew "htop"                  # Interactive process viewer
 brew "lazygit"               # Terminal UI for git commands
 brew "tmux"                  # Terminal multiplexer for managing multiple terminal sessions
 brew "yq"                    # Process YAML, JSON, XML, CSV files from CLI
 brew "zsh-autosuggestions"   # Fish-like autosuggestions for zsh
+
+# CLI Utilities - Media
+brew "ffmpeg"                # Multimedia framework for audio/video processing
+brew "yt-dlp"                # Feature-rich YouTube downloader
 
 # Custom Tap Packages
 brew "leoafarias/fvm/fvm"              # Flutter Version Manager
@@ -145,6 +151,7 @@ vscode "neilbrayfield.php-docblocker"          # PHP DocBlock generator
 vscode "eriklynd.json-tools"                   # JSON formatting and validation
 vscode "wekex.jsonlint"                        # JSON linting
 vscode "mechatroner.rainbow-csv"               # CSV file colorizer
+vscode "mikestead.dotenv"                      # .env file syntax highlighting
 vscode "quicktype.quicktype"                   # Generate types from JSON
 
 # Python Development
