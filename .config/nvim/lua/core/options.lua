@@ -22,6 +22,7 @@ opt.termguicolors = true
 opt.background = "dark"
 opt.signcolumn = "yes"
 opt.cursorline = true
+opt.scrolloff = 8
 opt.fillchars = { vert = "│", vertleft = "│", vertright = "│", verthoriz = "│" }
 
 -- Backspace

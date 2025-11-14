@@ -8,11 +8,24 @@ return {
   config = function()
     require("noice").setup({
       lsp = {
+        -- Disable LSP progress (handled by fidget)
+        progress = {
+          enabled = false,
+        },
         -- Override markdown rendering for better LSP and nvim-cmp integration
         override = {
           ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
           ["vim.lsp.util.stylize_markdown"] = true,
           ["cmp.entry.get_documentation"] = true,
+        },
+      },
+      -- Route notifications to fidget instead
+      routes = {
+        {
+          filter = {
+            event = "notify",
+          },
+          view = "mini", -- Use minimal view, or set to "notify" if you want some notifications in noice
         },
       },
       -- Recommended presets for better UX
