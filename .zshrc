@@ -87,8 +87,8 @@ alias ll="eza -la --group-directories-first --icons --git"
 alias la="eza -A --group-directories-first --icons"
 alias lt="eza --tree --level=2 --icons --ignore-glob='node_modules|.git'"
 
-# Cute eza colors
-export EZA_COLORS="di=1;35:ex=1;33:ln=1;36:*.md=1;36:*.txt=37:*.json=1;33:*.js=33:*.py=32:*.css=35:*.html=1;31"
+# Eza colors - purple theme
+export EZA_COLORS="di=1;35:ex=38;5;217:ln=38;5;140:*.md=38;5;183:*.txt=38;5;219:*.json=38;5;222:*.js=38;5;180:*.py=38;5;151:*.css=38;5;183:*.html=38;5;210"
 
 # Git shortcuts
 alias gs="git status"
@@ -232,7 +232,7 @@ source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
 antidote load
 
 # Configure zsh-autosuggestions (loaded by Antidote)
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=244"
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#7c6f9f" # Subtle purple matching theme
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 bindkey '^ ' autosuggest-accept  # Ctrl+Space to accept suggestion
 
@@ -257,6 +257,12 @@ bindkey '^ ' autosuggest-accept  # Ctrl+Space to accept suggestion
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git'
+
+# FZF colors - purple theme matching lualine
+export FZF_DEFAULT_OPTS="--color=fg:#f5c2e7,bg:#4d3d52,hl:#cba6f7 \
+--color=fg+:#f5c2e7,bg+:#7c6f9f,hl+:#cba6f7 \
+--color=info:#85c4b8,prompt:#d99368,pointer:#cba6f7 \
+--color=marker:#99d1a0,spinner:#85c4b8,header:#7d9dcc"
 
 # FZF preview with bat
 export FZF_CTRL_T_OPTS="--preview 'bat --color=always --style=numbers --line-range=:500 {}'"
