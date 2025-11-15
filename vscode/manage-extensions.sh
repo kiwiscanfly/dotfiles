@@ -2,6 +2,8 @@
 
 # VS Code Extension Manager
 # Manages VS Code extensions from a text file
+# Usage:
+#   ./manage-extensions.sh [command]
 
 set -e
 
