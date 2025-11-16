@@ -9,7 +9,7 @@ return {
         auto_trigger = true,
         debounce = 75,
         keymap = {
-          accept = "<Tab>",
+          accept = "<S-Tab>",
           accept_word = false,
           next = "<M-]>",
           prev = "<M-[>",

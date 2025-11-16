@@ -25,6 +25,16 @@ opt.cursorline = true
 opt.scrolloff = 8
 opt.fillchars = { vert = "│", vertleft = "│", vertright = "│", verthoriz = "│" }
 
+-- Show whitespace characters
+opt.list = true
+opt.listchars = {
+  tab = "▸ ",
+  space = "·",
+  trail = "•",
+  nbsp = "␣",
+  eol = "¬",
+}
+
 -- Backspace
 opt.backspace = "indent,eol,start"
 
@@ -45,3 +55,13 @@ opt.mouse = "a"
 opt.autoread = true -- Automatically reload files when changed externally
 opt.updatetime = 250 -- Faster completion and file change detection (default 4000ms)
 
+-- Highlight on yank
+vim.api.nvim_create_autocmd('TextYankPost', {
+  group = vim.api.nvim_create_augroup('highlight_yank', { clear = true }),
+  callback = function()
+    vim.highlight.on_yank({
+      higroup = 'IncSearch',
+      timeout = 200,
+    })
+  end,
+})
