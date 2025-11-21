@@ -41,3 +41,4 @@ fi
 echo -e "${GREEN}✓ Sublime Text settings linked successfully!${NC}"
 echo -e "${BLUE}All changes in Sublime Text will be tracked in git.${NC}"
 echo -e "${BLUE}Restart Sublime Text to apply changes.${NC}"
+

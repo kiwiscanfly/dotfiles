@@ -35,13 +35,13 @@ palette = 'gruvbox_dark'
 color_fg0 = '#3c3836'
 color_bg1 = '#4d3d52'
 color_bg3 = '#7c6f9f'
-color_blue = '#7d9dcc'
-color_aqua = '#85c4b8'
-color_green = '#99d1a0'
-color_orange = '#d99368'
+color_blue = '#6b7d9d'       # Muted blue (was #7d9dcc)
+color_aqua = '#6b8c85'       # Muted aqua (was #85c4b8)
+color_green = '#7d9d82'      # Muted green (was #99d1a0)
+color_orange = '#a8826b'     # Muted orange (was #d99368)
 color_purple = '#8a7ca8'
 color_red = '#f38ba8'
-color_yellow = '#d9c9a0'
+color_yellow = '#a89d82'     # Muted yellow (was #d9c9a0)
 
 [os]
 disabled = false

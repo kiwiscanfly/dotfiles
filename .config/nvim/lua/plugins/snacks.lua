@@ -47,6 +47,7 @@ return {
         keys = {
           { icon = "󰎔 ", key = "n", desc = "New File", action = ":ene | startinsert" },
           { icon = "󰈞 ", key = "f", desc = "Find File", action = ":lua Snacks.picker.files()" },
+          { icon = "󰙅 ", key = "e", desc = "File Manager", action = ":Yazi" },
           { icon = "󰱼 ", key = "g", desc = "Find Text", action = ":lua Snacks.picker.grep()" },
           { icon = "󰒓 ", key = "c", desc = "Config", action = ":lua Snacks.picker.files({cwd = vim.fn.stdpath('config')})" },
           { icon = "󰩈 ", key = "q", desc = "Quit", action = ":qa" },
