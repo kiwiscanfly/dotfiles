@@ -122,11 +122,38 @@ alias ccat='/bin/cat'  # Original cat if needed
 # Markdown viewer
 alias mdv='glow'
 
-# Pretty print structured data
-alias pretty-json='jq -C . | bat -l json'
-alias pretty-yaml='yq -C . | bat -l yaml'
-alias pretty-xml='yq -p xml -C . | bat -l xml'
-alias pretty-csv='column -t -s, | bat -l csv'
+# Pretty print structured data (functions to support both stdin and file arguments)
+pretty-json() {
+  if [ -n "$1" ]; then
+    jq . "$1" | bat -l json
+  else
+    jq . | bat -l json
+  fi
+}
+
+pretty-yaml() {
+  if [ -n "$1" ]; then
+    yq . "$1" | bat -l yaml
+  else
+    yq . | bat -l yaml
+  fi
+}
+
+pretty-xml() {
+  if [ -n "$1" ]; then
+    yq -p xml . "$1" | bat -l xml
+  else
+    yq -p xml . | bat -l xml
+  fi
+}
+
+pretty-csv() {
+  if [ -n "$1" ]; then
+    column -t -s, "$1" | bat -l csv
+  else
+    column -t -s, | bat -l csv
+  fi
+}
 
 # macOS specific
 alias showfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
