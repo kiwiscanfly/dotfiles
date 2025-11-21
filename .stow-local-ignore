@@ -36,3 +36,8 @@ Brewfile
 # Scripts directory
 
 scripts
+
+# Application settings managed by install scripts
+
+sublime-text
+vscode

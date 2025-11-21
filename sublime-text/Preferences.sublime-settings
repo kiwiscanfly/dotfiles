@@ -1,0 +1,10 @@
+{
+	"color_scheme": "Packages/User/Bex-Codes.tmTheme",
+	"font_face": "Hack Nerd Font Mono",
+	"font_size": 13,
+	"ignored_packages":
+	[
+		"Vintage",
+	],
+	"index_files": true,
+}

@@ -105,109 +105,18 @@ brew "leoafarias/fvm/fvm"              # Flutter Version Manager
 # Fonts
 cask "font-hack-nerd-font"  # Hack Nerd Font with programming glyphs and icons
 
+# Applications - Developer Tools
+cask "visual-studio-code"    # Microsoft's extensible code editor
+
+# Applications - Utilities
 cask "1password-cli"         # 1Password command-line tool for password management
 cask "ghostty"               # Fast, native, GPU-accelerated terminal emulator
 
 # ============================================================================
-# VSCode Extensions - Development Tools
+# VS Code Extensions
+# ============================================================================
+# Extensions are managed via vscode/manage-extensions.sh and vscode/extensions.txt
+# Install extensions: cd vscode && ./manage-extensions.sh install
+# Sync extensions: cd vscode && ./manage-extensions.sh sync
 # ============================================================================
 
-# Themes & UI
-vscode "akamud.vscode-theme-onedark"           # One Dark Pro theme
-vscode "dooez.alt-catppuccin-vsc"              # Alternative Catppuccin theme
-vscode "pkief.material-icon-theme"             # Material Design icons for files
-vscode "ms-vscode.theme-markdownkit"           # Markdown theme
-
-# Core Development Tools
-vscode "anthropic.claude-code"                 # Claude Code AI assistant
-vscode "github.copilot"                        # GitHub Copilot AI code completion
-vscode "github.copilot-chat"                   # GitHub Copilot chat interface
-vscode "editorconfig.editorconfig"             # EditorConfig support for consistent coding styles
-
-# Git & Version Control
-vscode "eamodio.gitlens"                       # Supercharged Git capabilities
-vscode "github.vscode-pull-request-github"     # GitHub Pull Request and Issues integration
-vscode "github.vscode-github-actions"          # GitHub Actions workflow support
-
-# Linting & Formatting
-vscode "dbaeumer.vscode-eslint"                # ESLint JavaScript linter
-vscode "esbenp.prettier-vscode"                # Prettier code formatter
-vscode "rvest.vs-code-prettier-eslint"         # Prettier + ESLint integration
-vscode "davidanson.vscode-markdownlint"        # Markdown linting and style checking
-
-# Language Support - Web Development
-vscode "astro-build.astro-vscode"              # Astro framework support
-vscode "bradlc.vscode-tailwindcss"             # Tailwind CSS IntelliSense
-vscode "octref.vetur"                          # Vue 2 tooling
-vscode "vue.volar"                             # Vue 3 language support
-vscode "vunguyentuan.vscode-postcss"           # PostCSS syntax highlighting
-
-# Language Support - Mobile Development
-vscode "dart-code.dart-code"                   # Dart language support
-vscode "dart-code.flutter"                     # Flutter framework support
-vscode "gmlewis-vscode.flutter-stylizer"       # Flutter widget formatting
-
-# Language Support - Backend & Systems
-vscode "ms-dotnettools.csharp"                 # C# language support
-vscode "ms-dotnettools.vscode-dotnet-runtime"  # .NET Runtime installer
-vscode "redhat.vscode-yaml"                    # YAML language support
-vscode "neilbrayfield.php-docblocker"          # PHP DocBlock generator
-
-# Language Support - Data & Config
-vscode "eriklynd.json-tools"                   # JSON formatting and validation
-vscode "wekex.jsonlint"                        # JSON linting
-vscode "mechatroner.rainbow-csv"               # CSV file colorizer
-vscode "mikestead.dotenv"                      # .env file syntax highlighting
-vscode "quicktype.quicktype"                   # Generate types from JSON
-
-# Python Development
-vscode "ms-python.python"                      # Python language support
-vscode "ms-python.vscode-pylance"              # Fast Python language server
-vscode "ms-python.debugpy"                     # Python debugger
-vscode "ms-python.vscode-python-envs"          # Python environment manager
-
-# Jupyter Notebooks
-vscode "ms-toolsai.jupyter"                    # Jupyter notebook support
-vscode "ms-toolsai.jupyter-keymap"             # Jupyter keyboard shortcuts
-vscode "ms-toolsai.jupyter-renderers"          # Jupyter output renderers
-vscode "ms-toolsai.vscode-jupyter-cell-tags"   # Jupyter cell tagging
-vscode "ms-toolsai.vscode-jupyter-powertoys"   # Jupyter power user tools
-vscode "ms-toolsai.vscode-jupyter-slideshow"   # Jupyter slideshow creator
-vscode "ms-toolsai.datawrangler"               # Data cleaning and transformation
-vscode "sam-the-programmer.jupyter-theme"      # Jupyter theme customization
-
-# Docker & Containers
-vscode "docker.docker"                         # Docker support
-vscode "ms-azuretools.vscode-docker"           # Azure Docker tools
-vscode "ms-azuretools.vscode-containers"       # Dev Containers support
-vscode "ms-vscode-remote.remote-containers"    # Remote development in containers
-
-# Remote Development
-vscode "ms-vscode-remote.remote-ssh"           # Remote development via SSH
-vscode "ms-vscode-remote.remote-ssh-edit"      # Edit SSH config files
-vscode "ms-vscode.remote-explorer"             # Remote explorer view
-
-# AWS & Cloud
-vscode "amazonwebservices.aws-toolkit-vscode"  # AWS Toolkit for VS Code
-
-# API & Documentation
-vscode "redocly.openapi-vs-code"               # OpenAPI (Swagger) support
-vscode "attilabuti.vscode-mjml"                # MJML email template support
-vscode "dawhite.mustache"                      # Mustache template support
-vscode "imgildev.vscode-mustache-snippets"     # Mustache snippets
-
-# UI/UX Tools
-vscode "figma.figma-vscode-extension"          # Figma integration
-
-# Build Tools
-vscode "vscjava.vscode-gradle"                 # Gradle build tool support
-
-# Editor Enhancements
-vscode "vscodevim.vim"                         # Vim keybindings
-vscode "ms-vscode.live-server"                 # Live preview server
-vscode "streetsidesoftware.code-spell-checker" # Spell checker for code
-vscode "yoavbls.pretty-ts-errors"              # Better TypeScript error messages
-
-# Fun & Productivity
-vscode "tonybaloney.vscode-pets"               # Virtual pets in VS Code
-vscode "nicollasr.vscode-streamdeck"           # Stream Deck integration
