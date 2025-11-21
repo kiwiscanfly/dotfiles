@@ -1,0 +1,22 @@
+{
+  "name": "bex-codes-theme",
+  "displayName": "Bex Codes",
+  "description": "A custom dark theme with rainbow/purple color palette matching Ghostty terminal",
+  "version": "1.0.0",
+  "publisher": "local",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Bex Codes",
+        "uiTheme": "vs-dark",
+        "path": "./themes/bex-codes-color-theme.json"
+      }
+    ]
+  }
+}

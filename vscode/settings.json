@@ -60,7 +60,7 @@
     },
     "dart.flutterSdkPath": "app/.fvm/flutter_sdk",
     "dart.openDevTools": "flutter",
-    "workbench.colorTheme": "Alt Catppuccin Mocha",
+    "workbench.colorTheme": "Bex Codes",
     "window.systemColorTheme": "auto",
     "workbench.preferredLightColorTheme": "Visual Studio Light",
     "editor.accessibilitySupport": "off",
@@ -78,5 +78,6 @@
     "workbench.iconTheme": "material-icon-theme",
     "python.analysis.typeCheckingMode": "basic",
     "github.copilot.nextEditSuggestions.enabled": true,
-    "docker.extension.enableComposeLanguageServer": false
+    "docker.extension.enableComposeLanguageServer": false,
+    "aws.cloudformation.telemetry.enabled": false
 }

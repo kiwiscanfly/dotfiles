@@ -23,7 +23,7 @@ export LC_ALL=en_US.UTF-8
 export EDITOR='nvim'
 
 # bat configuration
-export BAT_THEME="Catppuccin Mocha"
+export BAT_THEME="Bex-Codes"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MANROFFOPT="-c"
 
