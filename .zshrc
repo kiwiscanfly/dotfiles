@@ -23,7 +23,7 @@ export LC_ALL=en_US.UTF-8
 export EDITOR='nvim'
 
 # bat configuration
-export BAT_THEME="Catppuccin-Mocha"
+export BAT_THEME="Catppuccin Mocha"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MANROFFOPT="-c"
 
@@ -122,6 +122,12 @@ alias ccat='/bin/cat'  # Original cat if needed
 # Markdown viewer
 alias mdv='glow'
 
+# Pretty print structured data
+alias pretty-json='jq -C . | bat -l json'
+alias pretty-yaml='yq -C . | bat -l yaml'
+alias pretty-xml='yq -p xml -C . | bat -l xml'
+alias pretty-csv='column -t -s, | bat -l csv'
+
 # macOS specific
 alias showfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
 alias hidefiles="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
@@ -161,12 +167,6 @@ fif() {
   [ -n "$file" ] && ${EDITOR:-nvim} "$file"
 }
 
-# Fuzzy cd with fd and eza preview
-fcd() {
-  local dir
-  dir=$(fd --type d --hidden --follow --exclude .git | fzf --preview 'eza --tree --level=2 --color=always {}') && cd "$dir"
-}
-
 # Fuzzy git branch checkout
 fgb() {
   local branches branch
@@ -182,6 +182,16 @@ fkill() {
   if [ "x$pid" != "x" ]; then
     echo $pid | xargs kill -${1:-9}
   fi
+}
+
+# Yazi file manager with directory changing capability
+y() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  yazi "$@" --cwd-file="$tmp"
+  if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    builtin cd -- "$cwd"
+  fi
+  rm -f -- "$tmp"
 }
 
 # --------------------------------------------------------------------------------
@@ -270,3 +280,11 @@ export FZF_ALT_C_OPTS="--preview 'eza --tree --level=2 --color=always {}'"
 
 # Direnv hook (auto-load environment variables)
 eval "$(direnv hook zsh)"
+
+# Zoxide configuration
+export _ZO_ECHO=1                      # Print matched directory before navigating
+export _ZO_RESOLVE_SYMLINKS=1          # Resolve symlinks when storing paths
+export _ZO_FZF_OPTS="$FZF_DEFAULT_OPTS --preview 'eza --tree --level=2 --color=always {}'"
+
+# Zoxide (smarter cd)
+eval "$(zoxide init zsh)"

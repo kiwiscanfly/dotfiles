@@ -67,6 +67,11 @@ brew "eza"                   # Modern replacement for ls with icons and Git stat
 brew "fd"                    # Fast and user-friendly alternative to find
 brew "fzf"                   # Command-line fuzzy finder
 brew "ripgrep"               # Fast text search tool (better grep)
+brew "yazi"                  # Blazing fast terminal file manager
+brew "poppler"               # PDF rendering library
+brew "p7zip"                 # 7-Zip archive file utility
+brew "imagemagick"           # Image manipulation and conversion tool
+brew "zoxide"                # Smarter cd command that learns your habits
 
 # CLI Utilities - Text & Display
 brew "figlet"                # Generate ASCII art text banners
@@ -80,6 +85,7 @@ brew "starship"              # Minimal, fast, and customizable prompt for any sh
 # CLI Utilities - Development
 brew "antidote"              # Zsh plugin manager
 brew "htop"                  # Interactive process viewer
+brew "jq"                    # Lightweight JSON processor
 brew "lazygit"               # Terminal UI for git commands
 brew "tmux"                  # Terminal multiplexer for managing multiple terminal sessions
 brew "yq"                    # Process YAML, JSON, XML, CSV files from CLI

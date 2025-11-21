@@ -10,15 +10,9 @@ return {
     bigfile = { enabled = true },
     quickfile = { enabled = true },
 
-    -- Explorer (file navigation)
+    -- Explorer (disabled - using yazi instead)
     explorer = {
-      enabled = true,
-      replace_netrw = true,
-      win = {
-        style = {
-          bg = "Normal",
-        },
-      },
+      enabled = false,
     },
 
     -- Picker (find files/content)
@@ -79,8 +73,6 @@ return {
     words = { enabled = true },
   },
   keys = {
-    { "<leader>e", function() Snacks.explorer.open() end, desc = "Explorer (root)" },
-    { "<leader>E", function() Snacks.explorer.open({ cwd = vim.fn.getcwd() }) end, desc = "Explorer (cwd)" },
     { "<leader>.", function() Snacks.picker.smart() end, desc = "Smart find" },
     { "<leader>ff", function() Snacks.picker.files() end, desc = "Find files" },
     { "<leader>fg", function() Snacks.picker.git_files() end, desc = "Find git files" },
