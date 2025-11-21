@@ -1,0 +1,6 @@
+# Yazi Keymap Configuration
+
+[[mgr.prepend_keymap]]
+on = "A"
+run = "create --dir"
+desc = "Create a directory"
