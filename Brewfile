@@ -92,7 +92,10 @@ brew "yq"                    # Process YAML, JSON, XML, CSV files from CLI
 brew "zsh-autosuggestions"   # Fish-like autosuggestions for zsh
 
 # CLI Utilities - Media
+brew "cava"                  # Console-based Audio Visualizer for ALSA
 brew "ffmpeg"                # Multimedia framework for audio/video processing
+brew "mpd"                   # Music Player Daemon - headless music player server
+brew "rmpc"                  # Rusty Music Player Client - modern TUI for MPD
 brew "yt-dlp"                # Feature-rich YouTube downloader
 
 # Email Tools

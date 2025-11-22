@@ -1,0 +1,103 @@
+# ============================================================================
+# MPD (Music Player Daemon) Configuration
+# ============================================================================
+# MPD is a flexible, powerful, server-side music player daemon.
+# This configuration sets up MPD to work with rmpc client on macOS.
+
+# ============================================================================
+# Directories and Files
+# ============================================================================
+
+# Location of your music library
+music_directory     "~/Music"
+
+# Directory for playlists (runtime data, not in dotfiles)
+playlist_directory  "~/.config/mpd/playlists"
+
+# Database file (stores music metadata)
+db_file             "~/.config/mpd/database"
+
+# Log file location
+log_file            "~/.config/mpd/log"
+
+# Process ID file
+pid_file            "~/.config/mpd/pid"
+
+# State file (remembers playback position, volume, etc.)
+state_file          "~/.config/mpd/state"
+
+# Sticker database (stores ratings, play counts, etc.)
+sticker_file        "~/.config/mpd/sticker.sql"
+
+# ============================================================================
+# Network Settings
+# ============================================================================
+
+# Bind to localhost only (security: only local connections)
+bind_to_address     "127.0.0.1"
+port                "6600"
+
+# No password required for local connections
+# password            ""
+
+# ============================================================================
+# Audio Output
+# ============================================================================
+
+# macOS CoreAudio output
+audio_output {
+    type            "osx"
+    name            "CoreAudio Output"
+    mixer_type      "software"
+    # Uncomment and set if you need a specific device:
+    # device          "default"
+}
+
+# FIFO output for visualizer (cava)
+audio_output {
+    type            "fifo"
+    name            "FIFO Output for Visualizer"
+    path            "~/.config/mpd/mpd.fifo"
+    format          "44100:16:2"
+}
+
+# Alternative: libao output (fallback if CoreAudio fails)
+# audio_output {
+#     type            "ao"
+#     name            "Libao Output"
+#     driver          "macosx"
+#     options         "client_name=MPD"
+# }
+
+# ============================================================================
+# Symlink Behavior
+# ============================================================================
+
+# Follow symlinks outside music directory
+follow_outside_symlinks "yes"
+
+# Follow symlinks inside music directory
+follow_inside_symlinks  "yes"
+
+# ============================================================================
+# Database & Filesystem Settings
+# ============================================================================
+
+# Automatically update database when files change
+auto_update         "yes"
+
+# Character encoding
+filesystem_charset  "UTF-8"
+
+# ============================================================================
+# Miscellaneous
+# ============================================================================
+
+# Enable verbose logging (helpful for troubleshooting)
+# log_level           "verbose"
+
+# Restore volume on startup
+restore_paused      "yes"
+
+# Save state every 2 minutes
+save_absolute_paths_in_playlists "no"

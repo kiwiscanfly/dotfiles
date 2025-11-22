@@ -1,0 +1,347 @@
+// ============================================================================
+// Bex Codes Theme for rmpc
+// ============================================================================
+// Custom theme matching the Bex Codes/Gruvbox rainbow palette used across
+// nvim, tmux, starship, bat, and other CLI tools
+//
+// Color Palette:
+//   Background:    #4d3d52 (purple-gray)
+//   Purple:        #7c6f9f
+//   Blue:          #6b7d9d (muted)
+//   Aqua:          #6b8c85 (muted)
+//   Orange:        #a8826b (muted)
+//   Yellow:        #a89d82 (muted)
+//   Red:           #f38ba8
+//   Foreground:    #3c3836 (dark brown)
+
+#![enable(implicit_some)]
+#![enable(unwrap_newtypes)]
+#![enable(unwrap_variant_newtypes)]
+(
+    // ========================================================================
+    // Background Colors
+    // ========================================================================
+
+    background_color: "#282828",           // main background - ghostty/gruvbox dark
+    header_background_color: "#4d3d52",   // header - purple-gray
+    modal_background_color: "#3c3836",    // dark modal bg
+
+    // ========================================================================
+    // Text & Foreground
+    // ========================================================================
+
+    text_color: "#a89d82",                // muted yellow text
+
+    // ========================================================================
+    // Item Styles
+    // ========================================================================
+
+    // Currently selected item in lists
+    highlighted_item_style: (
+        fg: "#282828",                     // dark bg
+        bg: "#7d9d82",                     // muted green
+    ),
+
+    // Currently playing song
+    current_item_style: (
+        fg: "#282828",                     // dark bg
+        bg: "#6b7d9d",                     // muted blue
+    ),
+
+    // ========================================================================
+    // Borders
+    // ========================================================================
+
+    draw_borders: true,
+
+    borders_style: (
+        fg: "#7c6f9f",                  // purple
+    ),
+
+    highlight_border_style: (
+        fg: "#a8826b",                  // muted orange
+    ),
+
+    // ========================================================================
+    // Tab Bar
+    // ========================================================================
+
+    tab_bar: (
+        active_style: (
+            fg: "#6b7d9d",                 // muted blue
+            bg: "#282828",                 // ghostty background
+        ),
+        inactive_style: (
+            fg: "#7c6f9f",                 // purple
+            bg: "#282828",                 // ghostty background
+        ),
+    ),
+
+    // ========================================================================
+    // Browser Preview
+    // ========================================================================
+
+    preview_label_style: (
+        fg: "#6b8c85",                  // muted aqua
+    ),
+
+    preview_metadata_group_style: (
+        fg: "#a8826b",                  // muted orange
+    ),
+
+    // ========================================================================
+    // Progress Bar
+    // ========================================================================
+
+    progress_bar: (
+        symbols: ["▰", "▰", "▰", "▱", "▰"],
+        track_style: (
+            fg: "#7c6f9f",              // purple
+        ),
+        elapsed_style: (
+            fg: "#6b8c85",              // muted aqua
+        ),
+        thumb_style: (
+            fg: "#a8826b",              // muted orange
+        ),
+    ),
+
+    // ========================================================================
+    // Scrollbar
+    // ========================================================================
+
+    scrollbar: (
+        symbols: ["│", "█", "╷", "╵"],
+        track_style: (
+            fg: "#7c6f9f",              // purple
+        ),
+        ends_style: (
+            fg: "#7c6f9f",              // purple
+        ),
+        thumb_style: (
+            fg: "#6b7d9d",              // muted blue
+        ),
+    ),
+
+    // ========================================================================
+    // Directory & Song Symbols
+    // ========================================================================
+
+    symbols: (
+        song: "",                               // Music note icon
+        dir: "",                                // Folder icon
+        marker: "",                             // Marker icon
+        ellipsis: "…",
+
+        song_style: (
+            fg: "#6b8c85",              // muted aqua
+        ),
+        dir_style: (
+            fg: "#6b7d9d",              // muted blue
+        ),
+    ),
+
+    // ========================================================================
+    // Log Level Styles
+    // ========================================================================
+
+    level_styles: (
+        info: (
+            fg: "#6b7d9d",              // muted blue
+        ),
+        warn: (
+            fg: "#a89d82",              // muted yellow
+        ),
+        error: (
+            fg: "#f38ba8",              // red
+        ),
+        debug: (
+            fg: "#7c6f9f",              // purple
+        ),
+        trace: (
+            fg: "#6b8c85",              // muted aqua
+        ),
+    ),
+
+    // ========================================================================
+    // Display Options
+    // ========================================================================
+
+    show_song_table_header: true,
+
+    // Separator between albums in queue
+    song_table_album_separator: Underline,
+
+    // Modal backdrop
+    modal_backdrop: true,
+
+    // Tag separator for multiple values
+    format_tag_separator: " | ",
+
+    // How to handle multiple tag values
+    multiple_tag_resolution_strategy: All,
+
+    // ========================================================================
+    // Header Configuration
+    // ========================================================================
+
+    header: (
+        rows: [
+            (
+                left: [
+                    (kind: Text("["), style: (fg: "#a8826b", modifiers: "Bold")),
+                    (kind: Property(Status(StateV2(playing_label: "Playing", paused_label: "Paused", stopped_label: "Stopped"))), style: (fg: "#6b8c85", modifiers: "Bold")),
+                    (kind: Text("]"), style: (fg: "#a8826b", modifiers: "Bold"))
+                ],
+                center: [
+                    (kind: Property(Song(Title)), style: (modifiers: "Bold"),
+                        default: (kind: Text("No Song"), style: (modifiers: "Bold"))
+                    )
+                ],
+                right: [
+                    (kind: Property(Widget(ScanStatus)), style: (fg: "#6b7d9d")),
+                    (kind: Property(Widget(Volume)), style: (fg: "#6b7d9d"))
+                ]
+            ),
+            (
+                left: [
+                    (kind: Property(Status(Elapsed))),
+                    (kind: Text(" / ")),
+                    (kind: Property(Status(Duration))),
+                    (kind: Text(" (")),
+                    (kind: Property(Status(Bitrate))),
+                    (kind: Text(" kbps)"))
+                ],
+                center: [
+                    (kind: Property(Song(Artist)), style: (fg: "#a8826b", modifiers: "Bold"),
+                        default: (kind: Text("Unknown"), style: (fg: "#a89d82", modifiers: "Bold"))
+                    ),
+                    (kind: Text(" - ")),
+                    (kind: Property(Song(Album)),
+                        default: (kind: Text("Unknown Album"))
+                    )
+                ],
+                right: [
+                    (
+                        kind: Property(Widget(States(
+                            active_style: (fg: "#a89d82", modifiers: "Bold"),
+                            separator_style: (fg: "#a89d82")))
+                        ),
+                        style: (fg: "#7c6f9f")
+                    ),
+                ]
+            ),
+        ],
+    ),
+
+    // ========================================================================
+    // Song Table Format
+    // ========================================================================
+
+    // Song table format (columns displayed in queue)
+    song_table_format: [
+        (
+            prop: (kind: Property(Artist),
+                default: (kind: Text("Unknown Artist"))
+            ),
+            width: "20%",
+        ),
+        (
+            prop: (kind: Property(Title),
+                default: (kind: Text("Unknown Title"))
+            ),
+            width: "35%",
+        ),
+        (
+            prop: (kind: Property(Album),
+                default: (kind: Text("Unknown Album"))
+            ),
+            width: "30%",
+        ),
+        (
+            prop: (kind: Property(Duration),
+                default: (kind: Text("-"))
+            ),
+            width: "15%",
+            alignment: Right,
+        ),
+    ],
+
+    // ========================================================================
+    // Browser Song Format
+    // ========================================================================
+
+    browser_song_format: [
+        (
+            kind: Group([
+                (kind: Property(Track)),
+                (kind: Text(" ")),
+            ])
+        ),
+        (
+            kind: Group([
+                (kind: Property(Artist)),
+                (kind: Text(" - ")),
+                (kind: Property(Title)),
+            ]),
+            default: (kind: Property(Filename))
+        ),
+    ],
+
+    // ========================================================================
+    // Lyrics
+    // ========================================================================
+
+    lyrics: (
+        timestamp: false
+    ),
+
+    // ========================================================================
+    // Layout & Components
+    // ========================================================================
+
+    components: {},
+
+    layout: Split(
+        direction: Vertical,
+        panes: [
+            (
+                pane: Pane(Header),
+                size: "2",
+            ),
+            (
+                pane: Pane(Tabs),
+                size: "3",
+            ),
+            (
+                pane: Pane(TabContent),
+                size: "100%",
+            ),
+            (
+                pane: Pane(ProgressBar),
+                size: "1",
+            ),
+        ],
+    ),
+
+    // ========================================================================
+    // Default Album Art
+    // ========================================================================
+
+    default_album_art_path: None,
+
+    // ========================================================================
+    // Cava Visualizer Appearance
+    // ========================================================================
+
+    cava: (
+        bar_symbols: ['▁', '▂', '▃', '▄', '▅', '▆', '▇', '█'],
+        inverted_bar_symbols: ['▔', '🮂', '🮃', '▀', '🮄', '🮅', '🮆', '█'],
+        bg_color: "#282828",           // ghostty background
+        bar_width: 2,
+        bar_spacing: 1,
+        orientation: Bottom,
+        bar_color: Single("#7d9d82"),  // muted green
+    ),
+
+)

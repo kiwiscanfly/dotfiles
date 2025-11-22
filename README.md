@@ -8,12 +8,13 @@ This repository contains configurations for:
 - **Terminal:** Ghostty with Catppuccin themes, Zsh with Starship prompt, Tmux
 - **Editor:** Neovim with LSP, Treesitter, and Copilot
 - **CLI Tools:** Modern replacements (bat, eza, fzf, ripgrep) and development tools
+- **Music Player:** MPD daemon with rmpc TUI client and custom Bex Codes theme
 - **Development:** Flutter, Node.js, Python, PHP, Docker, AWS, and more
 
 ### Package Management
 
 All Homebrew packages are documented in [`Brewfile`](Brewfile) with detailed descriptions:
-- **47 formulae** - CLI tools, libraries, and development tools
+- **49 formulae** - CLI tools, libraries, and development tools (including MPD music player)
 - **3 casks** - GUI applications and fonts (Ghostty, Hack Nerd Font, 1Password CLI)
 - **64 VSCode extensions** - Complete development environment
 
@@ -122,6 +123,56 @@ This setup uses **Antidote** for managing Zsh plugins. All plugins are defined i
 - `zsh-users/zsh-autosuggestions` - Fish-like autosuggestions
 
 **To add more plugins:** Edit `.zsh_plugins.txt` and add the plugin in `user/repo` format. Reload your shell to install.
+
+## Music Player
+
+### MPD + rmpc Setup
+
+This setup uses **[MPD](https://www.musicpd.org/)** (Music Player Daemon) as a headless music server with **[rmpc](https://github.com/mierak/rmpc)** as a modern Rust-based TUI client.
+
+**Features:**
+- Background music daemon managed by brew services
+- Beautiful TUI interface with vim keybindings
+- Album art support (via Ghostty's Kitty graphics protocol)
+- Custom Bex Codes theme matching your dotfiles aesthetic
+- Quick access via tmux keybinding: `prefix+m`
+
+**Music Library Location:** `~/Music`
+
+**Controls:**
+```bash
+# Start/stop MPD service
+brew services start mpd
+brew services stop mpd
+
+# Launch rmpc client
+rmpc
+
+# Or use tmux keybinding
+# In tmux: prefix+m (Ctrl+b, then m)
+
+# Command-line controls with mpc
+mpc update          # Update music database
+mpc ls              # List all files
+mpc listall         # List all songs
+mpc play            # Play
+mpc pause           # Pause
+mpc next            # Next track
+mpc prev            # Previous track
+```
+
+**Configuration Files:**
+- MPD config: `.mpdconf` (symlinked by stow)
+- rmpc config: `.config/rmpc/config.ron`
+- rmpc theme: `.config/rmpc/themes/bex_codes.ron`
+
+**First Time Setup:**
+After installing via `brew bundle`, MPD will automatically:
+1. Start as a background service
+2. Scan `~/Music` for audio files
+3. Create database at `~/.config/mpd/database`
+
+The database updates automatically, but you can manually trigger updates with `mpc update`.
 
 ## Features
 

@@ -1,0 +1,207 @@
+// ============================================================================
+// rmpc (Rusty Music Player Client) Configuration
+// ============================================================================
+// A modern TUI client for MPD with vim-like keybindings and album art support
+// Config format: RON (Rusty Object Notation)
+
+#![enable(implicit_some)]
+#![enable(unwrap_newtypes)]
+#![enable(unwrap_variant_newtypes)]
+(
+    // ========================================================================
+    // Connection Settings
+    // ========================================================================
+
+    // MPD server address (default: 127.0.0.1:6600)
+    address: "127.0.0.1:6600",
+
+    // MPD password (if required)
+    password: None,
+
+    // ========================================================================
+    // Theme & Display
+    // ========================================================================
+
+    // Use custom Bex Codes theme
+    theme: "bex_codes",
+
+    // Maximum frames per second
+    max_fps: 30,
+
+    // Lines of padding when scrolling (similar to vim's scrolloff)
+    scrolloff: 3,
+
+    // Enable mouse support
+    enable_mouse: true,
+
+    // Wrap navigation at top/bottom
+    wrap_navigation: true,
+
+    // Auto-reload config when changed
+    enable_config_hot_reload: true,
+
+    // ========================================================================
+    // Album Art Configuration
+    // ========================================================================
+
+    album_art: (
+        // Auto-detect best protocol (Ghostty supports Kitty protocol)
+        method: Auto,
+
+        // Maximum image dimensions
+        max_size_px: (
+            width: 900,
+            height: 900,
+        ),
+
+        // Try embedded art first, then external files
+        order: EmbeddedFirst,
+
+        // Alignment
+        vertical_align: Top,
+        horizontal_align: Left,
+    ),
+
+    // ========================================================================
+    // Playback Settings
+    // ========================================================================
+
+    // Volume adjustment step (percentage)
+    volume_step: 5,
+
+    // Status update interval (milliseconds)
+    status_update_interval_ms: 1000,
+
+    // Keep paused state when changing songs manually
+    keep_state_on_song_change: true,
+
+    // Auto-select currently playing song
+    select_current_song_on_change: true,
+
+    // Center current song in queue view
+    center_current_song_on_change: false,
+
+    // ========================================================================
+    // Browser & Search Settings
+    // ========================================================================
+
+    // Ignore leading "The" when sorting
+    ignore_leading_the: true,
+
+    // Sort songs by disc, track, artist, title
+    browser_song_sort: [Disc, Track, Artist, Title],
+
+    // Album display settings
+    artists: (
+        // Show albums split by date (separate releases)
+        album_display_mode: SplitByDate,
+
+        // Sort albums by date
+        album_sort_by: Date,
+    ),
+
+    // Search configuration
+    search: (
+        // Case-insensitive search
+        case_sensitive: false,
+
+        // Search mode
+        mode: Contains,
+
+        // Searchable tags
+        tags: [
+            (value: "any",    label: "Any Tag"),
+            (value: "artist", label: "Artist"),
+            (value: "album",  label: "Album"),
+            (value: "title",  label: "Title"),
+            (value: "genre",  label: "Genre"),
+        ],
+    ),
+
+    // Browser column widths (percentages)
+    browser_column_widths: [20, 38, 42],
+
+    // ========================================================================
+    // Cava Visualizer
+    // ========================================================================
+
+    cava: (
+        framerate: 60,
+        autosens: true,
+        sensitivity: 100,
+        lower_cutoff_freq: 50,
+        higher_cutoff_freq: 10000,
+        input: (
+            method: Fifo,
+            source: "/Users/rebecca/.config/mpd/mpd.fifo",
+            sample_rate: 44100,
+            channels: 2,
+            sample_bits: 16,
+        ),
+        smoothing: (
+            noise_reduction: 77,
+            monstercat: false,
+            waves: false,
+        ),
+        eq: [],
+    ),
+
+    // ========================================================================
+    // Custom Tab Layouts
+    // ========================================================================
+
+    tabs: [
+        (
+            name: "Queue",
+            pane: Split(
+                direction: Vertical,
+                panes: [
+                    (
+                        size: "70%",
+                        pane: Split(
+                            direction: Horizontal,
+                            panes: [
+                                (
+                                    size: "65%",
+                                    pane: Pane(Queue)
+                                ),
+                                (
+                                    size: "35%",
+                                    pane: Pane(AlbumArt)
+                                ),
+                            ],
+                        ),
+                    ),
+                    (
+                        size: "30%",
+                        pane: Pane(Cava)
+                    ),
+                ],
+            ),
+        ),
+        (
+            name: "Directories",
+            pane: Pane(Directories),
+        ),
+        (
+            name: "Artists",
+            pane: Pane(Artists),
+        ),
+        (
+            name: "Album Artists",
+            pane: Pane(AlbumArtists),
+        ),
+        (
+            name: "Albums",
+            pane: Pane(Albums),
+        ),
+        (
+            name: "Playlists",
+            pane: Pane(Playlists),
+        ),
+        (
+            name: "Search",
+            pane: Pane(Search),
+        ),
+    ],
+)
