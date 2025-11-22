@@ -5,18 +5,22 @@ My personal configuration files managed with GNU Stow.
 ## Overview
 
 This repository contains configurations for:
-- **Terminal:** Ghostty with Catppuccin themes, Zsh with Starship prompt, Tmux
+- **Terminal:** Ghostty (with animated cursor shaders), Zsh with Starship prompt, Tmux
 - **Editor:** Neovim with LSP, Treesitter, and Copilot
+- **File Manager:** yazi with zoxide integration
+- **Email:** neomutt with OAuth2 and LBDB contacts integration
+- **Music Player:** MPD daemon with rmpc TUI client
 - **CLI Tools:** Modern replacements (bat, eza, fzf, ripgrep) and development tools
-- **Music Player:** MPD daemon with rmpc TUI client and custom Bex Codes theme
-- **Development:** Flutter, Node.js, Python, PHP, Docker, AWS, and more
+- **Development:** Flutter, Node.js, Python, PHP, Docker, and more
+
+See [Themes](#themes) section for custom color themes across all tools.
 
 ### Package Management
 
 All Homebrew packages are documented in [`Brewfile`](Brewfile) with detailed descriptions:
-- **49 formulae** - CLI tools, libraries, and development tools (including MPD music player)
-- **3 casks** - GUI applications and fonts (Ghostty, Hack Nerd Font, 1Password CLI)
-- **64 VSCode extensions** - Complete development environment
+- **68 formulae** - CLI tools, libraries, and development tools (including MPD music player)
+- **4 casks** - GUI applications and fonts (Ghostty, Hack Nerd Font, 1Password CLI, VS Code)
+- **55 VSCode extensions** - Managed via `vscode/manage-extensions.sh` (separate from Brewfile)
 
 **Non-Homebrew Dependencies:**
 - **VSCode** - [Download from code.visualstudio.com](https://code.visualstudio.com)
@@ -42,7 +46,7 @@ cd ~/dotfiles
 brew bundle install
 ```
 
-This will install all 46 formulae, 5 casks, and 64 VSCode extensions listed in the [`Brewfile`](Brewfile).
+This will install all 68 formulae and 4 casks listed in the [`Brewfile`](Brewfile). 
 
 ### 4. Install VSCode and Docker Desktop
 - **VSCode:** [Download from code.visualstudio.com](https://code.visualstudio.com)
@@ -60,27 +64,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 After installing, open tmux and press `prefix + I` (Ctrl+b, then Shift+I) to install tmux plugins.
 
-### 7. Install Catppuccin Theme for Bat
-```bash
-mkdir -p ~/.config/bat/themes
-cd ~/.config/bat/themes
-curl -O https://raw.githubusercontent.com/catppuccin/bat/main/themes/Catppuccin-Mocha.tmTheme
-bat cache --build
-```
-
-### 8. Configure Git Delta
-```bash
-git config --global delta.syntax-theme "Catppuccin-Mocha"
-```
-
-### 9. Install Node.js Global Packages
-After installing Node.js via nvm:
-
-```bash
-npm install -g tree-sitter-cli  # Required for Neovim treesitter parsers
-```
-
-### 10. Symlink Dotfiles with Stow
+### 7. Symlink Dotfiles with Stow
 ```bash
 cd ~/dotfiles
 stow .  # Symlink all configs
@@ -92,7 +76,48 @@ stow nvim    # Symlink only Neovim config
 stow tmux    # Symlink only Tmux config
 ```
 
-### 11. Reload Your Shell
+### 8. Configure Lazygit (macOS)
+Lazygit on macOS looks for its config in `~/Library/Application Support/lazygit/`, so we need to create a manual symlink:
+```bash
+mkdir -p ~/Library/Application\ Support/lazygit
+rm -f ~/Library/Application\ Support/lazygit/config.yml
+ln -s ~/dotfiles/.config/lazygit/config.yml ~/Library/Application\ Support/lazygit/config.yml
+```
+
+### 9. Build Bat Cache
+After symlinking dotfiles, build the bat cache to enable custom themes:
+```bash
+bat cache --build
+```
+
+### 10. Configure Git Delta
+Ensure your `~/.gitconfig` includes the Delta themes file:
+```gitconfig
+[include]
+    path = ~/dotfiles/.config/git/delta-themes.gitconfig
+
+[delta]
+    features = bex-codes
+    navigate = true
+    side-by-side = true
+```
+
+### 11. Install Node.js Global Packages
+After installing Node.js via nvm:
+
+```bash
+npm install -g tree-sitter-cli  # Required for Neovim treesitter parsers
+```
+
+### 12. Install VSCode Extensions
+```bash
+cd ~/dotfiles/vscode
+./manage-extensions.sh install
+```
+
+This will install all 55 extensions listed in `vscode/extensions.txt`.
+
+### 13. Reload Your Shell
 ```bash
 source ~/.zshrc
 ```
@@ -106,11 +131,11 @@ source ~/.zshrc
 
 ### Starship Prompt
 
-This setup uses **[Starship](https://starship.rs)** with the **Gruvbox Rainbow** preset:
+This setup uses **[Starship](https://starship.rs)** with a custom configuration:
 - Configuration file: `.config/starship.toml`
-- Colorful prompt using Gruvbox dark color palette
 - Shows OS icon, username, directory, git status, language versions, Docker context, and time
-- Two-line format with context-aware prompt character
+- Two-line format with context-aware prompt character (including vim mode support)
+- Rainbow-colored segments (see [Themes](#themes) section)
 - To customize: Edit `.config/starship.toml` and see [Starship docs](https://starship.rs/config/)
 
 ### Plugin Management
@@ -123,56 +148,6 @@ This setup uses **Antidote** for managing Zsh plugins. All plugins are defined i
 - `zsh-users/zsh-autosuggestions` - Fish-like autosuggestions
 
 **To add more plugins:** Edit `.zsh_plugins.txt` and add the plugin in `user/repo` format. Reload your shell to install.
-
-## Music Player
-
-### MPD + rmpc Setup
-
-This setup uses **[MPD](https://www.musicpd.org/)** (Music Player Daemon) as a headless music server with **[rmpc](https://github.com/mierak/rmpc)** as a modern Rust-based TUI client.
-
-**Features:**
-- Background music daemon managed by brew services
-- Beautiful TUI interface with vim keybindings
-- Album art support (via Ghostty's Kitty graphics protocol)
-- Custom Bex Codes theme matching your dotfiles aesthetic
-- Quick access via tmux keybinding: `prefix+m`
-
-**Music Library Location:** `~/Music`
-
-**Controls:**
-```bash
-# Start/stop MPD service
-brew services start mpd
-brew services stop mpd
-
-# Launch rmpc client
-rmpc
-
-# Or use tmux keybinding
-# In tmux: prefix+m (Ctrl+b, then m)
-
-# Command-line controls with mpc
-mpc update          # Update music database
-mpc ls              # List all files
-mpc listall         # List all songs
-mpc play            # Play
-mpc pause           # Pause
-mpc next            # Next track
-mpc prev            # Previous track
-```
-
-**Configuration Files:**
-- MPD config: `.mpdconf` (symlinked by stow)
-- rmpc config: `.config/rmpc/config.ron`
-- rmpc theme: `.config/rmpc/themes/bex_codes.ron`
-
-**First Time Setup:**
-After installing via `brew bundle`, MPD will automatically:
-1. Start as a background service
-2. Scan `~/Music` for audio files
-3. Create database at `~/.config/mpd/database`
-
-The database updates automatically, but you can manually trigger updates with `mpc update`.
 
 ## Features
 
@@ -208,6 +183,20 @@ The database updates automatically, but you can manually trigger updates with `m
 
 **Documentation:**
 - `mdv` - view markdown with glow
+
+### Music Player
+
+This setup uses **[MPD](https://www.musicpd.org/)** with **[rmpc](https://github.com/mierak/rmpc)** as a TUI client. Features include album art support and audio visualizer (cava).
+
+**Quick access:** `prefix+t` in tmux (Ctrl+b, then t)
+
+For detailed setup instructions, controls, and configuration details, see [`.config/rmpc/README.md`](.config/rmpc/README.md).
+
+## Themes
+
+This repository includes custom **Bex Codes** themes with a unified color palette across multiple applications including Ghostty, Neovim, VSCode, Tmux, Starship, bat, yazi, rmpc, and more.
+
+For complete theme documentation including color mappings, installation notes, and the design philosophy, see **[THEMES.md](THEMES.md)**.
 
 ## Usage
 

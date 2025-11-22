@@ -1,4 +1,32 @@
 git:
-  paging:
-    colorArg: always
-    pager: delta --dark --paging=never
+  pagers:
+    - colorArg: always
+      pager: delta --dark --paging=never
+gui:
+  # Bex Codes theme colors
+  theme:
+    lightTheme: false
+    activeBorderColor:
+      - '#d9c9a0' # Yellow
+      - bold
+    inactiveBorderColor:
+      - '#7c6f9f' # Purple
+    searchingActiveBorderColor:
+      - '#d9c9a0' # Yellow
+      - bold
+    optionsTextColor:
+      - '#85c4b8' # Aqua
+    selectedLineBgColor:
+      - black
+    inactiveViewSelectedLineBgColor:
+      - black
+    selectedRangeBgColor:
+      - '#7c6f9f' # Purple
+    cherryPickedCommitBgColor:
+      - '#7c6f9f' # Purple
+    cherryPickedCommitFgColor:
+      - '#282828' # Dark grey
+    unstagedChangesColor:
+      - '#f38ba8' # Pink/red
+    defaultFgColor:
+      - '#e0e0e0' # Light text

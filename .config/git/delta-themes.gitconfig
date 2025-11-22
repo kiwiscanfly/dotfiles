@@ -1,0 +1,40 @@
+# Git Delta - Bex Codes Theme
+# Custom theme matching the Bex Codes color palette
+
+[delta "bex-codes"]
+    # Use Bex Codes syntax theme from bat
+    syntax-theme = Bex-Codes
+    dark = true
+
+    # Added lines: use syntax highlighting with muted green background
+    plus-style = syntax "#2a4d3d"
+    plus-emph-style = syntax bold "#3a5d4d"
+
+    # Removed lines: use syntax highlighting with muted burgundy background
+    minus-style = syntax "#4d3540"
+    minus-emph-style = syntax bold "#5d4550"
+
+    # Unchanged lines: dim syntax
+    zero-style = dim syntax
+
+    # Commit metadata
+    commit-style = "#cba6f7" bold
+    commit-decoration-style = "#7c6f9f" box
+
+    # File headers
+    file-style = "#7d9dcc" bold
+    file-decoration-style = "#7c6f9f" ul
+
+    # Hunk headers
+    hunk-header-style = file line-number syntax
+    hunk-header-decoration-style = "#7c6f9f" box
+    hunk-header-file-style = "#7d9dcc"
+    hunk-header-line-number-style = "#d9c9a0"
+
+    # Line numbers
+    line-numbers = true
+    line-numbers-left-style = "#7c6f9f"
+    line-numbers-right-style = "#7c6f9f"
+    line-numbers-minus-style = "#f38ba8"
+    line-numbers-plus-style = "#99d1a0"
+    line-numbers-zero-style = "#7c6f9f" dim

@@ -1,63 +1,135 @@
-akamud.vscode-theme-onedark
-amazonwebservices.aws-toolkit-vscode
+# ============================================================================
+# VSCode Extensions
+# ============================================================================
+# Managed by manage-extensions.sh
+#
+# Install all: ./manage-extensions.sh install
+# Sync:        ./manage-extensions.sh sync
+# Save:        ./manage-extensions.sh save
+#
+# Note: local.bex-codes-theme is a local development extension
+#       and must be installed separately
+# ============================================================================
+
+# ----------------------------------------------------------------------------
+# Core Development Tools
+# ----------------------------------------------------------------------------
 anthropic.claude-code
-astro-build.astro-vscode
-attilabuti.vscode-mjml
-bradlc.vscode-tailwindcss
-dart-code.dart-code
-dart-code.flutter
-davidanson.vscode-markdownlint
-dawhite.mustache
-dbaeumer.vscode-eslint
-docker.docker
-eamodio.gitlens
-editorconfig.editorconfig
-eriklynd.json-tools
-esbenp.prettier-vscode
-figma.figma-vscode-extension
 github.copilot
 github.copilot-chat
-github.vscode-github-actions
+vscodevim.vim
+
+# ----------------------------------------------------------------------------
+# Git & GitHub
+# ----------------------------------------------------------------------------
+eamodio.gitlens
 github.vscode-pull-request-github
-gmlewis-vscode.flutter-stylizer
-imgildev.vscode-mustache-snippets
-mechatroner.rainbow-csv
-mikestead.dotenv
-ms-azuretools.vscode-containers
-ms-azuretools.vscode-docker
-ms-dotnettools.csharp
-ms-dotnettools.vscode-dotnet-runtime
-ms-python.debugpy
+
+# ----------------------------------------------------------------------------
+# Formatters & Linters
+# ----------------------------------------------------------------------------
+editorconfig.editorconfig
+esbenp.prettier-vscode
+rvest.vs-code-prettier-eslint
+dbaeumer.vscode-eslint
+streetsidesoftware.code-spell-checker
+
+# ----------------------------------------------------------------------------
+# Python Development
+# ----------------------------------------------------------------------------
 ms-python.python
 ms-python.vscode-pylance
+ms-python.debugpy
 ms-python.vscode-python-envs
-ms-toolsai.datawrangler
+
+# ----------------------------------------------------------------------------
+# Jupyter Notebooks
+# ----------------------------------------------------------------------------
 ms-toolsai.jupyter
 ms-toolsai.jupyter-keymap
 ms-toolsai.jupyter-renderers
 ms-toolsai.vscode-jupyter-cell-tags
 ms-toolsai.vscode-jupyter-powertoys
 ms-toolsai.vscode-jupyter-slideshow
+ms-toolsai.datawrangler
+sam-the-programmer.jupyter-theme
+
+# ----------------------------------------------------------------------------
+# Flutter/Dart
+# ----------------------------------------------------------------------------
+dart-code.dart-code
+dart-code.flutter
+gmlewis-vscode.flutter-stylizer
+
+# ----------------------------------------------------------------------------
+# Web Development
+# ----------------------------------------------------------------------------
+bradlc.vscode-tailwindcss
+vunguyentuan.vscode-postcss
+astro-build.astro-vscode
+vue.volar
+yoavbls.pretty-ts-errors
+
+# ----------------------------------------------------------------------------
+# C# / .NET
+# ----------------------------------------------------------------------------
+ms-dotnettools.csharp
+ms-dotnettools.vscode-dotnet-runtime
+
+# ----------------------------------------------------------------------------
+# Java
+# ----------------------------------------------------------------------------
+vscjava.vscode-gradle
+
+# ----------------------------------------------------------------------------
+# PHP
+# ----------------------------------------------------------------------------
+neilbrayfield.php-docblocker
+
+# ----------------------------------------------------------------------------
+# Templates & Email
+# ----------------------------------------------------------------------------
+dawhite.mustache
+imgildev.vscode-mustache-snippets
+attilabuti.vscode-mjml
+
+# ----------------------------------------------------------------------------
+# Data Formats & APIs
+# ----------------------------------------------------------------------------
+redhat.vscode-yaml
+mechatroner.rainbow-csv
+quicktype.quicktype
+redocly.openapi-vs-code
+
+# ----------------------------------------------------------------------------
+# Docker & Remote Development
+# ----------------------------------------------------------------------------
+docker.docker
 ms-vscode-remote.remote-containers
 ms-vscode-remote.remote-ssh
 ms-vscode-remote.remote-ssh-edit
-ms-vscode.live-server
 ms-vscode.remote-explorer
-ms-vscode.theme-markdownkit
-neilbrayfield.php-docblocker
+
+# ----------------------------------------------------------------------------
+# Design & Utilities
+# ----------------------------------------------------------------------------
+figma.figma-vscode-extension
+ms-vscode.live-server
+mikestead.dotenv
 nicollasr.vscode-streamdeck
-octref.vetur
+
+# ----------------------------------------------------------------------------
+# Themes & Icons
+# ----------------------------------------------------------------------------
 pkief.material-icon-theme
-quicktype.quicktype
-redhat.vscode-yaml
-redocly.openapi-vs-code
-rvest.vs-code-prettier-eslint
-sam-the-programmer.jupyter-theme
-streetsidesoftware.code-spell-checker
+ms-vscode.theme-markdownkit
+
+# ----------------------------------------------------------------------------
+# Documentation
+# ----------------------------------------------------------------------------
+davidanson.vscode-markdownlint
+
+# ----------------------------------------------------------------------------
+# Fun
+# ----------------------------------------------------------------------------
 tonybaloney.vscode-pets
-vscjava.vscode-gradle
-vscodevim.vim
-vue.volar
-vunguyentuan.vscode-postcss
-wekex.jsonlint
-yoavbls.pretty-ts-errors
