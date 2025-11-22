@@ -1,0 +1,6 @@
+# Ignore all account configuration files (they contain personal email addresses)
+*
+
+# But keep the example template only
+!.gitignore
+!example-account.rc

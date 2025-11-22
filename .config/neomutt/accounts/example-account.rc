@@ -1,0 +1,141 @@
+# ============================================================================
+# Example Gmail Account Configuration
+# ============================================================================
+# This is a template for creating your own account configurations.
+# Copy this file to account1.rc, account2.rc, etc. and update with your details
+# ============================================================================
+#
+# Setup Instructions:
+# 1. Copy this file: cp example-account.rc account1.rc
+# 2. Edit the new file with your actual Gmail address and name
+# 3. Set up OAuth2 authentication (see instructions below)
+# 4. Generate OAuth2 tokens using mutt_oauth2.py
+# 5. The actual account files (account1.rc, account2.rc) are git-ignored
+# ============================================================================
+
+# ----------------------------------------------------------------------------
+# Account Identity
+# ----------------------------------------------------------------------------
+
+# EXAMPLE: Replace with your actual name and email
+set from = "Your Name <your-email@gmail.com>"
+set realname = "Your Name"
+
+# ----------------------------------------------------------------------------
+# IMAP Configuration
+# ----------------------------------------------------------------------------
+
+set imap_user = "your-email@gmail.com"
+
+# OAuth2 authentication for Gmail
+# Google no longer supports app-specific passwords, so we use OAuth2
+set imap_authenticators = "oauthbearer:xoauth2"
+set imap_oauth_refresh_command = "python3 ~/.config/neomutt/scripts/mutt_oauth2.py ~/.config/neomutt/tokens/your-account-name.token"
+
+# Gmail IMAP server settings
+set folder = "imaps://your-email@gmail.com@imap.gmail.com:993"
+set spoolfile = "+INBOX"
+
+# ----------------------------------------------------------------------------
+# SMTP Configuration
+# ----------------------------------------------------------------------------
+
+set smtp_url = "smtp://your-email@gmail.com@smtp.gmail.com:587/"
+
+# OAuth2 authentication for SMTP (same as IMAP)
+set smtp_authenticators = "oauthbearer:xoauth2"
+set smtp_oauth_refresh_command = "python3 ~/.config/neomutt/scripts/mutt_oauth2.py ~/.config/neomutt/tokens/your-account-name.token"
+set ssl_starttls = yes
+set ssl_force_tls = yes
+
+# ----------------------------------------------------------------------------
+# Gmail Folder Structure
+# ----------------------------------------------------------------------------
+
+# Gmail-specific folders (note the [Gmail] prefix)
+set postponed = "+[Gmail]/Drafts"
+
+# Use IMAP delete instead of moving to trash folder
+unset trash
+
+# Unset record because Gmail automatically saves sent mail
+unset record
+
+# ----------------------------------------------------------------------------
+# Account-Specific Settings
+# ----------------------------------------------------------------------------
+
+# OPTIONAL: Create a signature file
+# set signature = "~/.config/neomutt/signatures/your-account-name"
+
+# Cache directory for this account (improves performance)
+# EXAMPLE: Use a unique name for each account (account1, account2, work, personal, etc.)
+set header_cache = "~/.cache/neomutt/your-account-name/headers"
+set message_cachedir = "~/.cache/neomutt/your-account-name/messages"
+
+# ----------------------------------------------------------------------------
+# Detailed Setup Instructions
+# ----------------------------------------------------------------------------
+#
+# Step 1: Copy this template
+#   cp example-account.rc account1.rc
+#   (For additional accounts: account2.rc, work.rc, personal.rc, etc.)
+#
+# Step 2: Edit your new account file
+#   Replace ALL instances of:
+#   - "your-email@gmail.com" → your actual Gmail address
+#   - "Your Name" → your actual name
+#   - "your-account-name" → unique cache/token directory name (e.g., account1, work, personal)
+#
+# Step 3: Create Google Cloud Project for OAuth2
+#   - Go to: https://console.cloud.google.com/
+#   - Create a new project (or use existing)
+#   - Enable Gmail API for your project
+#   - Go to "Credentials" → "Create Credentials" → "OAuth client ID"
+#   - Choose "Desktop app" as application type
+#   - Download the client secret JSON file
+#   - Note your Client ID and Client Secret
+#
+# Step 4: Generate OAuth2 Tokens
+#   Run the mutt_oauth2.py script to authorize and generate tokens:
+#
+#   python3 ~/.config/neomutt/scripts/mutt_oauth2.py \
+#     ~/.config/neomutt/tokens/your-account-name.token \
+#     --verbose \
+#     --authorize \
+#     --provider google \
+#     --client-id YOUR_CLIENT_ID \
+#     --client-secret YOUR_CLIENT_SECRET \
+#     --email your-email@gmail.com
+#
+#   This will:
+#   - Open a browser for Google authorization
+#   - Save the refresh token to ~/.config/neomutt/tokens/your-account-name.token
+#   - The token file is git-ignored for security
+#
+# Step 5: Test OAuth2 Token
+#   Verify the token works:
+#   python3 ~/.config/neomutt/scripts/mutt_oauth2.py \
+#     ~/.config/neomutt/tokens/your-account-name.token
+#
+#   Should output a valid access token (if not, re-run step 4)
+#
+# Step 6: Enable IMAP in Gmail
+#   - Go to Gmail Settings → Forwarding and POP/IMAP
+#   - Enable IMAP access
+#   - Save changes
+#
+# Step 7: Create cache directories
+#   mkdir -p ~/.cache/neomutt/your-account-name/{headers,messages}
+#
+# Step 8: Update neomuttrc if needed
+#   - Add folder-hook for your account if using non-standard name
+#   - Add macro for account switching if desired
+#
+# Troubleshooting OAuth2:
+# - If authentication fails, delete the token file and re-run step 4
+# - Ensure Gmail API is enabled in Google Cloud Console
+# - Check that IMAP is enabled in Gmail settings
+# - Token automatically refreshes when expired (no manual intervention needed)
+#
+# ============================================================================

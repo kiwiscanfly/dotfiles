@@ -1,0 +1,145 @@
+# ============================================================================
+# Bex Codes Color Scheme for Neomutt
+# ============================================================================
+# Custom rainbow/purple palette matching the Bex Codes theme
+# ============================================================================
+
+# ----------------------------------------------------------------------------
+# Bex Codes Palette
+# ----------------------------------------------------------------------------
+# Background:   #1e1e2e (dark base)
+# Surface Dark: #4d3d52 (dark purple)
+# Surface Med:  #7c6f9f (medium purple)
+# Text:         #e0e0e0 (light gray)
+# Red/Error:    #f38ba8 (pink-red)
+# Orange:       #d99368 (orange)
+# Yellow:       #d9c9a0 (yellow/beige)
+# Green:        #99d1a0 (green)
+# Aqua:         #85c4b8 (aqua/teal)
+# Blue:         #7d9dcc (blue)
+# Mauve:        #cba6f7 (light purple)
+# Pink:         #f5c2e7 (pink)
+# ----------------------------------------------------------------------------
+
+# Reset all colors (commented out - not needed for initial setup)
+# uncolor index *
+# uncolor body *
+# uncolor attachment *
+# uncolor header *
+# uncolor signature *
+# uncolor search *
+# uncolor status *
+# uncolor indicator *
+# uncolor tree *
+
+# ----------------------------------------------------------------------------
+# Basic Colors
+# ----------------------------------------------------------------------------
+
+color normal        color254 color234    # Text (#e0e0e0) on background
+color error         color211 color234    # Red (#f38ba8) on background
+color tilde         color60  color234    # Purple (#7c6f9f) on background
+color message       color116 color234    # Aqua (#85c4b8) on background
+color markers       color254 color234    # Text on background
+color attachment    color219 color234    # Pink (#f5c2e7) on background
+color search        color235 color150    # Highlight search (base on green)
+color status        color254 color235    # Text on darker bg
+color indicator     color235 color111    # Base on blue (#7d9dcc) selected
+color tree          color111 color234    # Blue on background (threads)
+
+# ----------------------------------------------------------------------------
+# Sidebar
+# ----------------------------------------------------------------------------
+
+color sidebar_divider    color60  color234    # Purple divider
+color sidebar_ordinary   color254 color234    # Text on background
+color sidebar_new        color150 color234    # Green (#99d1a0) for new mail
+color sidebar_flagged    color219 color234    # Pink (#f5c2e7) for flagged
+color sidebar_highlight  color235 color111    # Base on blue (selected)
+
+# ----------------------------------------------------------------------------
+# Index (Email List)
+# ----------------------------------------------------------------------------
+
+color index         color254 color234 ~A          # All messages (text)
+color index_author  color116 color234 ~A          # Authors (aqua #85c4b8)
+color index_subject color254 color234 ~A          # Subjects (text)
+color index_date    color180 color234 ~A          # Dates (yellow #d9c9a0)
+color index_size    color180 color234 ~A          # Sizes (yellow)
+
+# Special index colors
+color index         color211 color234 ~D          # Deleted (red #f38ba8)
+color index         color150 color234 ~N          # New (green #99d1a0)
+color index         color219 color234 ~F          # Flagged (pink #f5c2e7)
+color index         color174 color234 ~T          # Tagged (orange #d99368)
+color index         color111 color234 ~Q          # Replied (blue #7d9dcc)
+
+# ----------------------------------------------------------------------------
+# Message Headers
+# ----------------------------------------------------------------------------
+
+color hdrdefault    color180 color234               # Default headers (yellow)
+color header        color116 color234 "^From:"      # From (aqua #85c4b8)
+color header        color111 color234 "^To:"        # To (blue #7d9dcc)
+color header        color174 color234 "^Subject:"   # Subject (orange #d99368)
+color header        color180 color234 "^Date:"      # Date (yellow #d9c9a0)
+color header        color183 color234 "^Cc:"        # Cc (mauve #cba6f7)
+color header        color183 color234 "^Bcc:"       # Bcc (mauve #cba6f7)
+
+# ----------------------------------------------------------------------------
+# Message Body
+# ----------------------------------------------------------------------------
+
+# Quoted text (email replies) - rainbow progression
+color quoted        color111 color234    # Level 1 (blue #7d9dcc)
+color quoted1       color116 color234    # Level 2 (aqua #85c4b8)
+color quoted2       color150 color234    # Level 3 (green #99d1a0)
+color quoted3       color180 color234    # Level 4 (yellow #d9c9a0)
+color quoted4       color174 color234    # Level 5 (orange #d99368)
+color quoted5       color211 color234    # Level 6 (red #f38ba8)
+color quoted6       color219 color234    # Level 7 (pink #f5c2e7)
+
+# Signatures
+color signature     color60  color234    # Medium purple (#7c6f9f)
+
+# URLs and email addresses
+color body          color111 color234 "(https?|ftp)://[^ ]+"           # URLs (blue #7d9dcc)
+color body          color116 color234 "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}"  # Email (aqua #85c4b8)
+
+# Bold and underline
+color bold          color254 color234
+color underline     color254 color234
+
+# ----------------------------------------------------------------------------
+# Progress Bar
+# ----------------------------------------------------------------------------
+
+color progress      color235 color111    # Base on blue (#7d9dcc)
+
+# ----------------------------------------------------------------------------
+# Color Reference
+# ----------------------------------------------------------------------------
+#
+# Terminal Color Numbers (approximate mapping):
+# - color234: #1e1e2e (background)
+# - color235: #1e1e2e (darker variation)
+# - color60:  #7c6f9f (medium purple - surface/signature)
+# - color254: #e0e0e0 (text/foreground)
+# - color111: #7d9dcc (blue - functions/links)
+# - color116: #85c4b8 (aqua - operators/email addresses)
+# - color150: #99d1a0 (green - strings/new mail)
+# - color174: #d99368 (orange - numbers/tagged)
+# - color180: #d9c9a0 (yellow - types/dates)
+# - color183: #cba6f7 (mauve - keywords)
+# - color211: #f38ba8 (red/pink - errors/deleted)
+# - color219: #f5c2e7 (pink - flagged/attachments)
+#
+# Neomutt also supports direct hex colors:
+# color OBJECT "#hexcolor" "#hexcolor"
+#
+# To use hex colors instead of color numbers, replace lines like:
+#   color normal color254 color234
+# with:
+#   color normal "#e0e0e0" "#1e1e2e"
+#
+# ============================================================================

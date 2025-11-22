@@ -1,0 +1,117 @@
+# ============================================================================
+# Neomutt Mailcap Configuration
+# ============================================================================
+# Defines how to handle different MIME types (images, HTML, etc.)
+# ============================================================================
+
+# ----------------------------------------------------------------------------
+# HTML Email Viewing
+# ----------------------------------------------------------------------------
+# Priority order: elinks (best CSS support) → w3m (best tables) → browser
+
+# Primary: elinks with CSS support for modern HTML emails and paragraph spacing
+text/html; ~/.config/neomutt/scripts/elinks-dump.sh %s; nametemplate=%s.html; copiousoutput
+
+# Fallback: w3m for better table rendering
+text/html; w3m -I %{charset} -T text/html -dump %s; nametemplate=%s.html; copiousoutput
+
+# Interactive viewing with elinks
+text/html; elinks -force-html %s; nametemplate=%s.html; needsterminal
+
+# Interactive viewing with w3m
+text/html; w3m -I %{charset} -T text/html %s; nametemplate=%s.html; needsterminal
+
+# Open in browser for image-heavy emails (macOS)
+text/html; open %s; description=HTML in browser; nametemplate=%s.html; needsterminal=no
+
+# ----------------------------------------------------------------------------
+# Image Viewing with chafa (Kitty Graphics Protocol)
+# ----------------------------------------------------------------------------
+# NOTE: Ghostty supports Kitty graphics protocol, not Sixel
+# Press 'v' to view attachments, then Enter on an image to display it
+# ----------------------------------------------------------------------------
+
+# JPEG images
+image/jpeg; chafa --format=kitty --size=80x24 %s; needsterminal
+
+# PNG images
+image/png; chafa --format=kitty --size=80x24 %s; needsterminal
+
+# GIF images (with animation support)
+image/gif; chafa --format=kitty --size=80x24 --animate=on %s; needsterminal
+
+# WebP images
+image/webp; chafa --format=kitty --size=80x24 %s; needsterminal
+
+# Fallback: Open images in system viewer (Preview.app on macOS)
+image/*; open %s; needsterminal=no
+
+# ----------------------------------------------------------------------------
+# URL Extraction
+# ----------------------------------------------------------------------------
+
+# Extract URLs from emails with urlscan
+text/html; urlscan %s; needsterminal
+text/plain; urlscan %s; needsterminal
+
+# ----------------------------------------------------------------------------
+# PDF Documents
+# ----------------------------------------------------------------------------
+
+# Open PDFs in default viewer
+application/pdf; open %s; test=test -n "$DISPLAY"; needsterminal=no
+
+# View PDF as text (if poppler is installed)
+application/pdf; pdftotext %s -; copiousoutput
+
+# ----------------------------------------------------------------------------
+# Office Documents
+# ----------------------------------------------------------------------------
+
+# Microsoft Word
+application/msword; open %s; test=test -n "$DISPLAY"; needsterminal=no
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; open %s; test=test -n "$DISPLAY"; needsterminal=no
+
+# Microsoft Excel
+application/vnd.ms-excel; open %s; test=test -n "$DISPLAY"; needsterminal=no
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; open %s; test=test -n "$DISPLAY"; needsterminal=no
+
+# Microsoft PowerPoint
+application/vnd.ms-powerpoint; open %s; test=test -n "$DISPLAY"; needsterminal=no
+application/vnd.openxmlformats-officedocument.presentationml.presentation; open %s; test=test -n "$DISPLAY"; needsterminal=no
+
+# ----------------------------------------------------------------------------
+# Archives
+# ----------------------------------------------------------------------------
+
+# ZIP files
+application/zip; open %s; test=test -n "$DISPLAY"; needsterminal=no
+
+# Gzip files
+application/gzip; open %s; test=test -n "$DISPLAY"; needsterminal=no
+
+# ----------------------------------------------------------------------------
+# Notes on Usage
+# ----------------------------------------------------------------------------
+#
+# Viewing Attachments:
+# 1. Press 'v' in neomutt to see attachment list
+# 2. Navigate to the attachment you want to view
+# 3. Press Enter to view with the configured handler
+#
+# Image Display:
+# - Images use chafa with Kitty graphics protocol
+# - Adjust --size=WxH to fit your terminal dimensions
+# - Images in HTML emails appear as attachments, not inline
+#
+# HTML Emails:
+# - HTML emails auto-convert to text with elinks (best CSS support)
+# - Falls back to w3m for better table rendering
+# - To view with images, press 'v' then select HTML part and view in browser
+#
+# Troubleshooting:
+# - If images don't display, verify ghostty supports Kitty graphics:
+#   chafa --format=kitty --size=80x24 /path/to/test-image.jpg
+# - If HTML emails look bad, check w3m is installed: which w3m
+#
+# ============================================================================

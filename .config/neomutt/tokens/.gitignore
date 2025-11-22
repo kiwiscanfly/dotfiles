@@ -1,0 +1,7 @@
+# Ignore all OAuth2 token files (contain sensitive authentication data)
+*
+
+# But keep these files
+!.gitignore
+!example.token.json
+!README.md

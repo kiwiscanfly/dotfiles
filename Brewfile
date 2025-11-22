@@ -95,6 +95,13 @@ brew "zsh-autosuggestions"   # Fish-like autosuggestions for zsh
 brew "ffmpeg"                # Multimedia framework for audio/video processing
 brew "yt-dlp"                # Feature-rich YouTube downloader
 
+# Email Tools
+brew "neomutt"               # E-mail client with IMAP/SMTP support
+brew "w3m"                   # Text-based web browser
+brew "felinks"               # Enhanced text browser (elinks fork) with CSS support
+brew "urlscan"               # URL extractor
+brew "chafa"                 # Image viewer with Kitty graphics protocol support
+
 # Custom Tap Packages
 brew "leoafarias/fvm/fvm"              # Flutter Version Manager
 

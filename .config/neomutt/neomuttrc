@@ -1,0 +1,164 @@
+# ============================================================================
+# Neomutt Configuration
+# ============================================================================
+# Email client configuration with 2 Gmail accounts and 1Password integration
+# ============================================================================
+
+# ----------------------------------------------------------------------------
+# Basic Settings
+# ----------------------------------------------------------------------------
+
+set editor = "nvim"
+set charset = "utf-8"
+set send_charset = "utf-8"
+
+# Sorting
+set sort = threads
+set sort_aux = reverse-last-date-received
+set sort_re = yes
+
+# ----------------------------------------------------------------------------
+# Display & Interface
+# ----------------------------------------------------------------------------
+
+set date_format = "%Y-%m-%d %H:%M"
+set index_format = "%4C %Z %D %-15.15L (%?l?%4l&%4c?) %s"
+set pager_index_lines = 10
+set pager_context = 5
+set pager_stop = yes
+set menu_scroll = yes
+set tilde = yes
+set markers = no
+set smart_wrap = yes
+set wrap = 100
+
+# Status bar format
+set status_format = "[ Folder: %f ] [%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]%>─%?p?( %p postponed )?"
+
+# ----------------------------------------------------------------------------
+# Sidebar Configuration
+# ----------------------------------------------------------------------------
+
+set sidebar_visible = yes
+set sidebar_width = 30
+set sidebar_short_path = yes
+set sidebar_folder_indent = yes
+set sidebar_format = "%B%* %N"
+set sidebar_divider_char = "│"
+
+# Sidebar navigation
+bind index,pager \CP sidebar-prev
+bind index,pager \CN sidebar-next
+bind index,pager \CO sidebar-open
+bind index,pager B sidebar-toggle-visible
+
+# ----------------------------------------------------------------------------
+# HTML Email & Mailcap
+# ----------------------------------------------------------------------------
+
+set mailcap_path = ~/.config/neomutt/mailcap
+
+# Prefer plain text, fall back to HTML
+alternative_order text/plain text/html
+auto_view text/html
+
+# ----------------------------------------------------------------------------
+# Header Display
+# ----------------------------------------------------------------------------
+
+# Hide all headers by default
+ignore *
+
+# Only show these important headers
+unignore From: To: Cc: Bcc: Date: Subject:
+
+# Display headers in this order
+hdr_order From: To: Cc: Bcc: Date: Subject:
+
+# ----------------------------------------------------------------------------
+# Composing & Sending
+# ----------------------------------------------------------------------------
+
+set edit_headers = yes
+set fast_reply = yes
+set include = yes
+set forward_quote = yes
+set reply_to = yes
+
+# ----------------------------------------------------------------------------
+# Account Management
+# ----------------------------------------------------------------------------
+
+# Source the first account configuration file found (excluding example)
+# This will be your default account on startup
+source `find -L ~/.config/neomutt/accounts -name '*-account.rc' ! -name 'example-account.rc' | sort | head -1`
+
+# ----------------------------------------------------------------------------
+# Account Switching (Customize for your accounts)
+# ----------------------------------------------------------------------------
+#
+# Folder hooks automatically switch configs when changing folders:
+# folder-hook 'your-email@domain.com' 'source ~/.config/neomutt/accounts/your-account.rc'
+#
+# Macros for manual account switching with function keys:
+# macro index,pager <f2> '<sync-mailbox><enter-command>source ~/.config/neomutt/accounts/account1-account.rc<enter><change-folder>!<enter>' "Switch to Account 1"
+# macro index,pager <f3> '<sync-mailbox><enter-command>source ~/.config/neomutt/accounts/account2-account.rc<enter><change-folder>!<enter>' "Switch to Account 2"
+#
+# Example with actual values (uncomment and customize):
+# folder-hook 'work@company.com' 'source ~/.config/neomutt/accounts/work-account.rc'
+# folder-hook 'personal@gmail.com' 'source ~/.config/neomutt/accounts/personal-account.rc'
+# macro index,pager <f2> '<sync-mailbox><enter-command>source ~/.config/neomutt/accounts/work-account.rc<enter><change-folder>!<enter>' "Switch to Work"
+# macro index,pager <f3> '<sync-mailbox><enter-command>source ~/.config/neomutt/accounts/personal-account.rc<enter><change-folder>!<enter>' "Switch to Personal"
+
+# ----------------------------------------------------------------------------
+# Key Bindings
+# ----------------------------------------------------------------------------
+
+# Navigation
+bind editor <space> noop
+bind index g noop
+bind index gg first-entry
+bind index G last-entry
+bind pager g noop
+bind pager gg top
+bind pager G bottom
+bind pager j next-line
+bind pager k previous-line
+bind index,pager R group-reply
+
+# Macros
+macro index,pager a "<save-message>=[Gmail]/All Mail<enter><enter>" "Archive message"
+macro index,pager V "<pipe-message>~/.config/neomutt/scripts/open-in-gmail.sh<enter>" "Open in Gmail"
+macro index,pager B "<pipe-message>~/.config/neomutt/scripts/view-html.sh<enter>" "View HTML in browser"
+
+# ----------------------------------------------------------------------------
+# Search & Threading
+# ----------------------------------------------------------------------------
+
+set thorough_search = yes
+bind index / search
+bind index n search-next
+bind index N search-opposite
+
+# ----------------------------------------------------------------------------
+# Colors
+# ----------------------------------------------------------------------------
+
+source ~/.config/neomutt/colors/bex-codes.rc
+
+# ----------------------------------------------------------------------------
+# Performance
+# ----------------------------------------------------------------------------
+
+set sleep_time = 0        # Speed up folder switching
+set mail_check = 60       # Check for new mail every 60 seconds
+set timeout = 300         # Idle time before checking for new mail
+set imap_keepalive = 300  # Keep IMAP connection alive
+set imap_check_subscribed = yes
+
+# ----------------------------------------------------------------------------
+# Security
+# ----------------------------------------------------------------------------
+
+set ssl_starttls = yes
+set ssl_force_tls = yes
