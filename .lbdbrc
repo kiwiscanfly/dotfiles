@@ -1,0 +1,61 @@
+# ============================================================================
+# LBDB (Little Brother's Database) Configuration
+# ============================================================================
+# Contact lookup for neomutt email client
+# ============================================================================
+
+# ----------------------------------------------------------------------------
+# Query Methods
+# ----------------------------------------------------------------------------
+# Methods to use for address lookups (in order of preference)
+#
+# Available methods:
+#   m_osx_addressbook - macOS Contacts.app (syncs with Google Contacts)
+#   m_inmail         - Learn from mail headers in mailbox
+#   m_muttalias      - Use neomutt's alias file
+#   m_abook          - Use abook address book
+#   m_khard          - Use khard (CardDAV/vCard)
+
+METHODS="m_osx_addressbook m_inmail m_muttalias"
+
+# ----------------------------------------------------------------------------
+# m_inmail Configuration
+# ----------------------------------------------------------------------------
+# Automatically learn email addresses from mail headers
+# This builds a database of frequently contacted addresses
+
+# Directories to scan for mail headers (neomutt cache)
+INMAIL_FOLDERS="$HOME/.cache/neomutt/bex-codes/headers $HOME/.cache/neomutt/gd/headers"
+
+# Optional: Ignore addresses matching these patterns
+# INMAIL_IGNORE="noreply@|no-reply@|mailer-daemon@"
+
+# ----------------------------------------------------------------------------
+# Display Configuration
+# ----------------------------------------------------------------------------
+
+# Show which method found the match (helpful for debugging)
+# LBDB_SHOW_SOURCE=1
+
+# Maximum number of results to return
+# LBDB_MAX_RESULTS=50
+
+# ----------------------------------------------------------------------------
+# Notes
+# ----------------------------------------------------------------------------
+#
+# macOS Contacts Sync:
+# - Enable Google Contacts sync in System Settings → Internet Accounts
+# - Add your Gmail accounts and enable "Contacts" checkbox
+# - macOS will automatically sync Google Contacts to Contacts.app
+#
+# m_inmail Database:
+# - Database file: ~/.lbdb/m_inmail.list
+# - Automatically updates as you send/receive emails
+# - Run 'lbdb-fetchaddr' to manually add addresses
+#
+# Testing:
+# - Run: lbdbq 'name' to test contact lookup
+# - Run: lbdbq 'email@domain.com' to search by email
+#
+# ============================================================================

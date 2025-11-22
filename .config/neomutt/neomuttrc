@@ -86,6 +86,22 @@ set forward_quote = yes
 set reply_to = yes
 
 # ----------------------------------------------------------------------------
+# Contacts / Address Book
+# ----------------------------------------------------------------------------
+
+# Use lbdb for contact queries (searches macOS Contacts + learned addresses)
+set query_command = "lbdbq '%s'"
+
+# Tab completion for email addresses while composing
+bind editor <Tab> complete-query
+bind editor ^T complete
+
+# Alias file for manual contact entries
+set alias_file = "~/.config/neomutt/aliases"
+set sort_alias = alias
+source $alias_file
+
+# ----------------------------------------------------------------------------
 # Account Management
 # ----------------------------------------------------------------------------
 

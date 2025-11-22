@@ -6,6 +6,7 @@ Email client configuration for 2 Gmail accounts with OAuth2 authentication and i
 
 - **2 Gmail Accounts**: Easy switching between accounts with F2/F3 keys
 - **OAuth2 Authentication**: Modern, secure authentication using Google's OAuth2 (no app passwords needed)
+- **Contact Autocomplete**: Tab completion with Google Contacts (via macOS Contacts sync)
 - **Image Support**: View images using chafa with Kitty graphics protocol (compatible with Ghostty)
 - **HTML Email**: Rendered with elinks (felinks) with improved paragraph spacing for readability
 - **Open in Gmail**: Quick access to view emails in Gmail web interface with images
@@ -30,6 +31,7 @@ This installs:
 - `felinks` - Enhanced text browser (elinks fork) with CSS support for HTML emails
 - `urlscan` - URL extractor
 - `chafa` - Image viewer with Kitty graphics protocol
+- `lbdb` - Little Brother's Database for contact lookup
 
 ### 2. Enable IMAP in Gmail
 
@@ -119,6 +121,44 @@ python3 ~/.config/neomutt/scripts/mutt_oauth2.py \
 ```
 
 Each should output a valid access token. If not, re-run the authorization step.
+
+### 7. Set Up Contacts Integration
+
+Neomutt uses LBDB (Little Brother's Database) for contact lookup and autocomplete.
+
+**Enable Google Contacts sync in macOS:**
+
+1. Open **System Settings** → **Internet Accounts**
+2. Ensure your Gmail accounts (bex.codes and gdnz.org) are added
+3. Enable **Contacts** checkbox for each account
+4. macOS will automatically sync Google Contacts to Contacts.app
+
+**How it works:**
+
+- Press **Tab** while typing email addresses to autocomplete
+- LBDB searches:
+  - macOS Contacts (synced from Google)
+  - Email addresses learned from sent/received mail
+  - Manual aliases in `~/.config/neomutt/aliases`
+- Results update automatically as Google Contacts sync
+
+**Optional - Add manual aliases:**
+
+Edit `~/.config/neomutt/aliases` to add frequently used contacts:
+
+```bash
+alias john John Doe <john@example.com>
+alias jane Jane Smith <jane@example.com>
+```
+
+**Test contact lookup:**
+
+```bash
+# Test LBDB query
+lbdbq 'name'
+
+# Or test in neomutt by composing an email and pressing Tab
+```
 
 ## Configuration
 
@@ -319,6 +359,7 @@ Use `V` to open in Gmail, which will show all images and full formatting.
 ```
 ~/.config/neomutt/
 ├── neomuttrc                    # Main configuration
+├── aliases                      # Manual contact aliases
 ├── accounts/
 │   ├── .gitignore               # Git ignore rules
 │   ├── example-account.rc       # Template for creating accounts
@@ -342,10 +383,15 @@ Use `V` to open in Gmail, which will show all images and full formatting.
 ├── mailcap                      # MIME type handlers
 └── README.md                    # This file
 
+~/.lbdbrc                        # LBDB contact lookup configuration
+
 ~/.cache/neomutt/                # Cache (you create per account)
 └── ACCOUNT_NAME/
     ├── headers/                 # Header cache
     └── messages/                # Message cache
+
+~/.lbdb/                         # LBDB database (auto-created)
+└── m_inmail.list                # Learned email addresses
 ```
 
 ## Security Notes

@@ -1,0 +1,23 @@
+# ============================================================================
+# Neomutt Aliases
+# ============================================================================
+# Manual contact entries for neomutt
+# ============================================================================
+#
+# Format: alias <shortname> <full name> <email>
+#
+# Examples:
+#   alias john John Doe <john@example.com>
+#   alias jane Jane Smith <jane@example.com>
+#
+# Usage:
+#   - Type the alias name while composing (To:, Cc:, etc.)
+#   - Press Tab to expand to full email address
+#   - Or use lbdb query (Tab completion) to search all contacts
+#
+# Note: This file is for manual entries only. LBDB automatically queries
+# macOS Contacts and learned addresses, so you may not need many aliases.
+#
+# ============================================================================
+
+# Add your manual aliases below this line
