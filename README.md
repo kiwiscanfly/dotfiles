@@ -9,6 +9,7 @@ This repository contains configurations for:
 - **Editor:** Neovim with LSP, Treesitter, and Copilot
 - **File Manager:** yazi with zoxide integration
 - **Email:** neomutt with OAuth2 and LBDB contacts integration
+- **Social Media:** toot Mastodon CLI and TUI client
 - **Music Player:** MPD daemon with rmpc TUI client
 - **CLI Tools:** Modern replacements (bat, eza, fzf, ripgrep) and development tools
 - **Development:** Flutter, Node.js, Python, PHP, Docker, and more
@@ -18,7 +19,7 @@ See [Themes](#themes) section for custom color themes across all tools.
 ### Package Management
 
 All Homebrew packages are documented in [`Brewfile`](Brewfile) with detailed descriptions:
-- **68 formulae** - CLI tools, libraries, and development tools (including MPD music player)
+- **69 formulae** - CLI tools, libraries, and development tools (including MPD music player and toot Mastodon client)
 - **4 casks** - GUI applications and fonts (Ghostty, Hack Nerd Font, 1Password CLI, VS Code)
 - **55 VSCode extensions** - Managed via `vscode/manage-extensions.sh` (separate from Brewfile)
 

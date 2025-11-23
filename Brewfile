@@ -106,6 +106,9 @@ brew "urlscan"               # URL extractor
 brew "chafa"                 # Image viewer with Kitty graphics protocol support
 brew "lbdb"                  # Little Brother's Database - contact lookup for neomutt
 
+# Social Media
+brew "toot"                  # Mastodon CLI and TUI client
+
 # Custom Tap Packages
 brew "leoafarias/fvm/fvm"              # Flutter Version Manager
 

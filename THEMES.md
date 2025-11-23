@@ -96,6 +96,12 @@ The Bex Codes theme uses a consistent muted Gruvbox-inspired palette:
 - **File:** `.config/rmpc/themes/bex_codes.ron`
 - **Features:** Matches terminal color scheme, custom progress bars, syntax highlighting
 
+#### toot (Mastodon CLI/TUI)
+- **Theme:** Custom Bex Codes with muted Gruvbox palette
+- **Config:** `.config/toot/settings.toml`
+- **Features:** 256-color mode, custom palette with purple UI elements, yellow highlights, green accents
+- **TUI Mode:** Launch with `toot tui` for full-screen interface
+
 ### Other Applications
 
 #### Drafts
@@ -166,4 +172,5 @@ This creates a **cohesive, unified aesthetic** across all tools while maintainin
 8. **yazi:** Theme automatically applied via config
 9. **lazygit:** Requires manual symlink on macOS (see README step 8)
 10. **rmpc:** Theme automatically applied via config
-11. **Xcode/Drafts/Sublime:** Manual installation required
+11. **toot:** Theme automatically applied via config
+12. **Xcode/Drafts/Sublime:** Manual installation required
