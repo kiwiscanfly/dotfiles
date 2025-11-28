@@ -14,6 +14,7 @@ export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.pub-cache/bin:$PATH"
 export PATH="/Applications/Docker.app/Contents/Resources/bin:$PATH"
+export PATH="/Library/TeX/texbin:$PATH"
 
 # Language and locale
 export LANG=en_US.UTF-8

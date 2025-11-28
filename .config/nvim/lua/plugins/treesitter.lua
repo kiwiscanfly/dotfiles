@@ -11,6 +11,9 @@ return {
       ensure_installed = {
         'lua', 'vim', 'vimdoc', 'query', 'markdown', 'markdown_inline',
         'typescript', 'tsx', 'javascript',
+        'latex',  -- Required for snacks.nvim math rendering
+        'python', 'bash', 'json', 'yaml', 'html', 'css',
+        'scss', 'svelte', 'vue', 'regex',  -- Additional languages for snacks.nvim image support
       },
 
       -- Install parsers asynchronously

@@ -10,6 +10,19 @@ return {
     bigfile = { enabled = true },
     quickfile = { enabled = true },
 
+    -- Image display (Kitty Graphics Protocol)
+    image = {
+      enabled = true,
+      doc = {
+        enabled = true,
+        inline = false,
+        float = true,
+      },
+      math = {
+        enabled = true,
+      },
+    },
+
     -- Explorer (disabled - using yazi instead)
     explorer = {
       enabled = false,
@@ -81,5 +94,6 @@ return {
     { "<leader>fr", function() Snacks.picker.recent() end, desc = "Find recent files" },
     { "<leader>/", function() Snacks.picker.grep() end, desc = "Grep" },
     { "<leader>sd", function() Snacks.dashboard() end, desc = "Dashboard" },
+    { "<leader>si", function() Snacks.image.hover() end, desc = "Image hover" },
   },
 }

@@ -71,6 +71,9 @@ brew "yazi"                  # Blazing fast terminal file manager
 brew "poppler"               # PDF rendering library
 brew "p7zip"                 # 7-Zip archive file utility
 brew "imagemagick"           # Image manipulation and conversion tool
+brew "ghostscript"           # PostScript and PDF interpreter (for PDF rendering in neovim)
+brew "mermaid-cli"           # CLI for Mermaid diagram generation
+brew "wget"                  # Internet file retriever
 brew "zoxide"                # Smarter cd command that learns your habits
 
 # CLI Utilities - Text & Display
@@ -121,10 +124,14 @@ cask "font-hack-nerd-font"  # Hack Nerd Font with programming glyphs and icons
 
 # Applications - Developer Tools
 cask "visual-studio-code"    # Microsoft's extensible code editor
+cask "basictex"              # Minimal TeX distribution for LaTeX rendering
 
 # Applications - Utilities
 cask "1password-cli"         # 1Password command-line tool for password management
 cask "ghostty"               # Fast, native, GPU-accelerated terminal emulator
+
+# Applications - Media
+cask "audacity"              # Free, open-source audio editor and recorder
 
 # ============================================================================
 # VS Code Extensions

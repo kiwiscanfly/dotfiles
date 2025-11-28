@@ -107,6 +107,11 @@ return {
           -- Statusline (for plugins that use it)
           StatusLine = { bg = colors.surface0, fg = colors.text },
           StatusLineNC = { bg = colors.base, fg = colors.overlay0 },
+
+          -- Render-markdown.nvim
+          RenderMarkdownCode = { bg = colors.surface0 },
+          RenderMarkdownCodeInline = { bg = colors.surface1 },
+          RenderMarkdownCodeBorder = { fg = colors.surface1 },
         }
       end,
       integrations = {

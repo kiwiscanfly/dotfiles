@@ -1,9 +1,9 @@
 {
     "editor.formatOnSave": true,
-    "editor.fontFamily": "'HackNerdFontMono-Regular', monospace",
+    "editor.fontFamily": "'Hack Nerd Font Mono', monospace",
     "editor.fontSize": 13,
     "editor.fontLigatures": false,
-    "terminal.integrated.fontFamily": "HackNerdFontMono-Regular",
+    "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
     "terminal.integrated.fontSize": 12,
     "editor.lineNumbers": "relative",
     "git.autofetch": true,

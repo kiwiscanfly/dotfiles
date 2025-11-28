@@ -19,8 +19,8 @@ See [Themes](#themes) section for custom color themes across all tools.
 ### Package Management
 
 All Homebrew packages are documented in [`Brewfile`](Brewfile) with detailed descriptions:
-- **69 formulae** - CLI tools, libraries, and development tools (including MPD music player and toot Mastodon client)
-- **4 casks** - GUI applications and fonts (Ghostty, Hack Nerd Font, 1Password CLI, VS Code)
+- **71 formulae** - CLI tools, libraries, and development tools (including MPD music player and toot Mastodon client)
+- **5 casks** - GUI applications and fonts (Ghostty, Hack Nerd Font, 1Password CLI, VS Code, BasicTeX)
 - **55 VSCode extensions** - Managed via `vscode/manage-extensions.sh` (separate from Brewfile)
 
 **Non-Homebrew Dependencies:**
@@ -47,25 +47,33 @@ cd ~/dotfiles
 brew bundle install
 ```
 
-This will install all 68 formulae and 4 casks listed in the [`Brewfile`](Brewfile). 
+This will install all 71 formulae and 5 casks listed in the [`Brewfile`](Brewfile).
 
-### 4. Install VSCode and Docker Desktop
+### 4. Install LaTeX Packages (for Neovim math rendering)
+```bash
+sudo /Library/TeX/texbin/tlmgr update --self
+sudo /Library/TeX/texbin/tlmgr install standalone varwidth preview amsmath amsfonts amssymb mathtools dvipng dvisvgm
+```
+
+This enables LaTeX math rendering in Neovim (e.g., `$E = mc^2$` in markdown files).
+
+### 5. Install VSCode and Docker Desktop
 - **VSCode:** [Download from code.visualstudio.com](https://code.visualstudio.com)
 - **Docker Desktop:** [Download from docker.com](https://www.docker.com/products/docker-desktop)
 
-### 5. Install FZF Key Bindings
+### 6. Install FZF Key Bindings
 ```bash
 $(brew --prefix)/opt/fzf/install
 ```
 
-### 6. Install Tmux Plugin Manager (TPM)
+### 7. Install Tmux Plugin Manager (TPM)
 ```bash
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
 After installing, open tmux and press `prefix + I` (Ctrl+b, then Shift+I) to install tmux plugins.
 
-### 7. Symlink Dotfiles with Stow
+### 8. Symlink Dotfiles with Stow
 ```bash
 cd ~/dotfiles
 stow .  # Symlink all configs
@@ -77,7 +85,7 @@ stow nvim    # Symlink only Neovim config
 stow tmux    # Symlink only Tmux config
 ```
 
-### 8. Configure Lazygit (macOS)
+### 9. Configure Lazygit (macOS)
 Lazygit on macOS looks for its config in `~/Library/Application Support/lazygit/`, so we need to create a manual symlink:
 ```bash
 mkdir -p ~/Library/Application\ Support/lazygit
@@ -85,13 +93,13 @@ rm -f ~/Library/Application\ Support/lazygit/config.yml
 ln -s ~/dotfiles/.config/lazygit/config.yml ~/Library/Application\ Support/lazygit/config.yml
 ```
 
-### 9. Build Bat Cache
+### 10. Build Bat Cache
 After symlinking dotfiles, build the bat cache to enable custom themes:
 ```bash
 bat cache --build
 ```
 
-### 10. Configure Git Delta
+### 11. Configure Git Delta
 Ensure your `~/.gitconfig` includes the Delta themes file:
 ```gitconfig
 [include]
@@ -103,14 +111,14 @@ Ensure your `~/.gitconfig` includes the Delta themes file:
     side-by-side = true
 ```
 
-### 11. Install Node.js Global Packages
+### 12. Install Node.js Global Packages
 After installing Node.js via nvm:
 
 ```bash
-npm install -g tree-sitter-cli  # Required for Neovim treesitter parsers
+npm install -g tree-sitter-cli  # Required for compiling some Neovim treesitter parsers (e.g., latex)
 ```
 
-### 12. Install VSCode Extensions
+### 13. Install VSCode Extensions
 ```bash
 cd ~/dotfiles/vscode
 ./manage-extensions.sh install
@@ -118,7 +126,7 @@ cd ~/dotfiles/vscode
 
 This will install all 55 extensions listed in `vscode/extensions.txt`.
 
-### 13. Reload Your Shell
+### 14. Reload Your Shell
 ```bash
 source ~/.zshrc
 ```

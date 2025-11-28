@@ -13,8 +13,7 @@ The Bex Codes theme uses a consistent muted Gruvbox-inspired palette:
 - **Dark Foreground:** `#3c3836` (dark brown)
 
 ### Accent Colors
-- **Purple:** `#7c6f9f` (medium)
-- **Light Purple:** `#cba6f7` (keywords)
+- **Purple:** `#7c6f9f` / `#cba6f7` (muted / bright)
 - **Blue:** `#6b7d9d` / `#7d9dcc` (muted / bright)
 - **Aqua:** `#6b8c85` / `#85c4b8` (muted / bright)
 - **Green:** `#7d9d82` / `#99d1a0` (muted / bright)
