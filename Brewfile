@@ -132,6 +132,15 @@ cask "ghostty"               # Fast, native, GPU-accelerated terminal emulator
 
 # Applications - Media
 cask "audacity"              # Free, open-source audio editor and recorder
+cask "obs"                   # Open Broadcaster Software for streaming and recording
+
+# ============================================================================
+# OBS Plugins
+# ============================================================================
+# Plugins are managed via obs-studio/manage-plugins.sh and obs-studio/plugins.txt
+# Check status: cd obs-studio && ./manage-plugins.sh status
+# Note: OBS plugins require manual download (sudo install, not suitable for Brewfile)
+# ============================================================================
 
 # ============================================================================
 # VS Code Extensions

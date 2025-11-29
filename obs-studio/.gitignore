@@ -1,0 +1,6 @@
+# Files containing secrets
+basic/profiles/*/service.json
+plugin_config/obs-websocket/config.json
+
+# Backup files created by OBS
+*.bak

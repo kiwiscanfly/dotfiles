@@ -1,0 +1,19 @@
+# OBS Studio Plugins
+# Format: plugin-name | type | source
+#
+# Types:
+#   homebrew      - Install via brew install --cask
+#   companion     - Installed by companion app (documented only)
+#   manual        - Download from URL manually
+#
+
+# Manual plugins (require sudo, not suitable for Brewfile)
+obs-advanced-scene-switcher | manual | https://github.com/WarmUpTill/SceneSwitcher/releases
+obs-backgroundremoval       | manual | https://github.com/occ-ai/obs-backgroundremoval/releases
+
+# Companion app plugins (installed by their respective apps)
+logi_obs         | companion | Logi Options+ https://www.logitech.com/software/logi-options-plus.html
+StreamDeckPlugin | companion | Elgato Stream Deck https://www.elgato.com/downloads
+
+# Manual plugins
+move-transition | manual | https://github.com/exeldro/obs-move-transition/releases

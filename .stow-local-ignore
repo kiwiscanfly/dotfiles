@@ -39,6 +39,7 @@ scripts
 
 # Application settings managed by install scripts
 
+obs-studio
 sublime-text
 vscode
 drafts-app
