@@ -104,6 +104,9 @@ return {
           SnacksIndentScope = { fg = colors.peach },
           SnacksDashboardHeader = { fg = colors.mauve, bold = true },
 
+          -- Line numbers
+          LineNr = { fg = colors.overlay2 },
+
           -- Statusline (for plugins that use it)
           StatusLine = { bg = colors.surface0, fg = colors.text },
           StatusLineNC = { bg = colors.base, fg = colors.overlay0 },

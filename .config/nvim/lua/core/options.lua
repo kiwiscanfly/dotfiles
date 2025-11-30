@@ -23,6 +23,12 @@ opt.background = "dark"
 opt.signcolumn = "yes"
 opt.cursorline = true
 opt.scrolloff = 8
+
+-- Folding (nvim-ufo)
+opt.foldcolumn = "1"
+opt.foldlevel = 99
+opt.foldlevelstart = 99
+opt.foldenable = true
 opt.fillchars = { vert = "│", vertleft = "│", vertright = "│", verthoriz = "│" }
 
 -- Show whitespace characters
