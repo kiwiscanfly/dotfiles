@@ -9,7 +9,11 @@ keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", { desc = "Help tags" }
 -- File change detection autocommands
 vim.api.nvim_create_autocmd({"FocusGained", "BufEnter", "CursorHold"}, {
   pattern = "*",
-  command = "checktime",
+  callback = function()
+    if vim.fn.getcmdwintype() == "" then
+      vim.cmd("checktime")
+    end
+  end,
   desc = "Check for file changes when focusing or entering buffer"
 })
 

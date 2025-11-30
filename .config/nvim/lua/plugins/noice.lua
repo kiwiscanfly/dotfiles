@@ -3,32 +3,36 @@ return {
   event = "VeryLazy",
   dependencies = {
     "MunifTanjim/nui.nvim",
-    "rcarriga/nvim-notify",
+  },
+  keys = {
+    { "<leader>sm", function() require("noice").cmd("history") end, desc = "Message history" },
   },
   config = function()
     require("noice").setup({
+      -- Notifications handled by fidget
+      notify = {
+        enabled = false,
+      },
       lsp = {
-        -- Disable LSP progress (handled by fidget)
         progress = {
-          enabled = false,
+          enabled = false, -- Handled by fidget
         },
-        -- Override markdown rendering for better LSP and nvim-cmp integration
         override = {
           ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
           ["vim.lsp.util.stylize_markdown"] = true,
           ["cmp.entry.get_documentation"] = true,
         },
       },
-      -- Route notifications to fidget instead
-      routes = {
-        {
-          filter = {
-            event = "notify",
+      views = {
+        mini = {
+          timeout = 30000, -- 30 seconds
+        },
+        split = {
+          close = {
+            keys = { "q", "<esc>" },
           },
-          view = "mini", -- Use minimal view, or set to "notify" if you want some notifications in noice
         },
       },
-      -- Recommended presets for better UX
       presets = {
         bottom_search = true,
         command_palette = true,
