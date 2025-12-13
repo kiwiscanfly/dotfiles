@@ -22,10 +22,27 @@ set $file_explorer nautilus
 
 bindsym $mod+e exec $file_explorer
 
-### Output configuration
+# Gaps
+#smart_gaps on
+gaps inner 10
+gaps outer 10
+
+# Border size
+
+default_border pixel 2
+default_floating_border pixel 2
+
+# Border color
+
+client.focused #a8826b #282828 #e0e0e0 #cba6f7 #a8826b
+#client.focused_inactive
+#client.unfocused
+client.urgent #f38ba8 #282828 #e0e0e0 #ac83e9 #ac82e9
+client.placeholder #7c6f9f #282828 #ac83e9 #ac83e9
+
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg /home/rebecca/Wallpapers/dinkii.png fill
 #
 # Example configuration:
 #
@@ -45,11 +62,6 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
-
-gaps inner 28
-gaps outer 28
-
-default_border pixel 18
 
 
 ### Input configuration
@@ -240,3 +252,4 @@ bar {
 }
 
 include /etc/sway/config.d/*
+
