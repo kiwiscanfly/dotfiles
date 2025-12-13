@@ -1,9 +1,9 @@
 {
     "editor.formatOnSave": true,
-    "editor.fontFamily": "'Hack Nerd Font Mono', monospace",
+    "editor.fontFamily": "'Maple Mono NF', monospace",
     "editor.fontSize": 13,
     "editor.fontLigatures": false,
-    "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
+    "terminal.integrated.fontFamily": "Maple Mono NF",
     "terminal.integrated.fontSize": 12,
     "editor.lineNumbers": "relative",
     "git.autofetch": true,
@@ -79,5 +79,6 @@
     "python.analysis.typeCheckingMode": "basic",
     "github.copilot.nextEditSuggestions.enabled": true,
     "docker.extension.enableComposeLanguageServer": false,
-    "aws.cloudformation.telemetry.enabled": false
+    "aws.cloudformation.telemetry.enabled": false,
+    "redoclyOpenAPI.user.anonymousId": "ann_01KCAVFM72WAVNYA2VP91BP87T"
 }
