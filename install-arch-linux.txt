@@ -1,0 +1,36 @@
+# Fresh arch install
+
+# make sure package managers are up to date
+
+sudo pacman -Syu
+yay -Syu
+
+# install the essentials
+
+sude  pacman -S sway nemo nautilus waybar wofi ghostty neovim
+
+# Instal some widgets
+
+yay -S eww-git
+
+# Install and set up, our login manager
+
+#this is for ly, a minimal login manager
+# sudo pacman -S ly
+# sudo systemctl disable gdm #this is for gnome
+# sudo systemctl enable ly@tty2.service
+
+# this was for the previous setup, I quite like the look of the one that comes with cinnamon so I'll keep that for now
+
+nvim /etc/lightdm/lightdm.conf
+
+# edit the user-session value under the [Seat:*]
+
+# the background can be changed in the /etc/lightdm/slick-greeter.conf
+
+sudo pacman -S github-cli
+gh auth login
+
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+
