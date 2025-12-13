@@ -20,7 +20,7 @@ See [Themes](#themes) section for custom color themes across all tools.
 
 All Homebrew packages are documented in [`Brewfile`](Brewfile) with detailed descriptions:
 - **71 formulae** - CLI tools, libraries, and development tools (including MPD music player and toot Mastodon client)
-- **5 casks** - GUI applications and fonts (Ghostty, Hack Nerd Font, 1Password CLI, VS Code, BasicTeX)
+- **5 casks** - GUI applications and fonts (Ghostty, Maple Mono NF, 1Password CLI, VS Code, BasicTeX)
 - **55 VSCode extensions** - Managed via `vscode/manage-extensions.sh` (separate from Brewfile)
 
 **Non-Homebrew Dependencies:**

@@ -61,8 +61,8 @@
         "monitoring_type": 0,
         "private_settings": {}
     },
-    "current_scene": "Intro Screen",
-    "current_program_scene": "Intro Screen",
+    "current_scene": "iPhone Camera",
+    "current_program_scene": "iPhone Camera",
     "scene_order": [
         {
             "name": "Intro Screen"
@@ -2909,7 +2909,7 @@
             "settings": {
                 "text": "www.bex.codes",
                 "font": {
-                    "face": "Hack Nerd Font Propo",
+                    "face": "Maple Mono NF",
                     "style": "Regular",
                     "size": 48,
                     "flags": 0
@@ -2964,7 +2964,7 @@
     "transition_duration": 300,
     "preview_locked": false,
     "scaling_enabled": false,
-    "scaling_level": -7,
+    "scaling_level": 4,
     "scaling_off_x": 0.0,
     "scaling_off_y": 0.0,
     "virtual-camera": {

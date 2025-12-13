@@ -95,6 +95,7 @@ brew "yq"                    # Process YAML, JSON, XML, CSV files from CLI
 brew "zsh-autosuggestions"   # Fish-like autosuggestions for zsh
 
 # CLI Utilities - Media
+brew "aubio"                 # Audio analysis tool for BPM detection and beat tracking
 brew "cava"                  # Console-based Audio Visualizer for ALSA
 brew "ffmpeg"                # Multimedia framework for audio/video processing
 brew "mpd"                   # Music Player Daemon - headless music player server
@@ -120,7 +121,7 @@ brew "leoafarias/fvm/fvm"              # Flutter Version Manager
 # ============================================================================
 
 # Fonts
-cask "font-hack-nerd-font"  # Hack Nerd Font with programming glyphs and icons
+cask "font-maple-mono-nf"   # Maple Mono Nerd Font with programming glyphs and icons
 
 # Applications - Developer Tools
 cask "visual-studio-code"    # Microsoft's extensible code editor

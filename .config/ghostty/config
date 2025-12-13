@@ -1,8 +1,8 @@
 # Ghostty Terminal Configuration
 # Documentation: https://ghostty.org/docs/config/reference
 
-# Font - Hack Nerd Font for icon support
-font-family = "HackNerdFontMono-Regular"
+# Font - Maple Mono Nerd Font for icon support
+font-family = "Maple Mono NF"
 font-feature = -calt -liga -dlig
 
 # macOS Option key behavior
