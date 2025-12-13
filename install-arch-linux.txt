@@ -34,3 +34,32 @@ gh auth login
 git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
 
+git config pull.rebase false
+
+# clone the dotfiles repo
+
+ln -S ~/dotfiles/.config/sway/config ~/.config/sway/config
+
+ln -s ~/dotfiles/.config/ghostty/config ~/.config/ghostty/config
+ln -s ~/dotfiles/.config/ghostty/shaders ~/.config/ghostty/shaders
+
+pacman -S tmux
+
+ln -s ~/dotfiles/.config/tmux/tmux.conf ~/.config/tmux/tmux.conf
+ln -s ~/dotfiles/.config/nvim ~/.config/nvim
+
+yay -S nvm
+echo $0
+source /usr/share/nvm/init-nvm.sh
+
+nvm install node
+nvm use node
+
+sudo pacman -S tree-sitter-cli
+
+
+# Install Maple Mono Nerd Font from https://github.com/subframe7536/maple-font/releases
+sudo mv MapleMono-NF /usr/share/fonts
+fc-cache -f -v
+sudo mv MapleMono /usr/share/fonts
+fc-cache -f -v
