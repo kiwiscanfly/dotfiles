@@ -46,6 +46,12 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 
+gaps inner 28
+gaps outer 28
+
+default_border pixel 18
+
+
 ### Input configuration
 #
 # Example configuration:
@@ -228,7 +234,7 @@ bar {
 
     colors {
         statusline #ffffff
-        background #323232
+        background #4d3d52
         inactive_workspace #32323200 #32323200 #5c5c5c
     }
 }
