@@ -148,3 +148,10 @@ ln -s ~/dotfiles/scripts ~/scripts
 
 ## Log out and back in for shell change to take effect
 
+# Compile Cinnamon theme
+
+```bash
+sudo pacman -S sassc
+sassc ~/dotfiles/linux-themes/cinnamon/scss/cinnamon.scss ~/dotfiles/linux-themes/cinnamon/cinnamon.css
+```
+
