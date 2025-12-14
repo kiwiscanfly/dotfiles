@@ -98,6 +98,6 @@ yay themix-full-git
 
 ```bash
 ln -s ~/dotfiles/linux-themes/ ~/.themes/bex-codes
-ln -sf ~/dotfile/linux-themes/gtk-4.0/* ~/.config/gtk-4.0/
+ln -sf ~/dotfiles/linux-themes/gtk-4.0/* ~/.config/gtk-4.0/
 ```
 
