@@ -122,7 +122,7 @@ sudo pacman -S zsh \
     yq \
     direnv \
     htop \
-    wget
+    yazi
 ```
 
 ## Install antidote (zsh plugin manager)
