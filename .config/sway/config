@@ -42,7 +42,7 @@ client.placeholder #7c6f9f #282828 #ac83e9 #ac83e9
 
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/rebecca/Wallpapers/dinkii.png fill
+output * bg /home/rebecca/dotfiles/wallpaper.png fill
 #
 # Example configuration:
 #

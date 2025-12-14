@@ -45,7 +45,7 @@ yay -S eww-git
 
 # this was for the previous setup, I quite like the look of the one that comes with cinnamon so I'll keep that for now
 
-nvim /etc/lightdm/lightdm.conf
+sudo nvim /etc/lightdm/lightdm.conf
 
 # edit the user-session value under the [Seat:*]
 
@@ -54,7 +54,6 @@ nvim /etc/lightdm/lightdm.conf
 # Install Maple Mono Nerd Font from https://github.com/subframe7536/maple-font/releases
 
 sudo mv MapleMono-NF /usr/share/fonts
-fc-cache -f -v
 sudo mv MapleMono /usr/share/fonts
 fc-cache -f -v
 
