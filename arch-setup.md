@@ -101,3 +101,50 @@ ln -s ~/dotfiles/linux-themes/ ~/.themes/bex-codes
 ln -sf ~/dotfile/linux-themes/gtk-4.0/* ~/.config/gtk-4.0/
 ```
 
+# Zsh Setup
+
+## Install zsh and CLI tools
+
+```bash
+sudo pacman -S zsh \
+    bat \
+    eza \
+    fd \
+    fzf \
+    ripgrep \
+    zoxide \
+    starship \
+    lazygit \
+    figlet \
+    lolcat \
+    gum \
+    jq \
+    yq \
+    direnv \
+    htop \
+    wget
+```
+
+## Install antidote (zsh plugin manager)
+
+```bash
+yay -S zsh-antidote
+```
+
+## Set zsh as default shell
+
+```bash
+chsh -s /usr/bin/zsh
+```
+
+## Symlink zsh configs
+
+```bash
+ln -s ~/dotfiles/.zshrc ~/.zshrc
+ln -s ~/dotfiles/.zsh_plugins.txt ~/.zsh_plugins.txt
+ln -s ~/dotfiles/.config/starship.toml ~/.config/starship.toml
+ln -s ~/dotfiles/scripts ~/scripts
+```
+
+## Log out and back in for shell change to take effect
+

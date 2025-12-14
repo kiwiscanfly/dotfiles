@@ -6,8 +6,10 @@
 # Environment Variables
 # --------------------------------------------------------------------------------
 
-# Homebrew
-eval "$(/opt/homebrew/bin/brew shellenv)"
+# Homebrew (macOS only)
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 
 # Path configuration (consolidated and ordered by priority)
 export PATH="$HOME/bin:$PATH"
@@ -39,7 +41,9 @@ export HIST_STAMPS="yyyy-mm-dd"
 # --------------------------------------------------------------------------------
 
 # Add completion paths
-fpath=(/Users/rebecca/.docker/completions $fpath)
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    fpath=($HOME/.docker/completions $fpath)
+fi
 
 # Initialize completion system
 autoload -Uz compinit
@@ -118,7 +122,7 @@ alias welcome='~/dotfiles/scripts/welcome.sh'
 
 # bat - better cat with syntax highlighting
 alias cat='bat --style=plain --paging=never'
-alias ccat='/bin/cat'  # Original cat if needed
+alias ccat='command cat'  # Original cat if needed
 
 # Markdown viewer
 alias mdv='glow'
@@ -157,9 +161,11 @@ pretty-csv() {
 }
 
 # macOS specific
-alias showfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
-alias hidefiles="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
-alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    alias showfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
+    alias hidefiles="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+    alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+fi
 
 # --------------------------------------------------------------------------------
 # Functions
@@ -244,8 +250,8 @@ bindkey "^[[B" history-search-forward   # Down arrow
 # --------------------------------------------------------------------------------
 
 # Dart CLI completions
-[[ -f /Users/rebecca/.dart-cli-completion/zsh-config.zsh ]] && \
-  source /Users/rebecca/.dart-cli-completion/zsh-config.zsh || true
+[[ -f $HOME/.dart-cli-completion/zsh-config.zsh ]] && \
+  source $HOME/.dart-cli-completion/zsh-config.zsh || true
 
 # Completion options
 zstyle ':completion:*' menu select                                       # Enable menu selection
@@ -264,7 +270,13 @@ zstyle ':completion:*:default' list-prompt '%S%M matches%s'             # Show m
 export NVM_AUTO_USE=true  # Automatically switch Node versions with .nvmrc files
 
 # Initialize Antidote
-source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
+elif [[ -f /usr/share/zsh-antidote/antidote.zsh ]]; then
+    source /usr/share/zsh-antidote/antidote.zsh
+elif [[ -f $HOME/.antidote/antidote.zsh ]]; then
+    source $HOME/.antidote/antidote.zsh
+fi
 
 # Load plugins from .zsh_plugins.txt
 antidote load
