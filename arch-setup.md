@@ -155,3 +155,67 @@ sudo pacman -S sassc
 sassc ~/dotfiles/linux-themes/cinnamon/scss/cinnamon.scss ~/dotfiles/linux-themes/cinnamon/cinnamon.css
 ```
 
+# Mount Synology shares (autofs)
+
+## Install autofs and cifs
+
+```bash
+sudo pacman -S autofs cifs-utils
+```
+
+## Create credentials file
+
+```bash
+sudo mkdir -p /etc/samba
+sudo nvim /etc/samba/credentials
+```
+
+Add:
+```
+username=YOUR_SYNOLOGY_USER
+password=YOUR_SYNOLOGY_PASSWORD
+```
+
+```bash
+sudo chmod 600 /etc/samba/credentials
+```
+
+## Configure autofs
+
+```bash
+sudo nvim /etc/autofs/auto.master.d/synology.autofs
+```
+
+Add:
+```
+/mnt/synology /etc/autofs/auto.synology --timeout=300
+```
+
+```bash
+sudo nvim /etc/autofs/auto.synology
+```
+
+Add shares (edit as needed):
+```
+music     -fstype=cifs,credentials=/etc/samba/credentials,uid=1000,gid=1000 ://moria/music
+movies    -fstype=cifs,credentials=/etc/samba/credentials,uid=1000,gid=1000 ://moria/movies
+tv        -fstype=cifs,credentials=/etc/samba/credentials,uid=1000,gid=1000 ://moria/tv
+ebooks    -fstype=cifs,credentials=/etc/samba/credentials,uid=1000,gid=1000 ://moria/ebooks
+downloads -fstype=cifs,credentials=/etc/samba/credentials,uid=1000,gid=1000 ://moria/downloads
+home      -fstype=cifs,credentials=/etc/samba/credentials,uid=1000,gid=1000 ://moria/home
+```
+
+## Enable and start autofs
+
+```bash
+sudo systemctl enable --now autofs
+```
+
+## Test
+
+```bash
+ls /mnt/synology/music
+```
+
+The share mounts automatically when accessed and unmounts after 5 minutes of inactivity.
+
