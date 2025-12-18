@@ -1,0 +1,38 @@
+# ============================================================================
+# Cava Configuration - Audio Visualizer
+# ============================================================================
+# Console-based Audio Visualizer for ALSA/PulseAudio/FIFO
+
+[general]
+framerate = 60
+autosens = 1
+sensitivity = 100
+bars = 0
+bar_width = 2
+bar_spacing = 1
+
+[input]
+method = fifo
+source = /home/rebecca/.config/mpd/mpd.fifo
+sample_rate = 44100
+sample_bits = 16
+channels = 2
+
+[output]
+method = ncurses
+channels = stereo
+
+[color]
+gradient = 1
+gradient_count = 4
+gradient_color_1 = '#89b4fa'
+gradient_color_2 = '#cba6f7'
+gradient_color_3 = '#f5c2e7'
+gradient_color_4 = '#fab387'
+
+[smoothing]
+noise_reduction = 77
+monstercat = 0
+waves = 0
+
+[eq]
