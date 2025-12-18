@@ -219,3 +219,46 @@ ls /mnt/synology/music
 
 The share mounts automatically when accessed and unmounts after 5 minutes of inactivity.
 
+# Music Player Setup (MPD + rmpc + cava)
+
+## Install packages
+
+```bash
+sudo pacman -S mpd mpc cava aubio ffmpeg yt-dlp
+yay -S rmpc
+```
+
+## Create MPD directories
+
+```bash
+mkdir -p ~/.config/mpd/playlists
+```
+
+## Symlink configs
+
+```bash
+ln -s ~/dotfiles/.mpdconf-linux ~/.config/mpd/mpd.conf
+ln -sf ~/dotfiles/.config/rmpc/config-linux.ron ~/.config/rmpc/config.ron
+ln -s ~/dotfiles/.config/rmpc/themes ~/.config/rmpc/themes
+ln -s ~/dotfiles/.config/cava ~/.config/cava
+```
+
+## Enable MPD user service
+
+```bash
+systemctl --user enable mpd
+systemctl --user start mpd
+```
+
+## Update database
+
+```bash
+mpc update
+```
+
+## Run rmpc
+
+```bash
+rmpc
+```
+
