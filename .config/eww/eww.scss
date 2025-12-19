@@ -1,0 +1,150 @@
+// Eww Styles - Bex Codes theme
+// Colors from THEMES.md
+
+// ============================================
+// Color Palette
+// ============================================
+
+$background: rgba(40, 40, 40, 0.85);
+$background-solid: #282828;
+$background-alt: #4d3d52;
+$foreground: #e0e0e0;
+$subtext: #a6adc8;
+
+$purple-bright: #cba6f7;
+$purple-muted: #7c6f9f;
+$blue: #7d9dcc;
+$aqua: #85c4b8;
+$green: #99d1a0;
+$yellow: #d9c9a0;
+$orange: #d99368;
+$pink: #f38ba8;
+
+// ============================================
+// Global Styles
+// ============================================
+
+* {
+  all: unset;
+  font-family: "Maple Mono NF";
+  font-size: 14px;
+  transition: 200ms ease;
+}
+
+// ============================================
+// Music Player Widget
+// ============================================
+
+.music-player {
+  background: $background;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.4), inset 0 0 0 1px $purple-muted;
+  padding: 20px;
+  color: $foreground;
+}
+
+.music-info {
+  margin-bottom: 14px;
+  padding: 0 4px;
+}
+
+.music-title {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: $foreground;
+  margin-bottom: 4px;
+}
+
+.music-artist {
+  font-size: 0.95em;
+  color: $subtext;
+}
+
+.music-time {
+  font-size: 0.85em;
+  color: $purple-muted;
+  margin-top: 8px;
+}
+
+.music-separator {
+  color: $purple-muted;
+}
+
+.music-progress-container {
+  margin: 14px 0;
+  padding: 0 4px;
+}
+
+.music-progress {
+  background: $background-alt;
+  border-radius: 6px;
+
+  trough {
+    background: $background-alt;
+    border-radius: 6px;
+    min-height: 6px;
+  }
+
+  highlight {
+    background: $purple-bright;
+    border-radius: 6px;
+  }
+
+  slider {
+    background: $purple-bright;
+    border-radius: 50%;
+    min-width: 14px;
+    min-height: 14px;
+    margin: -4px;
+
+    &:hover {
+      background: $aqua;
+    }
+  }
+}
+
+.music-bottom {
+  margin-top: 14px;
+  padding: 0 4px;
+}
+
+.music-controls {
+  min-width: 200px;
+}
+
+.music-btn {
+  background: $background-alt;
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: $foreground;
+  font-size: 1.1em;
+
+  &:hover {
+    background: $purple-muted;
+    color: $foreground;
+  }
+
+  &:active {
+    background: $purple-bright;
+    color: $background-solid;
+  }
+}
+
+.play-btn {
+  font-size: 1.3em;
+  padding: 10px 16px;
+}
+
+.music-launch-btn {
+  background: $background-alt;
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: $blue;
+  font-size: 1.1em;
+  margin-left: 12px;
+
+  &:hover {
+    background: $blue;
+    color: $background-solid;
+  }
+}

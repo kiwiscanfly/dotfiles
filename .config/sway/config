@@ -247,6 +247,12 @@ bindsym $mod+r mode "resize"
     bindsym $mod+Shift+n exec swaync-client -C
 
 #
+# Eww Widgets:
+#
+    # Start eww daemon
+    exec eww daemon
+
+#
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.

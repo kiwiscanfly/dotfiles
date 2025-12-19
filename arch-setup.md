@@ -74,6 +74,7 @@ ln -s ~/dotfiles/.config/swaylock/ ~/.config/swaylock
 ln -s ~/dotfiles/.config/swaync/ ~/.config/swaync
 ln -s ~/dotfiles/.config/waybar/ ~/.config/waybar
 ln -s ~/dotfiles/.config/wofi/ ~/.config/wofi
+ln -s ~/dotfiles/.config/eww/ ~/.config/eww
 ```
 
 ```bash
@@ -265,5 +266,19 @@ mpc update
 
 ```bash
 rmpc
+```
+
+## Enable MPRIS support (for media widgets)
+
+```bash
+sudo pacman -S mpd-mpris
+```
+
+Symlink the service:
+```bash
+mkdir -p ~/.config/systemd/user
+ln -s ~/dotfiles/.config/systemd/user/mpd-mpris.service ~/.config/systemd/user/mpd-mpris.service
+systemctl --user enable mpd-mpris
+systemctl --user start mpd-mpris
 ```
 

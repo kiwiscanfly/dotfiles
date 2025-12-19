@@ -1,0 +1,59 @@
+; Eww configuration - Bex Codes theme
+; Matching swaync notification center styling
+
+; ============================================
+; Variables
+; ============================================
+
+; Music player polling (every 1 second)
+(defpoll music :interval "1s"
+  `~/.config/eww/scripts/music.sh`)
+
+; ============================================
+; Music Player Widget
+; ============================================
+
+(defwidget music_controls []
+  (box :class "music-controls" :orientation "h" :space-evenly false :spacing 8
+    (button :class "music-btn" :onclick "~/.config/eww/scripts/music.sh --prev" "󰒮")
+    (button :class "music-btn play-btn" :onclick "~/.config/eww/scripts/music.sh --toggle"
+      {music.status == "playing" ? "󰏤" : "󰐊"})
+    (button :class "music-btn" :onclick "~/.config/eww/scripts/music.sh --next" "󰒭")))
+
+(defwidget music_info []
+  (box :class "music-info" :orientation "v" :space-evenly false
+    (label :class "music-title" :limit-width 30 :text {music.title})
+    (label :class "music-artist" :limit-width 30 :text {music.artist})
+    (box :class "music-time" :orientation "h" :space-evenly false
+      (label :text {music.position})
+      (label :class "music-separator" :text " / ")
+      (label :text {music.duration}))))
+
+(defwidget music_progress []
+  (box :class "music-progress-container" :orientation "v" :space-evenly false
+    (scale :class "music-progress"
+           :min 0 :max 100
+           :value {music.progress}
+           :onchange "mpc seek {}%")))
+
+(defwidget music_player []
+  (box :class "music-player" :orientation "v" :space-evenly false :spacing 10
+    (music_info)
+    (music_progress)
+    (box :class "music-bottom" :orientation "h" :space-evenly false
+      (music_controls)
+      (box :hexpand true)
+      (button :class "music-launch-btn" :onclick "ghostty -e rmpc &" "󰝚"))))
+
+; ============================================
+; Windows
+; ============================================
+
+; Music player desktop widget
+(defwindow music
+  :monitor 0
+  :geometry (geometry :x "10px" :y "10px" :width "350px" :anchor "top right")
+  :stacking "fg"
+  :exclusive false
+  :focusable false
+  (music_player))

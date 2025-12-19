@@ -20,6 +20,7 @@ window#waybar {
 #clock,
 #custom-applauncher,
 #custom-lock,
+#custom-music,
 #custom-notification,
 #tray,
 #workspaces,
@@ -113,6 +114,12 @@ window#waybar {
 #battery.urgent {
   color: #1d2021;
   background-color: #fc4649;
+}
+
+#custom-music:hover {
+  background-image: linear-gradient(to bottom, #ac82e9 100%);
+  color: #141216;
+  transition-duration: 120ms;
 }
 
 #custom-notification:hover {
