@@ -54,7 +54,7 @@
 @define-color wm_bg_focused #27232b;
 @define-color wm_bg_unfocused #141216;
 @define-color wm_border_focused #d8cab8;
-@define-color wm_border_unfocused #AC82E9;
+@define-color wm_border_unfocused #cba6f7;
 @define-color wm_title_focused #d8cab8;
 @define-color wm_title_unfocused mix(#d8cab8,#141216,0.4);
 @define-color wm_icons_focused #d8cab8;
@@ -5531,7 +5531,7 @@ column-header .button:last-child .button, column-header .selection-mode.header-b
 .window-frame.csd.message-dialog, .window-frame.csd.popup, .window-frame {
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22), 0 0 0 1px #d8cab8; }
   .window-frame.csd.message-dialog:backdrop, .window-frame.csd.popup:backdrop, .window-frame:backdrop {
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23), 0 0 0 1px #AC82E9; }
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23), 0 0 0 1px #cba6f7; }
 
 .window-frame {
   border: 0;

@@ -35,9 +35,13 @@ sudo pacman -S sway \
 sudo pacman -S swaybg
 ```
 
-# Instal some widgets
+# Install some widgets
 
 yay -S eww-git swaylock-effects
+
+# Install notification center
+
+sudo pacman -S swaync
 
 # Install and set up, our login manager
 
@@ -67,6 +71,7 @@ ln -s ~/dotfiles/.config/ghostty/shaders ~/.config/ghostty/shaders
 ln -s ~/dotfiles/.config/tmux/tmux.conf ~/.config/tmux/tmux.conf
 ln -s ~/dotfiles/.config/nvim ~/.config/nvim
 ln -s ~/dotfiles/.config/swaylock/ ~/.config/swaylock
+ln -s ~/dotfiles/.config/swaync/ ~/.config/swaync
 ln -s ~/dotfiles/.config/waybar/ ~/.config/waybar
 ln -s ~/dotfiles/.config/wofi/ ~/.config/wofi
 ```

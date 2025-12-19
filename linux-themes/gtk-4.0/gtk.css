@@ -10711,7 +10711,7 @@ themeswitcher checkbutton.dark {
 /* text widgets and the like base background color */
 @define-color theme_base_color #313131;
 /* base background color of selections */
-@define-color theme_selected_bg_color #AC82E9;
+@define-color theme_selected_bg_color #cba6f7;
 /* text/foreground color of selections */
 @define-color theme_selected_fg_color rgba(35, 30, 46, 0.87);
 /* base background color of insensitive widgets */
@@ -10729,7 +10729,7 @@ themeswitcher checkbutton.dark {
 /* text widgets and the like base background color on backdrop windows */
 @define-color theme_unfocused_base_color #313131;
 /* base background color of selections on backdrop windows */
-@define-color theme_unfocused_selected_bg_color #AC82E9;
+@define-color theme_unfocused_selected_bg_color #cba6f7;
 /* text/foreground color of selections on backdrop windows */
 @define-color theme_unfocused_selected_fg_color rgba(35, 30, 46, 0.87);
 /* insensitive color on backdrop windows */
@@ -10763,7 +10763,7 @@ read if you used those and something break with a version upgrade you're on your
 /* Very contrasty background for text views (@theme_text_color foreground) */
 @define-color text_view_bg #313131;
 @define-color budgie_tasklist_indicator_color rgba(121, 122, 133, 0.7);
-@define-color budgie_tasklist_indicator_color_active #AC82E9;
+@define-color budgie_tasklist_indicator_color_active #cba6f7;
 @define-color budgie_tasklist_indicator_color_active_window rgba(150, 140, 195, 0.816);
 @define-color budgie_tasklist_indicator_color_attention #fcb167;
 @define-color STRAWBERRY_100 #FF9262;
@@ -10864,9 +10864,9 @@ read if you used those and something break with a version upgrade you're on your
 /* GTK NAMED COLORS
    ----------------
    use responsibly! */
-@define-color accent_bg_color #AC82E9;
+@define-color accent_bg_color #cba6f7;
 @define-color accent_fg_color rgba(35, 30, 46, 0.87);
-@define-color accent_color #AC82E9;
+@define-color accent_color #cba6f7;
 @define-color destructive_bg_color #d20f39;
 @define-color destructive_fg_color #cdd6f4;
 @define-color destructive_color #d20f39;
