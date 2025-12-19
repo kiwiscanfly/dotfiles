@@ -44,3 +44,28 @@ sublime-text
 vscode
 drafts-app
 xcode
+
+# Linux-only (Wayland/Sway stack)
+
+.config/sway
+.config/waybar
+.config/wofi
+.config/swaylock
+.config/swaync
+.config/eww
+
+# Linux system
+
+.config/systemd
+.config/nsxiv
+.Xresources
+.mpdconf-linux
+
+# Linux themes & assets
+
+linux-themes
+wallpaper.png
+
+# Linux documentation
+
+arch-setup.md
