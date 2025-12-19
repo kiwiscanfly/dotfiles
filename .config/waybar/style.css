@@ -41,7 +41,11 @@ window#waybar {
   margin-right: 6px;
 }
 
-#pulseaudio:hover {
+#pulseaudio:hover,
+#battery:hover,
+#network:hover,
+#clock:hover,
+#custom-lock:hover {
   background-image: linear-gradient(to bottom, #ac82e9 100%);
   color: #141216;
   transition-duration: 120ms;
@@ -52,7 +56,9 @@ window#waybar {
   transition-duration: 120ms;
 }
 
-#custom-applauncher:hover {
+#custom-applauncher:hover,
+#custom-music:hover,
+#custom-notification:hover {
   background-image: linear-gradient(to bottom, #ac82e9 100%);
   color: #141216;
   transition-duration: 120ms;
@@ -114,18 +120,6 @@ window#waybar {
 #battery.urgent {
   color: #1d2021;
   background-color: #fc4649;
-}
-
-#custom-music:hover {
-  background-image: linear-gradient(to bottom, #ac82e9 100%);
-  color: #141216;
-  transition-duration: 120ms;
-}
-
-#custom-notification:hover {
-  background-image: linear-gradient(to bottom, #ac82e9 100%);
-  color: #141216;
-  transition-duration: 120ms;
 }
 
 #custom-notification.notification {

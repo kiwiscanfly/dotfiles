@@ -30,7 +30,10 @@ sudo pacman -S sway \
 	neovim \
 	tmux \
 	tree-sitter-cli \
-	wl-clipboard
+	wl-clipboard \
+	nsxiv \
+	gimp \
+	zenity
 
 sudo pacman -S swaybg
 ```
@@ -75,6 +78,11 @@ ln -s ~/dotfiles/.config/swaync/ ~/.config/swaync
 ln -s ~/dotfiles/.config/waybar/ ~/.config/waybar
 ln -s ~/dotfiles/.config/wofi/ ~/.config/wofi
 ln -s ~/dotfiles/.config/eww/ ~/.config/eww
+ln -s ~/dotfiles/.config/yazi ~/.config/yazi
+ln -s ~/dotfiles/.Xresources ~/.Xresources
+mkdir -p ~/.config/bat && ln -s ~/dotfiles/.config/bat/themes ~/.config/bat/themes && ln -s ~/dotfiles/.config/bat/config ~/.config/bat/config
+bat cache --build
+mkdir -p ~/.config/nsxiv && ln -s ~/dotfiles/.config/nsxiv/exec ~/.config/nsxiv/exec
 ```
 
 ```bash

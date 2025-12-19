@@ -1,0 +1,10 @@
+[opener]
+image = [
+    { run = 'nsxiv "$@"', orphan = true, desc = "Open with nsxiv" },
+    { run = 'gimp "$@"', orphan = true, desc = "Edit with GIMP" },
+]
+
+[open]
+rules = [
+    { mime = "image/*", use = "image" },
+]
