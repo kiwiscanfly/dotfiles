@@ -279,7 +279,7 @@ rmpc
 ## Enable MPRIS support (for media widgets)
 
 ```bash
-sudo pacman -S mpd-mpris
+sudo pacman -S mpd-mpris playerctl
 ```
 
 Symlink the service:
