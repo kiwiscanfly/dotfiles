@@ -9,7 +9,7 @@
 # ============================================================================
 
 # Location of your music library
-music_directory     "~/Music"
+music_directory     "/Volumes/music"
 
 # Directory for playlists (runtime data, not in dotfiles)
 playlist_directory  "~/.config/mpd/playlists"
