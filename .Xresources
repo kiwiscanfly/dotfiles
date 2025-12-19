@@ -1,0 +1,9 @@
+! Bex Codes theme - X resources
+
+! nsxiv colors
+Nsxiv.window.background: #282828
+Nsxiv.window.foreground: #e0e0e0
+Nsxiv.bar.background: #4d3d52
+Nsxiv.bar.foreground: #e0e0e0
+Nsxiv.mark.foreground: #cba6f7
+Nsxiv.bar.font: Maple Mono NF:size=12

@@ -30,14 +30,21 @@ sudo pacman -S sway \
 	neovim \
 	tmux \
 	tree-sitter-cli \
-	wl-clipboard
+	wl-clipboard \
+	nsxiv \
+	gimp \
+	zenity
 
 sudo pacman -S swaybg
 ```
 
-# Instal some widgets
+# Install some widgets
 
 yay -S eww-git swaylock-effects
+
+# Install notification center
+
+sudo pacman -S swaync
 
 # Install and set up, our login manager
 
@@ -67,8 +74,15 @@ ln -s ~/dotfiles/.config/ghostty/shaders ~/.config/ghostty/shaders
 ln -s ~/dotfiles/.config/tmux/tmux.conf ~/.config/tmux/tmux.conf
 ln -s ~/dotfiles/.config/nvim ~/.config/nvim
 ln -s ~/dotfiles/.config/swaylock/ ~/.config/swaylock
+ln -s ~/dotfiles/.config/swaync/ ~/.config/swaync
 ln -s ~/dotfiles/.config/waybar/ ~/.config/waybar
 ln -s ~/dotfiles/.config/wofi/ ~/.config/wofi
+ln -s ~/dotfiles/.config/eww/ ~/.config/eww
+ln -s ~/dotfiles/.config/yazi ~/.config/yazi
+ln -s ~/dotfiles/.Xresources ~/.Xresources
+mkdir -p ~/.config/bat && ln -s ~/dotfiles/.config/bat/themes ~/.config/bat/themes && ln -s ~/dotfiles/.config/bat/config ~/.config/bat/config
+bat cache --build
+mkdir -p ~/.config/nsxiv && ln -s ~/dotfiles/.config/nsxiv/exec ~/.config/nsxiv/exec
 ```
 
 ```bash
@@ -203,4 +217,18 @@ mpc update
 
 ```bash
 rmpc
+```
+
+## Enable MPRIS support (for media widgets)
+
+```bash
+sudo pacman -S mpd-mpris playerctl
+```
+
+Symlink the service:
+```bash
+mkdir -p ~/.config/systemd/user
+ln -s ~/dotfiles/.config/systemd/user/mpd-mpris.service ~/.config/systemd/user/mpd-mpris.service
+systemctl --user enable mpd-mpris
+systemctl --user start mpd-mpris
 ```

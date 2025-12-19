@@ -10,7 +10,7 @@
 
   "modules-left": ["sway/workspaces"],
   "modules-center": ["sway/window"],
-  "modules-right": ["custom/applauncher", "custom/lock", "network", "pulseaudio", "battery", "tray", "clock"],
+  "modules-right": ["custom/applauncher", "custom/lock", "custom/music", "network", "pulseaudio", "battery", "custom/notification", "tray", "clock"],
 
   "sway-workspaces": {
     "all-outputs": false,
@@ -77,6 +77,32 @@
   "custom/lock": {
     "format": "",
     "on-click": "swaylock",
+    "tooltip": false
+  },
+
+  "custom/music": {
+    "format": "󰝚",
+    "on-click": "eww open --toggle music",
+    "tooltip": false
+  },
+
+  "custom/notification": {
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "󱅫",
+      "none": "󰂚",
+      "dnd-notification": "󰂛",
+      "dnd-none": "󰂛",
+      "inhibited-notification": "󱅫",
+      "inhibited-none": "󰂚",
+      "dnd-inhibited-notification": "󰂛",
+      "dnd-inhibited-none": "󰂛"
+    },
+    "return-type": "json",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true,
     "tooltip": false
   }
 }

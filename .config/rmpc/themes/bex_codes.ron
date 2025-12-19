@@ -170,7 +170,7 @@
     show_song_table_header: true,
 
     // Separator between albums in queue
-    song_table_album_separator: Underline,
+    song_table_album_separator: None,
 
     // Modal backdrop
     modal_backdrop: true,

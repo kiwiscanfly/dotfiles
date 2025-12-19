@@ -1,0 +1,46 @@
+#!/bin/bash
+
+# nsxiv key-handler
+# Press Ctrl+x then a key to trigger these actions
+
+while read file; do
+    case "$1" in
+        "w")  # Set as wallpaper
+            cp "$file" ~/dotfiles/wallpaper.png
+            swaymsg reload
+            notify-send "Wallpaper set" "$file"
+            ;;
+        "c")  # Copy image to clipboard
+            wl-copy < "$file"
+            notify-send "Copied to clipboard" "$file"
+            ;;
+        "C")  # Copy image path to clipboard
+            echo -n "$file" | wl-copy
+            notify-send "Path copied" "$file"
+            ;;
+        "d")  # Delete with confirmation
+            if zenity --question --text="Delete $file?" 2>/dev/null; then
+                rm "$file"
+                notify-send "Deleted" "$file"
+            fi
+            ;;
+        "r")  # Rotate 90 clockwise
+            mogrify -rotate 90 "$file"
+            ;;
+        "R")  # Rotate 90 counter-clockwise
+            mogrify -rotate -90 "$file"
+            ;;
+        "f")  # Flip horizontal
+            mogrify -flop "$file"
+            ;;
+        "F")  # Flip vertical
+            mogrify -flip "$file"
+            ;;
+        "g")  # Open in GIMP
+            gimp "$file" &
+            ;;
+        "o")  # Open file location
+            ghostty -e yazi "$(dirname "$file")" &
+            ;;
+    esac
+done
