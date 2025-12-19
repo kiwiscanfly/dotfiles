@@ -53,10 +53,6 @@ trough {
   padding: 8px;
 }
 
-.notification-background {
-  background: transparent;
-}
-
 .notification-background .notification {
   border-radius: 8px;
 }
