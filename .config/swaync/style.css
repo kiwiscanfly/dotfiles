@@ -1,4 +1,4 @@
-/* Bex Codes theme for swaync - based on Catppuccin Mocha */
+/* Bex Codes theme for swaync */
 
 * {
   all: unset;
@@ -7,6 +7,7 @@
   transition: 200ms;
 }
 
+/* sliders */
 trough highlight {
   background: #e0e0e0;
 }
@@ -19,12 +20,12 @@ scale trough {
   margin: 0rem 1rem;
   min-height: 8px;
   min-width: 70px;
-  border-radius: 12.6px;
+  border-radius: 6px;
 }
 
 trough slider {
   margin: -10px;
-  border-radius: 12.6px;
+  border-radius: 50%;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.8);
   transition: all 0.2s ease;
   background-color: #cba6f7;
@@ -39,18 +40,25 @@ trough {
 }
 
 /* notifications */
-.notification-background {
-  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.8), inset 0 0 0 1px #7c6f9f;
-  border-radius: 12.6px;
-  margin: 18px;
-  background: rgba(40, 40, 40, 0.98);
+.notification-row {
+  margin: 8px;
+}
+
+.notification {
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.4);
+  border: 1px solid #a8826b;
+  border-radius: 8px;
+  background: rgba(40, 40, 40, 0.85);
   color: #e0e0e0;
-  padding: 0;
+  padding: 8px;
+}
+
+.notification-background {
+  background: transparent;
 }
 
 .notification-background .notification {
-  padding: 7px;
-  border-radius: 12.6px;
+  border-radius: 8px;
 }
 
 .notification-background .notification.critical {
@@ -58,7 +66,7 @@ trough {
 }
 
 .notification .notification-content {
-  margin: 7px;
+  margin: 8px;
 }
 
 .notification .notification-content overlay {
@@ -67,14 +75,18 @@ trough {
 }
 
 .notification-content .summary {
+  font-size: 1.1em;
+  font-weight: bold;
   color: #e0e0e0;
 }
 
 .notification-content .time {
-  color: #a6adc8;
+  font-size: 0.85em;
+  color: #7c6f9f;
 }
 
 .notification-content .body {
+  font-size: 0.95em;
   color: #a6adc8;
 }
 
@@ -83,9 +95,9 @@ trough {
 }
 
 .notification-background .close-button {
-  margin: 7px;
-  padding: 2px;
-  border-radius: 6.3px;
+  margin: 10px;
+  padding: 4px;
+  border-radius: 6px;
   color: #282828;
   background-color: #f38ba8;
 }
@@ -99,16 +111,12 @@ trough {
 }
 
 .notification .notification-action {
-  border-radius: 7px;
+  border-radius: 8px;
   color: #e0e0e0;
-  box-shadow: inset 0 0 0 1px #7c6f9f;
+  background-color: #4d3d52;
   margin: 4px;
   padding: 8px;
   font-size: 0.2rem; /* controls the button size not text size*/
-}
-
-.notification .notification-action {
-  background-color: #4d3d52;
 }
 
 .notification .notification-action:hover {
@@ -132,27 +140,29 @@ trough {
 .notification progress,
 .notification trough,
 .notification progressbar {
-  border-radius: 12.6px;
+  border-radius: 6px;
   padding: 3px 0;
 }
 
 /* control center */
 .control-center {
-  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.8), inset 0 0 0 1px #4d3d52;
-  border-radius: 12.6px;
-  background-color: rgba(40, 40, 40, 0.95);
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.4), inset 0 0 0 1px #a8826b;
+  border-radius: 8px;
+  background-color: rgba(40, 40, 40, 0.85);
   color: #e0e0e0;
   padding: 14px;
+  margin-top: 10px;
 }
 
 .control-center .notification-background {
-  border-radius: 7px;
-  box-shadow: inset 0 0 0 1px #7c6f9f;
-  margin: 4px 10px;
+  border-radius: 8px;
+  box-shadow: inset 0 0 0 1px #a8826b;
+  background: #4d3d52;
+  margin: 8px 10px;
 }
 
 .control-center .notification-background .notification {
-  border-radius: 7px;
+  border-radius: 8px;
 }
 
 .control-center .notification-background .notification.low {
@@ -165,10 +175,9 @@ trough {
 }
 
 .control-center .widget-title button {
-  border-radius: 7px;
+  border-radius: 8px;
   color: #e0e0e0;
   background-color: #4d3d52;
-  box-shadow: inset 0 0 0 1px #7c6f9f;
   padding: 8px;
 }
 
@@ -200,7 +209,7 @@ scrollbar trough {
 
 /* dnd */
 .widget-dnd {
-  margin-top: 5px;
+  margin: 10px 6px;
   border-radius: 8px;
   font-size: 1.1rem;
 }
@@ -224,18 +233,19 @@ scrollbar trough {
 /* mpris */
 .widget-mpris-player {
   background: #4d3d52;
-  border-radius: 12.6px;
+  border-radius: 8px;
   color: #e0e0e0;
 }
 
 .mpris-overlay {
   background-color: rgba(77, 61, 82, 0.95);
   padding: 15px 10px;
+  border-radius: 8px;
 }
 
 .widget-mpris-album-art {
   -gtk-icon-size: 100px;
-  border-radius: 12.6px;
+  border-radius: 8px;
   margin: 0 10px;
 }
 
@@ -250,7 +260,7 @@ scrollbar trough {
 }
 
 .widget-mpris button {
-  border-radius: 12.6px;
+  border-radius: 8px;
   color: #e0e0e0;
   margin: 0 5px;
   padding: 2px;
