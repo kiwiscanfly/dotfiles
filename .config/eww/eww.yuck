@@ -57,3 +57,61 @@
   :exclusive false
   :focusable false
   (music_player))
+
+; ============================================
+; Variables - Mount Profiles
+; ============================================
+
+; Mount profiles polling (every 2 seconds)
+(defpoll mounts :interval "2s"
+  `~/.config/eww/scripts/mounts.sh`)
+
+; ============================================
+; Mount Profiles Widget
+; ============================================
+
+; Single mount profile item
+(defwidget mount_item [profile]
+  (button
+    :class "mount-item ${profile.mounted ? 'mounted' : 'unmounted'}"
+    :onclick {profile.mounted
+              ? "~/.config/eww/scripts/mounts.sh --disconnect '${profile.name}'"
+              : "~/.config/eww/scripts/mounts.sh --connect '${profile.name}'"}
+    (box :orientation "h" :space-evenly false :spacing 12
+      (label :class "mount-icon"
+             :text {profile.mounted ? "󰋊" : "󰋋"})
+      (box :orientation "v" :space-evenly false :class "mount-details"
+        (label :class "mount-name" :halign "start" :text {profile.name})
+        (label :class "mount-path" :halign "start" :text {profile.mount_point}))
+      (box :hexpand true)
+      (label :class "mount-status"
+             :text {profile.mounted ? "Connected" : "Disconnected"}))))
+
+; Mount profiles list
+(defwidget mount_list []
+  (box :class "mount-list" :orientation "v" :space-evenly false :spacing 8
+    (for profile in {mounts.profiles}
+      (mount_item :profile profile))))
+
+; Header with summary
+(defwidget mount_header []
+  (box :class "mount-header" :orientation "h" :space-evenly false
+    (label :class "mount-title" :text "Mount Profiles")
+    (box :hexpand true)
+    (label :class "mount-summary"
+           :text "${mounts.mounted_count}/${mounts.count} connected")))
+
+; Complete mount widget
+(defwidget mount_widget []
+  (box :class "mount-widget" :orientation "v" :space-evenly false :spacing 14
+    (mount_header)
+    (mount_list)))
+
+; Mount profiles popup widget
+(defwindow mounts
+  :monitor 0
+  :geometry (geometry :x "10px" :y "10px" :width "320px" :anchor "top right")
+  :stacking "fg"
+  :exclusive false
+  :focusable false
+  (mount_widget))

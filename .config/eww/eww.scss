@@ -148,3 +148,107 @@ $pink: #f38ba8;
     color: $background-solid;
   }
 }
+
+// ============================================
+// Mount Profiles Widget
+// ============================================
+
+.mount-widget {
+  background: $background;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.4), inset 0 0 0 1px $orange;
+  padding: 20px;
+  color: $foreground;
+}
+
+.mount-header {
+  margin-bottom: 14px;
+  padding: 0 4px;
+}
+
+.mount-title {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: $foreground;
+}
+
+.mount-summary {
+  font-size: 0.85em;
+  color: $purple-muted;
+}
+
+.mount-list {
+  padding: 0 4px;
+}
+
+.mount-empty {
+  color: $subtext;
+  font-size: 0.95em;
+  padding: 12px 0;
+}
+
+.mount-item {
+  background: $background-alt;
+  border-radius: 8px;
+  padding: 12px 14px;
+  color: $foreground;
+
+  &:hover {
+    background: $purple-muted;
+  }
+
+  &:active {
+    background: $purple-bright;
+    color: $background-solid;
+  }
+
+  &.mounted {
+    border-left: 3px solid $green;
+  }
+
+  &.unmounted {
+    border-left: 3px solid $subtext;
+  }
+}
+
+.mount-icon {
+  font-size: 1.4em;
+  min-width: 28px;
+}
+
+.mount-item.mounted .mount-icon {
+  color: $green;
+}
+
+.mount-item.unmounted .mount-icon {
+  color: $subtext;
+}
+
+.mount-details {
+  min-width: 0;
+}
+
+.mount-name {
+  font-size: 1em;
+  font-weight: bold;
+  color: $foreground;
+}
+
+.mount-path {
+  font-size: 0.85em;
+  color: $subtext;
+}
+
+.mount-status {
+  font-size: 0.85em;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.mount-item.mounted .mount-status {
+  color: $green;
+}
+
+.mount-item.unmounted .mount-status {
+  color: $subtext;
+}

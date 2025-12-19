@@ -20,6 +20,7 @@ window#waybar {
 #clock,
 #custom-applauncher,
 #custom-lock,
+#custom-mounts,
 #custom-music,
 #custom-notification,
 #tray,
@@ -57,6 +58,7 @@ window#waybar {
 }
 
 #custom-applauncher:hover,
+#custom-mounts:hover,
 #custom-music:hover,
 #custom-notification:hover {
   background-image: linear-gradient(to bottom, #ac82e9 100%);

@@ -10,7 +10,7 @@
 
   "modules-left": ["sway/workspaces"],
   "modules-center": ["sway/window"],
-  "modules-right": ["custom/applauncher", "custom/lock", "custom/music", "network", "pulseaudio", "battery", "custom/notification", "tray", "clock"],
+  "modules-right": ["network", "pulseaudio", "battery", "custom/applauncher", "custom/lock", "custom/mounts", "custom/music", "custom/notification", "tray", "clock"],
 
   "sway-workspaces": {
     "all-outputs": false,
@@ -77,6 +77,12 @@
   "custom/lock": {
     "format": "",
     "on-click": "swaylock",
+    "tooltip": false
+  },
+
+  "custom/mounts": {
+    "format": "󰋊",
+    "on-click": "eww open --toggle mounts",
     "tooltip": false
   },
 
