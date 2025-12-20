@@ -19,6 +19,7 @@ window#waybar {
 #network,
 #clock,
 #custom-applauncher,
+#custom-clipboard,
 #custom-lock,
 #custom-mounts,
 #custom-music,
@@ -58,6 +59,7 @@ window#waybar {
 }
 
 #custom-applauncher:hover,
+#custom-clipboard:hover,
 #custom-mounts:hover,
 #custom-music:hover,
 #custom-notification:hover {

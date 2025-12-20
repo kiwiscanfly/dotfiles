@@ -252,3 +252,63 @@ $pink: #f38ba8;
 .mount-item.unmounted .mount-status {
   color: $subtext;
 }
+
+// ============================================
+// Clipboard Sync Widget
+// ============================================
+
+.clipboard-widget {
+  background: $background;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.4), inset 0 0 0 1px $orange;
+  padding: 20px;
+  color: $foreground;
+}
+
+.clipboard-header {
+  margin-bottom: 14px;
+  padding: 0 4px;
+}
+
+.clipboard-title {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: $foreground;
+}
+
+.clipboard-content-box {
+  padding: 0 4px;
+  margin-bottom: 14px;
+}
+
+.clipboard-content {
+  background: $background-alt;
+  border-radius: 8px;
+  padding: 12px;
+  font-family: monospace;
+  font-size: 0.9em;
+  color: $subtext;
+  min-height: 60px;
+}
+
+.clipboard-buttons {
+  padding: 0 4px;
+}
+
+.clipboard-btn {
+  background: $background-alt;
+  border-radius: 8px;
+  padding: 10px 16px;
+  color: $foreground;
+  font-size: 0.95em;
+
+  &:hover {
+    background: $purple-muted;
+    color: $foreground;
+  }
+
+  &:active {
+    background: $purple-bright;
+    color: $background-solid;
+  }
+}

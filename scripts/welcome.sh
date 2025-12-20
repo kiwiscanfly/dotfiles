@@ -41,7 +41,7 @@ RANDOM_FONT=${FONTS[$RANDOM % ${#FONTS[@]}]}
 if command -v gum &> /dev/null && command -v paste &> /dev/null; then
     # Get system info
     DISK_USAGE=$(df -h / | awk 'NR==2 {print $5}')
-    UPTIME=$(uptime | sed 's/.*up //' | sed 's/, [0-9]* user.*//')
+    UPTIME=$(uptime | sed 's/.*up //' | sed 's/,* *[0-9]* user.*//' | sed 's/,* *load.*//' | sed 's/^ *//')
     GIT_BRANCH=$(git branch --show-current 2>/dev/null || echo "not in repo")
     DATE_TIME=$(date "+%a %b %d %I:%M %p")
     
@@ -50,16 +50,14 @@ if command -v gum &> /dev/null && command -v paste &> /dev/null; then
     
     # Create info box with gum
     INFO_BOX=$(gum style \
-        --foreground 219 \
         --border rounded \
-        --border-foreground 213 \
         --padding "0 1" \
         --margin "0" \
         --align left \
-        "💾 Disk: $DISK_USAGE used" \
-        "⏰ Uptime: $UPTIME" \
-        "🌿 Branch: $GIT_BRANCH" \
-        "📅 Time: $DATE_TIME")
+        "󰋊 Disk: $DISK_USAGE used" \
+        "󰥔 Uptime: $UPTIME" \
+        "󰘬 Branch: $GIT_BRANCH" \
+        "󰃭 Time: $DATE_TIME")
     
     # Get terminal width to calculate spacing
     TERM_WIDTH=$(tput cols)
@@ -83,7 +81,7 @@ if command -v gum &> /dev/null && command -v paste &> /dev/null; then
         paste "$TEMP_INFO" "$TEMP_WELCOME" | lolcat
     else
         # If terminal too narrow, display info box on top, then welcome message
-        echo "$INFO_BOX"
+        echo "$INFO_BOX" | lolcat
         echo ""
         echo "$WELCOME_OUTPUT" | lolcat
     fi
