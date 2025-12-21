@@ -1,0 +1,18 @@
+#!/bin/bash
+# Auto-sync after task operations
+# Skip if already syncing to avoid infinite loop
+
+read_json() {
+    python3 -c "import sys, json; print(json.load(sys.stdin).get('$1', ''))" 2>/dev/null
+}
+
+# Read the input to check the command
+input=$(cat)
+command=$(echo "$input" | read_json command)
+
+# Skip sync if we're already syncing
+if [[ "$command" != "sync" ]]; then
+    task sync &>/dev/null &
+fi
+
+exit 0

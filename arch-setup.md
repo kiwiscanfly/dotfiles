@@ -253,13 +253,21 @@ systemctl --user start mpd-mpris
 sudo pacman -S task
 ```
 
-## Create local secrets file
+## Symlink config and hooks
 
 ```bash
-nvim ~/.taskrc.local
+ln -s ~/dotfiles/.taskrc ~/.taskrc
+ln -s ~/dotfiles/.task/hooks ~/.task/hooks
 ```
 
-Add (use same values as your other devices):
+## Copy local secrets file
+
+Copy from shared directory (if synced from another device):
+```bash
+cp ~/shared/.taskrc.local ~/.taskrc.local
+```
+
+Or create manually with same values as other devices:
 ```
 sync.server.client_id=YOUR-UUID
 sync.encryption_secret=YOUR-SECRET
@@ -272,6 +280,7 @@ task sync
 ```
 
 Note: Don't use `task sync init` - data already exists on the server from another device.
+Auto-sync is configured via the on-exit hook in `~/.task/hooks/`.
 
 # Neomutt Email Client Setup
 
