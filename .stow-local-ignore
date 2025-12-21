@@ -58,6 +58,7 @@ xcode
 
 .config/systemd
 .config/nsxiv
+.config/cava/config-linux
 .Xresources
 .mpdconf-linux
 

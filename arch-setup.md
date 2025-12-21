@@ -206,7 +206,10 @@ mkdir -p ~/.config/mpd/playlists
 ln -s ~/dotfiles/.mpdconf-linux ~/.config/mpd/mpd.conf
 ln -sf ~/dotfiles/.config/rmpc/config-linux.ron ~/.config/rmpc/config.ron
 ln -s ~/dotfiles/.config/rmpc/themes ~/.config/rmpc/themes
-ln -s ~/dotfiles/.config/cava ~/.config/cava
+mkdir -p ~/.config/cava
+ln -s ~/dotfiles/.config/cava/shaders ~/.config/cava/shaders
+ln -s ~/dotfiles/.config/cava/themes ~/.config/cava/themes
+ln -sf ~/dotfiles/.config/cava/config-linux ~/.config/cava/config
 ```
 
 ## Enable MPD user service
