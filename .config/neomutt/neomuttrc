@@ -135,6 +135,8 @@ bind editor <space> noop
 bind index g noop
 bind index gg first-entry
 bind index G last-entry
+bind index j next-entry
+bind index k previous-entry
 bind pager g noop
 bind pager gg top
 bind pager G bottom
