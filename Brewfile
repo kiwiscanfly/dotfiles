@@ -90,6 +90,7 @@ brew "antidote"              # Zsh plugin manager
 brew "htop"                  # Interactive process viewer
 brew "jq"                    # Lightweight JSON processor
 brew "lazygit"               # Terminal UI for git commands
+brew "task"                  # Taskwarrior - command-line task management
 brew "tmux"                  # Terminal multiplexer for managing multiple terminal sessions
 brew "yq"                    # Process YAML, JSON, XML, CSV files from CLI
 brew "zsh-autosuggestions"   # Fish-like autosuggestions for zsh

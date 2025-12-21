@@ -33,6 +33,10 @@ Brewfile
 .*\.tmp
 .*\.temp
 
+# Local secrets (not in git)
+
+.*\.local
+
 # Scripts directory
 
 scripts

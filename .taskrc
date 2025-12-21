@@ -1,0 +1,13 @@
+# Taskwarrior Configuration
+
+# Include local secrets (not in git)
+include ~/.taskrc.local
+
+# Sync settings
+sync.server.url=http://moria:9090
+
+# Data location
+data.location=~/.task
+
+# General settings
+weekstart=Monday

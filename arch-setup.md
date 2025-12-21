@@ -244,3 +244,31 @@ ln -s ~/dotfiles/.config/systemd/user/mpd-mpris.service ~/.config/systemd/user/m
 systemctl --user enable mpd-mpris
 systemctl --user start mpd-mpris
 ```
+
+# Taskwarrior Setup
+
+## Install taskwarrior
+
+```bash
+sudo pacman -S task
+```
+
+## Create local secrets file
+
+```bash
+nvim ~/.taskrc.local
+```
+
+Add (use same values as your other devices):
+```
+sync.server.client_id=YOUR-UUID
+sync.encryption_secret=YOUR-SECRET
+```
+
+## Sync with server
+
+```bash
+task sync
+```
+
+Note: Don't use `task sync init` - data already exists on the server from another device.
