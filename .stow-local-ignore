@@ -37,6 +37,10 @@ Brewfile
 
 .*\.local
 
+# Task data (hooks symlinked manually, database is local)
+
+.task
+
 # Scripts directory
 
 scripts
