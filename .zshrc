@@ -30,6 +30,9 @@ export LC_ALL=en_US.UTF-8
 # Default editor
 export EDITOR='nvim'
 
+# GPG TTY for passphrase prompts
+export GPG_TTY=$(tty)
+
 # bat configuration
 export BAT_THEME="Bex-Codes"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
