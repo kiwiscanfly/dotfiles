@@ -92,6 +92,9 @@ output * bg /home/rebecca/dotfiles/wallpaper.png fill
     # Kill focused window
     bindsym $mod+q kill
 
+    # Lock screen
+    bindsym $mod+Escape exec swaylock
+
     # Start your launcher
     bindsym $mod+space exec $menu
 

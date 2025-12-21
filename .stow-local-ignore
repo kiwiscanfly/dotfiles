@@ -63,6 +63,9 @@ xcode
 .config/systemd
 .config/nsxiv
 .config/cava/config-linux
+.config/neomutt/mailcap-linux
+.config/neomutt/scripts/view-html-linux.sh
+.config/neomutt/scripts/open-in-gmail-linux.sh
 .Xresources
 .mpdconf-linux
 

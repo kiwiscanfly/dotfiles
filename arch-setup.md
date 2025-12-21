@@ -272,3 +272,38 @@ task sync
 ```
 
 Note: Don't use `task sync init` - data already exists on the server from another device.
+
+# Neomutt Email Client Setup
+
+## Install packages
+
+```bash
+sudo pacman -S neomutt w3m chafa poppler
+yay -S elinks urlscan lbdb
+```
+
+## Symlink configs
+
+```bash
+mkdir -p ~/.config/neomutt/scripts
+mkdir -p ~/.config/neomutt/colors
+mkdir -p ~/.config/neomutt/accounts
+mkdir -p ~/.config/neomutt/credentials
+mkdir -p ~/.config/neomutt/tokens
+ln -s ~/dotfiles/.config/neomutt/neomuttrc ~/.config/neomutt/neomuttrc
+ln -sf ~/dotfiles/.config/neomutt/mailcap-linux ~/.config/neomutt/mailcap
+ln -s ~/dotfiles/.config/neomutt/aliases ~/.config/neomutt/aliases
+ln -s ~/dotfiles/.config/neomutt/colors/bex-codes.rc ~/.config/neomutt/colors/bex-codes.rc
+ln -s ~/dotfiles/.config/neomutt/scripts/elinks-dump.sh ~/.config/neomutt/scripts/elinks-dump.sh
+ln -sf ~/dotfiles/.config/neomutt/scripts/view-html-linux.sh ~/.config/neomutt/scripts/view-html.sh
+ln -sf ~/dotfiles/.config/neomutt/scripts/open-in-gmail-linux.sh ~/.config/neomutt/scripts/open-in-gmail.sh
+ln -s ~/dotfiles/.config/neomutt/scripts/mutt_oauth2.py ~/.config/neomutt/scripts/mutt_oauth2.py
+```
+
+## Account setup
+
+Copy the example account and customize:
+```bash
+cp ~/dotfiles/.config/neomutt/accounts/example-account.rc ~/.config/neomutt/accounts/your-account.rc
+# Edit the file with your email settings
+```
