@@ -125,6 +125,7 @@ sudo pacman -S zsh \
     eza \
     fd \
     fzf \
+    git-delta \
     ripgrep \
     zoxide \
     starship \
@@ -158,6 +159,14 @@ ln -s ~/dotfiles/.zshrc ~/.zshrc
 ln -s ~/dotfiles/.zsh_plugins.txt ~/.zsh_plugins.txt
 ln -s ~/dotfiles/.config/starship.toml ~/.config/starship.toml
 ln -s ~/dotfiles/scripts ~/scripts
+```
+
+## Symlink git config (for delta)
+
+```bash
+mkdir -p ~/.config/git
+ln -s ~/dotfiles/.config/git/config ~/.config/git/config
+ln -s ~/dotfiles/.config/git/delta-themes.gitconfig ~/.config/git/delta-themes.gitconfig
 ```
 
 ## Log out and back in for shell change to take effect
