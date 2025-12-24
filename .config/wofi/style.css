@@ -16,9 +16,11 @@
 }
 
 #scroll {
-  border-top-style: solid;
-  border-width: 1px;
-  border-color: #d8cab8;
+  border-top-style: none;
+}
+
+#outer-box {
+  padding: 12px;
 }
 
 #inner-box {
@@ -45,22 +47,9 @@
 }
 
 #input {
-  background-color: #282828;
-  color: #d8cab8;
-
-  border-style: none;
-
-  font-style: normal;
-
+  padding: 6px 12px;
+  margin: 20px 12px;
   border-radius: 8px;
-
-  padding: 12px;
-  margin: 8px;
-}
-
-#input:focus {
-  border-color: #a89d82;
-  font-style: italic;
 }
 
 #img {
