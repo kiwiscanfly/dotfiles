@@ -172,47 +172,47 @@ row label.subtitle {
 
 .large-title {
   font-weight: 300;
-  font-size: 24pt;
+  font-size: 25pt;
 }
 
 .title-1 {
   font-weight: 800;
-  font-size: 20pt;
+  font-size: 21pt;
 }
 
 .title-2 {
   font-weight: 800;
-  font-size: 15pt;
+  font-size: 17pt;
 }
 
 .title-3 {
   font-weight: 700;
-  font-size: 15pt;
+  font-size: 17pt;
 }
 
 .title-4 {
   font-weight: 700;
-  font-size: 13pt;
+  font-size: 14pt;
 }
 
 .heading {
   font-weight: 700;
-  font-size: 11pt;
+  font-size: 12pt;
 }
 
 .body {
   font-weight: 400;
-  font-size: 11pt;
+  font-size: 12pt;
 }
 
 .caption {
   font-weight: 400;
-  font-size: 9pt;
+  font-size: 12pt;
 }
 
 .caption-heading {
   font-weight: 700;
-  font-size: 9pt;
+  font-size: 12pt;
 }
 
 window.assistant .sidebar {
@@ -5800,7 +5800,7 @@ window.dialog.message box.dialog-vbox.vertical > box.vertical {
 
 window.dialog.message box.dialog-vbox.vertical > box > box > box > label.title {
   font-weight: 800;
-  font-size: 15pt;
+  font-size: 17pt;
 }
 
 window.dialog.message .titlebar {
@@ -7184,7 +7184,7 @@ leaflet button.number-button:active {
 label.primary-label,
 label.month-name,
 label.secondary-label {
-  font-size: 16pt;
+  font-size: 17pt;
   font-weight: bold;
   padding: 12px;
 }
@@ -7206,7 +7206,7 @@ toastoverlay stack.view {
 }
 
 calendar-view {
-  font-size: 10pt;
+  font-size: 12pt;
 }
 
 calendar-view:selected {
@@ -7216,7 +7216,7 @@ calendar-view:selected {
 
 calendar-view.header,
 label.header {
-  font-size: 10pt;
+  font-size: 12pt;
   font-weight: bold;
   color: rgba(247, 237, 229, 0.5);
 }
@@ -7376,7 +7376,7 @@ datechooser .weekday {
 }
 
 datechooser button.day {
-  font-size: 10pt;
+  font-size: 12pt;
   font-weight: normal;
   margin: 3px;
   padding: 0;
@@ -7439,14 +7439,14 @@ datechooser button.day.other-month:hover:not(:backdrop) dot {
 }
 
 .week-header .week-number {
-  font-size: 16pt;
+  font-size: 17pt;
   font-weight: bold;
   padding: 12px 12px 18px 12px;
   color: rgba(239, 241, 245, 0.3);
 }
 
 .week-header.week-temperature {
-  font-size: 10pt;
+  font-size: 12pt;
   font-weight: bold;
   color: rgba(247, 237, 229, 0.5);
 }
@@ -7456,7 +7456,7 @@ datechooser button.day.other-month:hover:not(:backdrop) dot {
 }
 
 weekhourbar > label {
-  font-size: 10pt;
+  font-size: 12pt;
   padding: 4px 6px;
 }
 
@@ -7940,7 +7940,7 @@ flowboxchild.card:not(.category-tile) {
 }
 
 .featured-tile.narrow label.title-1 {
-  font-size: 16pt;
+  font-size: 17pt;
 }
 
 .application-details-infobar,
@@ -8289,7 +8289,7 @@ app-context-bar > box > button.flat {
 }
 
 window.narrow .app-title {
-  font-size: 16pt;
+  font-size: 17pt;
 }
 
 window.narrow .app-developer {
@@ -8533,7 +8533,7 @@ image.circular {
 
 .clocks-ampm-toggle-button,
 .clocks-secondary-standalone-label {
-  font-size: 18pt;
+  font-size: 19pt;
 }
 
 .clocks-standalone-label,
@@ -8557,7 +8557,7 @@ image.circular {
 }
 
 .timer-panel .timer-header {
-  font-size: 20pt;
+  font-size: 21pt;
   font-weight: 300;
 }
 
@@ -9317,7 +9317,7 @@ statuspage.compact
 }
 
 statuspage.compact > scrolledwindow > viewport > box > clamp > box > .title {
-  font-size: 18pt;
+  font-size: 19pt;
 }
 
 flap > dimming,
