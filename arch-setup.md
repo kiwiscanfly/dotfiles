@@ -46,6 +46,12 @@ yay -S eww-git swaylock-effects
 
 sudo pacman -S swaync
 
+# Install Hyprland (alternative to sway)
+
+```bash
+sudo pacman -S hyprland hyprlock hyprpaper hypridle
+```
+
 # Install and set up, our login manager
 
 #this is for ly, a minimal login manager
@@ -69,6 +75,7 @@ fc-cache -f -v
 
 ```bash
 ln -S ~/dotfiles/.config/sway/config ~/.config/sway/config
+ln -s ~/dotfiles/.config/hypr ~/.config/hypr
 ln -s ~/dotfiles/.config/ghostty/config ~/.config/ghostty/config
 ln -s ~/dotfiles/.config/ghostty/shaders ~/.config/ghostty/shaders
 ln -s ~/dotfiles/.config/tmux/tmux.conf ~/.config/tmux/tmux.conf

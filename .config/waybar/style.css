@@ -9,7 +9,7 @@
 
 window#waybar {
   /* Linear gradients are used because it makes less harsh rounded border radius, gtk bug :p */
-  background-image: linear-gradient(to bottom, #4d3d52 100%);
+  background: rgba(77, 61, 82, 0.7);
   /*  border-radius: 14px;*/
   padding: 0px;
   border-style: none;
@@ -27,7 +27,7 @@ window#waybar {
 #tray,
 #workspaces,
 #pulseaudio {
-  background-image: linear-gradient(to bottom, #27232b 100%);
+  background: rgba(39, 35, 43, 0.7);
 
   margin: 4px;
   margin-right: 0px;
@@ -69,13 +69,13 @@ window#waybar {
 }
 
 #tray menu {
-  background-color: #141216;
+  background: rgba(20, 18, 22, 0.75);
   color: #d8cab8;
   padding: 4px;
 }
 
 #tray menu menuitem {
-  background-image: linear-gradient(to bottom, #27232b 100%);
+  background: rgba(39, 35, 43, 0.7);
 
   margin: 3px;
   color: #d8cab8;
@@ -85,7 +85,7 @@ window#waybar {
 }
 
 #tray menu menuitem:hover {
-  background-image: linear-gradient(to bottom, #27232b 100%);
+  background: rgba(39, 35, 43, 0.95);
   color: #ac82e9;
   font-weight: bold;
 }

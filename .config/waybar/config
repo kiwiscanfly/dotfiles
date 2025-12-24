@@ -8,13 +8,13 @@
   "margin-left": 10,
   "margin-right": 10,
 
-  "modules-left": ["sway/workspaces"],
-  "modules-center": ["sway/window"],
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["hyprland/window"],
   "modules-right": ["network", "pulseaudio", "battery", "custom/applauncher", "custom/lock", "custom/clipboard", "custom/mounts", "custom/music", "custom/notification", "tray", "clock"],
 
-  "sway-workspaces": {
+  "hyprland/workspaces": {
     "all-outputs": false,
-    "tooltip": false
+    "format": "{id}"
   },
   
   "tray": {
@@ -76,7 +76,7 @@
 
   "custom/lock": {
     "format": "",
-    "on-click": "swaylock",
+    "on-click": "hyprlock",
     "tooltip": false
   },
 
