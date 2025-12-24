@@ -91,19 +91,25 @@ trough {
 }
 
 .notification-background .close-button {
-  margin: 10px;
-  padding: 4px;
-  border-radius: 6px;
-  color: #282828;
-  background-color: #f38ba8;
+  margin: 8px;
+  padding: 6px;
+  border-radius: 50%;
+  color: #a6adc8;
+  background-color: transparent;
+  border: 1px solid transparent;
+  min-width: 24px;
+  min-height: 24px;
 }
 
 .notification-background .close-button:hover {
-  background-color: #f5c2e7;
+  color: #f38ba8;
+  background-color: rgba(243, 139, 168, 0.15);
+  border: 1px solid rgba(243, 139, 168, 0.3);
 }
 
 .notification-background .close-button:active {
-  background-color: #f5c2e7;
+  color: #282828;
+  background-color: #f38ba8;
 }
 
 .notification .notification-action {
