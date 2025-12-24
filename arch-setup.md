@@ -18,10 +18,10 @@ git config pull.rebase false
 
 git clone git@github.com:kiwiscanfly/dotfiles.git
 
-# install the essentials
+# Install the essentials
 
 ```bash
-sudo pacman -S sway \
+sudo pacman -S hyprland hyprlock hyprpaper hypridle \
 	nemo \
 	nautilus \
 	waybar \
@@ -34,23 +34,15 @@ sudo pacman -S sway \
 	nsxiv \
 	gimp \
 	zenity
-
-sudo pacman -S swaybg
 ```
 
 # Install some widgets
 
-yay -S eww-git swaylock-effects
+yay -S eww-git
 
 # Install notification center
 
 sudo pacman -S swaync
-
-# Install Hyprland (alternative to sway)
-
-```bash
-sudo pacman -S hyprland hyprlock hyprpaper hypridle
-```
 
 # Install and set up, our login manager
 
@@ -74,13 +66,11 @@ sudo mv MapleMono /usr/share/fonts
 fc-cache -f -v
 
 ```bash
-ln -S ~/dotfiles/.config/sway/config ~/.config/sway/config
 ln -s ~/dotfiles/.config/hypr ~/.config/hypr
 ln -s ~/dotfiles/.config/ghostty/config ~/.config/ghostty/config
 ln -s ~/dotfiles/.config/ghostty/shaders ~/.config/ghostty/shaders
 ln -s ~/dotfiles/.config/tmux/tmux.conf ~/.config/tmux/tmux.conf
 ln -s ~/dotfiles/.config/nvim ~/.config/nvim
-ln -s ~/dotfiles/.config/swaylock/ ~/.config/swaylock
 ln -s ~/dotfiles/.config/swaync/ ~/.config/swaync
 ln -s ~/dotfiles/.config/waybar/ ~/.config/waybar
 ln -s ~/dotfiles/.config/wofi/ ~/.config/wofi
