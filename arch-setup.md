@@ -110,8 +110,8 @@ yay themix-full-git
 ```bash
 ln -s ~/dotfiles/linux-themes/ ~/.themes/bex-codes
 ln -sf ~/dotfiles/linux-themes/gtk-4.0/* ~/.config/gtk-4.0/
-ln -sf ~/dotfiles/linux-themes/gtk-3.0/dist/gtk.css ~/.config/gtk-3.0/gtk.css
-ln -sf ~/dotfiles/linux-themes/gtk-3.0/dist/gtk-dark.css ~/.config/gtk-3.0/gtk-dark.css
+ln -sf ~/dotfiles/linux-themes/gtk-3.0/gtk.css ~/.config/gtk-3.0/gtk.css
+ln -sf ~/dotfiles/linux-themes/gtk-3.0/gtk-dark.css ~/.config/gtk-3.0/gtk-dark.css
 ```
 
 # Zsh Setup
