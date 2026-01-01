@@ -1,5 +1,10 @@
 local opt = vim.opt
 
+-- macOS: Add Homebrew to PATH for GUI apps
+if vim.fn.has("mac") == 1 then
+  vim.env.PATH = "/opt/homebrew/bin:" .. vim.env.PATH
+end
+
 -- Line Numbers
 opt.relativenumber = true
 opt.number = true
