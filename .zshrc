@@ -332,7 +332,7 @@ export FZF_CTRL_T_OPTS="--preview 'bat --color=always --style=numbers --line-ran
 export FZF_ALT_C_OPTS="--preview 'eza --tree --level=2 --color=always {}'"
 
 # Pyenv (auto-switch Python versions with .python-version)
-eval "$(pyenv init -)"
+command -v pyenv &>/dev/null && eval "$(pyenv init -)"
 
 # Direnv hook (auto-load environment variables)
 eval "$(direnv hook zsh)"
