@@ -30,6 +30,11 @@ export LC_ALL=en_US.UTF-8
 # Default editor
 export EDITOR='nvim'
 
+# Edit command line in $EDITOR (Ctrl+X Ctrl+E)
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^x^e' edit-command-line
+
 # GPG TTY for passphrase prompts
 export GPG_TTY=$(tty)
 
@@ -325,6 +330,9 @@ export FZF_DEFAULT_OPTS="--color=fg:#f5c2e7,bg:#4d3d52,hl:#cba6f7 \
 # FZF preview with bat
 export FZF_CTRL_T_OPTS="--preview 'bat --color=always --style=numbers --line-range=:500 {}'"
 export FZF_ALT_C_OPTS="--preview 'eza --tree --level=2 --color=always {}'"
+
+# Pyenv (auto-switch Python versions with .python-version)
+eval "$(pyenv init -)"
 
 # Direnv hook (auto-load environment variables)
 eval "$(direnv hook zsh)"
