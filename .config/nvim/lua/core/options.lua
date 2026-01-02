@@ -21,6 +21,7 @@ opt.wrap = false
 -- Search Settings
 opt.ignorecase = true
 opt.smartcase = true
+opt.inccommand = "" -- Disable: search and replace issue with first replacement character missing
 
 -- Appearance
 opt.termguicolors = true
