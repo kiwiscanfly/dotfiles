@@ -11,6 +11,28 @@ Leader key is `Space`.
 | `<leader>fb` | Find buffers |
 | `<leader>fh` | Help tags |
 
+## Window/Pane Navigation
+
+Uses vim-tmux-navigator for seamless movement between Neovim splits and tmux panes.
+
+| Shortcut | Action |
+|----------|--------|
+| `Ctrl+h` | Move left |
+| `Ctrl+j` | Move down |
+| `Ctrl+k` | Move up |
+| `Ctrl+l` | Move right |
+
+## Quickfix List
+
+After `:vimgrep`, quickfix list opens automatically with match count.
+
+| Shortcut | Action |
+|----------|--------|
+| `:cnext` / `:cn` | Next result |
+| `:cprev` / `:cp` | Previous result |
+| `:copen` | Open quickfix list |
+| `:cclose` / `:ccl` | Close quickfix list |
+
 ## LSP
 
 | Shortcut | Action |

@@ -76,3 +76,19 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     })
   end,
 })
+
+-- Show quickfix count after vimgrep/grep commands
+vim.api.nvim_create_autocmd("QuickFixCmdPost", {
+  pattern = "[^l]*",
+  callback = function()
+    local qflist = vim.fn.getqflist()
+    local count = #qflist
+    if count > 0 then
+      vim.notify(count .. " match(es) found", vim.log.levels.INFO)
+      vim.cmd("copen")
+    else
+      vim.notify("No matches found", vim.log.levels.WARN)
+    end
+  end,
+  desc = "Show quickfix count and open list after grep commands"
+})
