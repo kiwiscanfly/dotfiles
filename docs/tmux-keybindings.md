@@ -6,7 +6,7 @@ Prefix key is `Ctrl+b`.
 
 | Shortcut | Action |
 |----------|--------|
-| `prefix + t` | Open rmpc music player in new window |
+| `prefix + t` | Open rmpc music player in popup (90%) |
 | `prefix + "` | Split pane vertically (keeps current path) |
 | `prefix + %` | Split pane horizontally (keeps current path) |
 
